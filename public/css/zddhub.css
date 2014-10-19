@@ -1,0 +1,154 @@
+/*
+ * Designed to complement lanyon.css and customize.
+ *
+ * zddhub
+ *
+ */
+
+footer {
+  font-size: 75%;
+  color: #c0c0c0;
+}
+
+::selection {
+  background: #6a9fb5;
+  color: #fff;
+}
+::moz-selection {
+  background: #6a9fb5;
+  color: #fff;
+}
+
+.masthead {
+  z-index: 1;
+}
+
+.sidebar-toggle {
+  z-index: 1;
+}
+
+@media (min-width: 30rem) {
+  .masthead {
+    position: fixed;
+    width: 100%;
+  }
+
+  .container.content {
+    padding-top: 6rem;
+  }
+
+  .zddhub-masthead-bg {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+}
+.zddhub-profile-photo {
+  text-align: center;
+}
+a.zddhub-profile-photo>img {
+  width: 100%;
+  height: auto;
+}
+
+.zddhub-logo {
+  height: 30px;
+  width: auto;
+  vertical-align: text-bottom;
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.zddhub-index-bg {
+  text-align: center;
+  font-size: 0.75rem;
+}
+div.zddhub-index-bg>img {
+  height: 28rem;
+  width: auto;
+  display: inline;
+  margin-top: -1rem;
+}
+
+.zddhub-sns-flaticon {
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+.zddhub-sns-flaticon>a{
+  text-decoration: none;
+}
+.zddhub-sns-flaticon>a:hover{
+  color: #000;
+}
+.zddhub-sns-flaticon>div{
+  opacity: 0.7;
+  font-size: 0.65rem;
+  text-align:right;
+  margin-bottom:1rem;
+  margin-top: -0.5rem;
+}
+
+.zddhub-about-img{
+  margin:1rem auto;
+  min-width: 30%;
+  max-width: 40%;
+  height: auto;
+}
+
+/* Category List */
+/*.related {
+padding-top: 2rem;
+padding-bottom: 2rem;
+border-top: 1px solid #eee;
+}*/
+.zddhub-category-list {
+  padding-left: 1rem;
+  list-style: none;
+}
+.zddhub-category-list h3 {
+  font-size: 1rem;
+  margin-top: 0;
+}
+.zddhub-category-list li small {
+  font-size: 75%;
+  color: #999;
+}
+.zddhub-category-list li a:hover {
+  color: #6a9fb5;
+  text-decoration: none;
+}
+.zddhub-category-list li a:hover small {
+  color: inherit;
+}
+
+.zddhub-category-mark {
+  padding: 0 .5rem 0 .5rem;
+  border-radius: 5px;
+  background: #f0f0f0;
+  color: #999;
+  text-decoration: none;
+  margin-bottom: .75rem;
+}
+
+.zddhub-category-mark:hover {
+  font-weight: bold;
+}
+
+.zddhub-tag-mark{
+  font-size: 75%;
+  padding: 0 .5rem 0 .5rem;
+  border-radius: 5px;
+  background: #e7f2f7;
+  color: #6a9fb5;
+}
+
+.page-title {
+  text-transform: uppercase;
+}
+
