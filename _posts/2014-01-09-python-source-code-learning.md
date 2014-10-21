@@ -11,6 +11,8 @@ tags: Python
 
 Python 中一切都是对象，每个类型都是 `PyObject` 的子类。每个类型中至少包含两个属性：类型信息`ob_type` (动态创建)，和引用计数器`ob_refcnt` (垃圾回收)。Python 通过内部的`PyXXX_Type` 对象创建对象。
 
+<!-- more -->
+
 ### Python 的对象从概念上大致分为5类：
 - Fundamental 对象： type
 - Numeric 对象： int、float、boolean
@@ -33,8 +35,6 @@ Python 中一切都是对象，每个类型都是 `PyObject` 的子类。每个�
 4. Python中的Dict对象
 
         Python的内部实现使用了大量的Dict，Dict是关联式容器，使用(key, value)表示。关联式容器设计时总会极大的关注键的搜索效率，C++中的关联容器map采用RB-tree实现。而Python对搜索效率要求极其苛刻，采用了散列表，在最优情况下，搜索的复杂度为O(1)。
-
-<!-- more -->
 
 ## Python的编译过程
 
