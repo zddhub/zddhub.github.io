@@ -11,13 +11,13 @@ title: Category
 
   <div class="posts">
     <p>
-
-    {% for cat in site.categories | sort %}
+    {% assign sortedCat = site.categories | sort %}
+    {% for cat in sortedCat %}
       <a href="#{{ cat[0] | capitalize }}" class="zddhub-category-mark" style="color:#999;text-decoration: none;">{{ cat[0] | capitalize }}</a>
     {% endfor %}
     </p>
 
-    {% for cat in site.categories | sort %}
+    {% for cat in sortedCat %}
       <h2 id="{{ cat | first | capitalize }}">{{ cat | first | capitalize }}</li>
       <ul class="zddhub-category-list">
       {% for post in cat[1] %}
