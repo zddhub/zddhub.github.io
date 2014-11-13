@@ -48,7 +48,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -170,7 +170,9 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  color: #eee;
+  background-color: #666;
+  border-radius: 5px;
 }
 pre code {
   padding: 0;
@@ -214,8 +216,9 @@ pre code {
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  border: 2px dashed #d0dfda;
+  border-radius: 5px;
+  background: #f9f9f9;
 }
 blockquote p:last-child {
   margin-bottom: 0;
