@@ -27,6 +27,7 @@ footer {
   z-index: 1;
 }
 
+/* delete masthead
 @media (min-width: 30rem) {
   .masthead {
     position: fixed;
@@ -48,6 +49,7 @@ footer {
     z-index: -1;
   }
 }
+*/
 .zddhub-profile-photo {
   text-align: center;
 }
