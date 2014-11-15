@@ -19,13 +19,13 @@ tags: OpenSSE LineDrawings
 
 完整的草图检索引擎(更确切的说是OpenSSE)需要包含三个部分：草图获得，特征提取和排序算法。
 
-[Overview](/asserts/images/2014-11-15/overview.png)
+![Overview](/asserts/images/2014-11-15/overview.png)
 
 ### 草图获得
 
 用于检索的草图主要来源于手绘和线画图提取。手绘的草图噪声大，不稳定，却是最真实的存在，在用识别类算法训练时，手绘草图具有先天优势。手绘草图收集困难，数量有限。更多的草图来源于三维模型，得益于[Szymon Rusinkiewicz](http://www.cs.princeton.edu/~smr/)等人的奉献，我写了一个Qt版本的[trianglemesh](https://github.com/zddhub/trianglemesh)，并重新定义了线画图。
 
-[Line Drawing](/asserts/images/2014-11-15/drawinglines.png)
+![Line Drawing](/asserts/images/2014-11-15/drawinglines.png)
 
 ### 特征提取
 
@@ -35,9 +35,13 @@ tags: OpenSSE LineDrawings
 
 开源的OpenSSE在排序时，使用了最简单的余弦定理，新的版本会使用流行排序算法。
 
+![Manifold Sort](/asserts/images/2014-11-15/manifold_sort.png)
+
 ### 当前工作
 
 基于OpenSSE，实现了一个[在线的草图识别](http://online.opensse.com)版本。受训练草图的限制，在准确率和本土化上都打了折扣。打算实现一个在线的草图收集共享平台，希望得到web开发者的支援。
+
+![OpenSSE Online](/asserts/images/2014-11-15/opensse_online.png)
 
 ### 相机原理
 
