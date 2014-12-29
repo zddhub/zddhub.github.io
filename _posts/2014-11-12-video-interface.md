@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 常用视频转接口
-category: 'Little Knowledge'
+category: Knowledge
 tags: Thunderbolt DP DVI VGA
 ---
 
