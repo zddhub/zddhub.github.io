@@ -11,7 +11,7 @@ relative_permalinks: true
 # Setup
 title:               ZDDHUB
 tagline:             'Just for fun'
-description:         'A back-end developer, with open source spirit. Do everything just for fun.'
+description:         'A developer, with open source spirit. Do everything just for fun.'
 url:                 http://zddhub.github.io
 baseurl:             /
 paginate:            5
