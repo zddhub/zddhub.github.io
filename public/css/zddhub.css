@@ -16,6 +16,25 @@
   font-size: 13px;
 }
 
+
+.zddhub-index-bg {
+  text-align: center;
+  font-size: 0.75rem;
+}
+div.zddhub-index-bg td >img {
+  width: auto;
+  display: inline;
+}
+.qrcode-table {
+  table-layout:fixed;
+  margin: 0;
+  border: 0;
+  background-color: 0;
+}
+.qrcode-table td {
+  vertical-align:middle;
+}
+
 footer {
   font-size: 75%;
   color: #c0c0c0;
@@ -76,17 +95,6 @@ a.zddhub-profile-photo>img {
   display: inline;
   padding: 0;
   margin: 0;
-}
-
-.zddhub-index-bg {
-  text-align: center;
-  font-size: 0.75rem;
-}
-div.zddhub-index-bg>img {
-  height: 26rem;
-  width: auto;
-  display: inline;
-  margin-top: -1rem;
 }
 
 .zddhub-sns-flaticon {
