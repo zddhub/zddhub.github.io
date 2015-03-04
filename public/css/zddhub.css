@@ -21,7 +21,21 @@
   text-align: center;
   font-size: 0.75rem;
 }
-div.zddhub-index-bg td >img {
+
+div.zddhub-index-bg>img {
+  height: 26rem;
+  width: auto;
+  display: inline;
+  margin-top: -1rem;
+}
+
+.zddhub-qrcode {
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+div.zddhub-qrcode td >img {
+  margin-top: 10px;
   width: auto;
   display: inline;
 }
