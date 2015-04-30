@@ -15,4 +15,4 @@ tags: "HoloLens 全息投影"
 
 <!-- more -->
 
-视频链接: ![HoloLens](http://v.youku.com/v_show/id_XOTQ0ODM4MTcy.html?from=s1.8-1-1.2)
+视频链接: [HoloLens](http://v.youku.com/v_show/id_XOTQ0ODM4MTcy.html?from=s1.8-1-1.2)
