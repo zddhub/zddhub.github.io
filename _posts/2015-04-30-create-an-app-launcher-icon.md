@@ -8,6 +8,8 @@ tags: "AndroidStudio ubuntu"
 当你在Ubuntu上满心欢喜的安装了最新版的`Android Studio`正准备大干一场的时候，缺发现只能从命令行打开，是不是很郁闷呢?
 其实做法很简单，Ubuntu上的应用放在`/usr/share/applications`目录下。复制其中任意一个文件到`android-studio.desktop`,修改对应的参数即可。
 
+<!-- more -->
+
 以下是修改后的文件:
 
 ```sh
