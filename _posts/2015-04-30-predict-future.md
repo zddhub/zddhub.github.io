@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "未来这几年"
-category: Memo
+category: Fun
 tags: "HoloLens 全息投影"
 ---
 
