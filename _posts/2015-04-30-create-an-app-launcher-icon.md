@@ -28,6 +28,6 @@ StartupWMClass=android-studio
 什么？还有更简单的方法！原来Android Studio自带了生成launcher图标的方法:
 一路点击`Tools->Create Desktop Entry->Ok`就行了。
 
-按花键搜索以下看看吧。
+按花键搜索一下看看吧。
 
 你妹，为什么要我知道这些, 安装的时候为什么不自动生成，差评!
