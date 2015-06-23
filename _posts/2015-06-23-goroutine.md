@@ -36,6 +36,8 @@ func main() {
 }
 {% endhighlight %}
 
+<!-- more -->
+
 ### 13. channel
 {% highlight go linenos %}
 package main

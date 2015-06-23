@@ -59,6 +59,8 @@ func main() {
 }
 {% endhighlight %}
 
+<!-- more -->
+
 ### 11. 接口
 {% highlight go linenos %}
 package main
