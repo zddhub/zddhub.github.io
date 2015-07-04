@@ -13,12 +13,12 @@ tags: "Go 编程语言"
 $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 ```
 
-{% highlight go linenos %}
+```
 package main
 
 import "fmt"
 
-// Go中没有类，只有struct，Go使用匿名域完成了类的复用，使用接口完成了类似多态的功能。
+// Go中没有类，只有struct，Go使用匿名域完成了struct的复用，使用接口完成了类似多态的功能。
 
 type Human struct {
   name  string
@@ -173,6 +173,7 @@ func main() {
     }
   }
 }
-{% endhighlight %}
+```
 
 * 上一篇: [Go语法简略 － goroutine]({% post_url 2015-06-23-goroutine %})
+* 上一篇: [Go语法简略 － 反射]({% post_url 2015-07-03-go-reflect %})
