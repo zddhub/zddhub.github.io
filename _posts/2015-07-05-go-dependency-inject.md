@@ -335,7 +335,7 @@ func main() {
 
 你会发现单用类型做拓扑的注入器，只会持有最新一次类型的值。那么怎么办呢？没有解决不了的问题，传个`[]string`也是极好的。如果参数的结构比较固定的话，封装成struct也是不错的选择，Go允许给struct打Tag，而reflect也支持对Tag的访问，如果对这部分感兴趣，推荐你去读一下`"encoding/xml"`, `"encoding/json"`包的源码。
 
-什么? 还有bug!!!, 😱, 留言或者发[邮件](mailto:zddhub@gmail.com)告诉我吧, 欢迎各种骚扰。另外，赞助作者里有微信号哦，一般人我不告诉他🍀。
+什么? 还有bug!!!, 😱, 留言或者发[邮件](mailto:zddhub@gmail.com)告诉我吧, 欢迎各种骚扰。另外，赞赏作者里有微信号哦，一般人我不告诉他🍀。
 
 理解依赖注入了吗？现在读[odegangsta/inject](https://github.com/codegangsta/inject)是不是感觉很溜呀？facebook还开源了一套基于有向图实现的注入器[facebookgo/inject](https://github.com/facebookgo/inject)感觉屌屌的。如果对Java情有独钟，那就研究一下[Dagger](http://square.github.io/dagger/)吧，相信你一定会有所收获。
 
