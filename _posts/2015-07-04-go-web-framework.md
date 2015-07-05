@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Go语法简略 － web框架"
+title: "Go语法简略 － web应用框架"
 category: Memo
 tags: "web框架 Go 编程语言"
 ---

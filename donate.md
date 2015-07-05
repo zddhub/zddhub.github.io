@@ -4,7 +4,7 @@ title: Donate
 ---
 
 <div class="zddhub-qrcode">
-<h4>欢迎扫描以下二维码进行捐赠</h4>
+<h4>欢迎扫描以下二维码进行赞赏</h4>
 
 <table>
   <tbody class="qrcode-table">
