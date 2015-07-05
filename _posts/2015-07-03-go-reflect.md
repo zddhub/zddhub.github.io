@@ -143,7 +143,7 @@ func main() {
   //: - url string
   //: + SayHello func(main.Human)
   //: + SetAge func(main.Human, int)
-  //: 接受者为指针的函数没有被输出
+  //: 接收者为指针的函数没有被输出
 
   b := Boss{Human{"Jobs", 30, "www.daniu.io"}, 1e10}
   Info(b)
@@ -199,3 +199,4 @@ func main() {
 ```
 
 * 上一篇: [Go语法简略 － goroutine]({% post_url 2015-06-23-goroutine %})
+* 下一篇: [Go语法简略 － web框架]({% post_url 2015-07-04-go-web-framework %})

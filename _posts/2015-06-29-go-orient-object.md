@@ -13,7 +13,7 @@ tags: "Go 编程语言"
 $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 ```
 
-```
+```go
 package main
 
 import "fmt"
@@ -176,4 +176,4 @@ func main() {
 ```
 
 * 上一篇: [Go语法简略 － goroutine]({% post_url 2015-06-23-goroutine %})
-* 上一篇: [Go语法简略 － 反射]({% post_url 2015-07-03-go-reflect %})
+* 下一篇: [Go语法简略 － 反射]({% post_url 2015-07-03-go-reflect %})
