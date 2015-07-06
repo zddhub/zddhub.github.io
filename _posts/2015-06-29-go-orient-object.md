@@ -104,7 +104,7 @@ func main() {
   b.Laugh()                                  // 重写Human的Laugh方法
   b.Human.Laugh()                            // 用结构名明确调用内层方法
 
-  // Go没有想C++一样的继承，所以以下的方法是错误的
+  // Go没有像C++一样的继承，所以下面的方法是错误的:
   // var hh *Human
   // hh = &b
   // 这种问题在Go中用接口来实现
