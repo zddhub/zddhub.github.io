@@ -41,13 +41,13 @@ body {
 }
 
 html {
-  font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif, "Times New Roman", serif;
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
   font-weight: 400;
-  color: #313131;
+  color: #434343;
   letter-spacing: -.025rem;
 }
 
