@@ -340,3 +340,4 @@ func main() {
 理解依赖注入了吗？现在读[odegangsta/inject](https://github.com/codegangsta/inject)是不是感觉很溜呀？facebook还开源了一套基于有向图实现的注入器[facebookgo/inject](https://github.com/facebookgo/inject)感觉屌屌的。如果对Java情有独钟，那就研究一下[Dagger](http://square.github.io/dagger/)吧，相信你一定会有所收获。
 
 * 上一篇: [Go语法简略 － web应用框架]({% post_url 2015-07-04-go-web-framework %})
+* 下一篇: [Go语法简略 － Duck框架探索]({% post_url 2015-07-11-go-web-framework-2 %})

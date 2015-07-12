@@ -128,5 +128,9 @@ func (d *Duck) Get(pattern string, handler Handler) {
 
 上面的内容很简单，但是原理清楚，接下来的事情就容易了，通过不同的pattern和requst method来选用不同的handler，整个框架的核心部分就有了。
 
+这是我实现的Duck雏形，[zddhub/duck](https://github.com/zddhub/duck)。还不够完善，但是自认为原理很清楚。有人愿意一起做吗？
+
+* 上一篇: [Go语法简略 － 依赖注入]({% post_url 2015-07-05-go-dependency-inject %})
+
 
 
