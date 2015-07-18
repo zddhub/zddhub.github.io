@@ -9,6 +9,8 @@ tags: "Duck Go 编程语言"
 
 本文打算参考[Martini](https://github.com/go-martini/martini)进一步实现我的[Duck框架]。
 
+<!-- more -->
+
 # Duck 计划
 
 想想，一个经典的web框架，都有什么行为呢？web应用是通过http协议实现的，客户端通常由浏览器实现，web框架处在服务器端，主要完成对服务器请求的应答任务。首先，我希望它能自动解析路由，最好支持REST风格API的实现，可以方便的添加丰富的中间件，具有日志功能。能完美的支持MVC/MVVC结构，能解析静态文件，支持session功能和数据库访问能力。

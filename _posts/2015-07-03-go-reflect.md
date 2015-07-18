@@ -11,6 +11,8 @@ tags: "反射 Go 编程语言"
 
 本文主要记录[Go](https://golang.org/)的反射语法，方便查询。
 
+<!-- more -->
+
 ```go
 package main
 

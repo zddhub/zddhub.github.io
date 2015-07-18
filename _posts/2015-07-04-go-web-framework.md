@@ -9,6 +9,8 @@ tags: "web框架 Go 编程语言"
 
 本文探索Go对web编程的支持。
 
+<!-- more -->
+
 # Go net/http包
 Go对web编程的支持封装在net/http包中。以下是一个简单的例子：从服务器给客户端输出`Hello world`.
 

@@ -12,6 +12,7 @@ tags: "Go 编程语言"
 ```sh
 $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 ```
+<!-- more -->
 
 ### 12. goroutine
 goroutine 是由 Go 运行时环境管理的轻量级线程。

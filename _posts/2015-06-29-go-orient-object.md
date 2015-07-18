@@ -13,6 +13,8 @@ tags: "Go 编程语言"
 $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 ```
 
+<!-- more -->
+
 ```go
 package main
 
