@@ -133,6 +133,6 @@ func (d *Duck) Get(pattern string, handler Handler) {
 这是我实现的Duck雏形，[zddhub/duck](https://github.com/zddhub/duck)。还不够完善，但是自认为原理很清楚。有人愿意一起做吗？
 
 * 上一篇: [Go语法简略 － 依赖注入]({% post_url 2015-07-05-go-dependency-inject %})
-
+* 下一篇: [Go语法简略 － 正则表达式]({% post_url 2015-07-17-go-regexp %})
 
 
