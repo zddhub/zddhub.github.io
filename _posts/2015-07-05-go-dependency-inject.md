@@ -34,7 +34,7 @@ func main() {
 }
 ```
 
-在上述的例子中，为了完成MethodA的功能，需要依赖MethodB方法的实现，把MethodB方法叫做MethodA的`依赖(Dependency)`, MethodB叫做`宿主(Host)`。上面的例子直接在Host中调用`f(3030, "zdd")`来给依赖注入参数。或者换一个角度理解，`将自定义的方法MethodB整体注入到MethodA的执行环境中`。为了通用性考虑，通常会实现一个依赖注入器。
+在上述的例子中，为了完成MethodA的功能，需要依赖MethodB方法的实现，把MethodB方法叫做MethodA的`依赖(Dependency)`, MethodA叫做`宿主(Host)`。上面的例子直接在Host中调用`f(3030, "zdd")`来给依赖注入参数。或者换一个角度理解，`将自定义的方法MethodB整体注入到MethodA的执行环境中`。为了通用性考虑，通常会实现一个依赖注入器。
 
 # 依赖注入器
 接下来实现一个依赖注入器(Injector)。在[web应用框架]({% post_url 2015-07-04-go-web-framework %})的例子中，我们发现，在Host中，只能拿到依赖方法的参数类型，而我们需要将参数类型和参数值建立联系，因此，在Injector中封装一个`map[Type]Value`是自然而然的选择。

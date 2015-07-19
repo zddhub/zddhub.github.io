@@ -37,7 +37,7 @@ type Server struct {
 }
 ```
 
-* 在处理每个request时，调用的hander的ServeHTTP方法
+* 在处理每个request时，调用的handler的ServeHTTP方法
 
 ```go
 serverHandler{c.server}.ServeHTTP(w, w.req)
