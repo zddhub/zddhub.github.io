@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
 .typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
-  margin-top: 1.2em;
+/*  margin-top: 1em;*/
   margin-bottom: 0.6em;
   line-height: 1.35;
 }
