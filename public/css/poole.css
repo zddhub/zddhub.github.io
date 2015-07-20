@@ -80,27 +80,28 @@ a:focus {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  margin-bottom: .5rem;
-  font-weight: bold;
-  line-height: 1.25;
+h1,h2,h3,h4,h5,h6 {
+  line-height:1;
+  margin:1.4em 0 0.8em;
   color: #313131;
   text-rendering: optimizeLegibility;
+  font-weight: bold;
 }
+
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.8em;
 }
 h2 {
-  margin-top: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.6em;
 }
 h3 {
-  margin-top: 1.5rem;
-  font-size: 1.rem;
+  font-size: 1.4em;
 }
-h4, h5, h6 {
-  margin-top: 1rem;
-  font-size: .8rem;
+h4 {
+  font-size: 1.2em;
+}
+h5, h6 {
+  font-size: 1em;
 }
 
 /* Body text */
