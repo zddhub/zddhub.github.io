@@ -14,11 +14,11 @@ $ printf "\033[41;32m字体背景是红色，字是绿色\033[0m\n"
 这种功能适用于任何形式的printf函数，或者变种。
 
 其中4表示背景色，3表示前景色。颜色编码：
-| 0 － black | 1 - red | 2 - green | 3 - yellow | 4 - blue | 5 - purple | 6 - cyan | 7 - while |
+| 0 － black | 1 - red | 2 - green | 3 - yellow | 4 - blue | 5 - purple | 6 - cyan | 7 - white |
 
 <!-- more -->
 
-当将带颜色的命令重定向到文件时，会打印颜色信息：
+当将带颜色的命令重定向到文件时，会打印颜色字符：
 
 ```sh
 $ printf "\033[41;32m字体背景是红色，字是绿色\033[0m\n" > a.log
