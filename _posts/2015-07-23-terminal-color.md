@@ -111,7 +111,7 @@ $ go run color.go # 带颜色
 $ go run color.go > color.go # 重定向到文件时没有乱码
 ```
 
-看了一下[isatty](https://github.com/robertkrimen/isatty)的实现，它使用了系统调用`syscall.Syscall6`来check不同的终端文件描述符:
+看了一下 [isatty](https://github.com/robertkrimen/isatty) 的实现，它使用了系统调用 `syscall.Syscall6` 来check不同的终端文件描述符:
 
 ```go
 func check(fd uintptr) bool {
@@ -123,4 +123,4 @@ func check(fd uintptr) bool {
   return err == 0
 }
 ```
-目前支持Darwin、Linux、和FreeBSD。
+另一个库 [go-isatty](https://github.com/mattn/go-isatty) 同时支持 linux, bsd 和 windows。根据这个内容，给 [color](https://github.com/fatih/color) 提交了 pull request, 被成功merged。 现在color已经默认支持是否终端判断啦。
