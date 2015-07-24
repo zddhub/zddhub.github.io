@@ -80,14 +80,14 @@ package main
 
 import (
   "fmt"
-  "github.com/robertkrimen/isatty"
+  "github.com/mattn/go-isatty"
   "os"
 )
 
 func main() {
-  fmt.Println(isatty.Check(os.Stdin.Fd()), isatty.Check(os.Stdout.Fd()))
+  fmt.Println(isatty.IsTerminal(os.Stdin.Fd()), isatty.IsTerminal(os.Stdout.Fd()))
 
-  if !isatty.Check(os.Stdout.Fd()) {
+  if !isatty.IsTerminal(os.Stdout.Fd()) {
     color.NoColor = true // disables colorized output
   }
   // Print with default helper functions
