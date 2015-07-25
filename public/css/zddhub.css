@@ -16,6 +16,9 @@
   font-size: 13px;
 }
 
+.zddhub-float-right {
+  float: right;
+}
 
 .zddhub-index-bg {
   text-align: center;
@@ -143,12 +146,11 @@ padding-bottom: 2rem;
 border-top: 1px solid #eee;
 }*/
 .zddhub-category-list {
-  padding-left: 1rem;
   list-style: none;
 }
 .zddhub-category-list h3 {
   line-height: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.0rem;
   margin-top: 0;
 }
 .zddhub-category-list li small {

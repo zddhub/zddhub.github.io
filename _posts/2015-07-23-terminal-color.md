@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "终端颜色输出重定向"
-category: Knowledge
+category: Tips
 tags: "terminal color"
 ---
 

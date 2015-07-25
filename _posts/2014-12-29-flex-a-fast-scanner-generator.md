@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Flex, A fast scanner generator
-category: knowledge
+category: Tips
 tags: flex bison xx
 ---
 
