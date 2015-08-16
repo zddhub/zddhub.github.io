@@ -66,4 +66,6 @@ $ tree -a
 Dit 基础类型
 -----------
 
-Dit 的基础类型有三种，blob，tree 和 commit。blob 管理文件，tree 管理目录，commit 管理每次提交。为了统一，抽象出一个公共类 object 。存储基本信息。
+Dit 的基础类型有四种，blob，tree，commit 和 tag。blob 管理文件，tree 管理目录，commit 管理每次提交。tag 设置标签。为了统一，抽象出一个公共类 object，存储基本信息。
+
+### blob
