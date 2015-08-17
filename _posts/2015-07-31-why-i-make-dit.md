@@ -33,6 +33,7 @@ Dit
 * 源于对 git 的爱和对 Linus 的崇拜
 * 取名 dit (do it together)，希望有更多小伙伴参与
 * 就算是 git，也不希望耷拉着，要坚挺
+* 相关的技术会引入下一版本的 [opensse](https://github.com/zddhub/opensse)
 * 为什么分支要靠右，考虑过左撇的感受吗，dit 就是要与众不同
 * 青色代表我单调乏味的人生
 
