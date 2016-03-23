@@ -1,6 +1,6 @@
 # Dependencies
 markdown:            redcarpet
-highlighter:         pygments
+highlighter:         rouge
 
 # Permalinks
 #
@@ -21,7 +21,7 @@ paginate_path:       "blog/page:num"
 
 # About/contact
 author:
-  name:              zdd 
+  name:              zdd
   url:               https://zddhub.github.io
   email:             zddhub@gmail.com
 
