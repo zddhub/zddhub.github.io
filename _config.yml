@@ -15,8 +15,8 @@ permalink:           pretty
 
 # Setup
 title:               ZDDHUB
-tagline:             'Just for fun'
-description:         'A developer, Do everything just for fun.'
+tagline:             'just for fun'
+description:         'do something just for fun'
 url:                 http://zddhub.github.io
 baseurl:             /
 gems:                [jekyll-paginate]
