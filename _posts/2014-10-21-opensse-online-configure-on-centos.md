@@ -33,7 +33,8 @@ yum install ffmpeg
 ```sh
 mkdir /opt/working
 cd /opt/working
-git clone https://github.com/Itseez/opencv.gitcd opencv
+git clone https://github.com/Itseez/opencv.git
+cd opencv
 git checkout tags/2.4.8.2
 ```
 
