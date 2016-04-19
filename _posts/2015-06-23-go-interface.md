@@ -17,6 +17,7 @@ $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 
 ### 10. 方法
 Go中没有类，但是可以为type 类型定义方法
+
 ```go
 package main
 
