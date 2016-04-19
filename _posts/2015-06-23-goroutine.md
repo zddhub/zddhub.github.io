@@ -16,6 +16,7 @@ $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 
 ### 12. goroutine
 goroutine 是由 Go 运行时环境管理的轻量级线程。
+
 ```go
 package main
 
@@ -40,6 +41,7 @@ func main() {
 <!-- more -->
 
 ### 13. channel
+
 ```go
 package main
 
