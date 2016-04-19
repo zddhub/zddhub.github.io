@@ -16,7 +16,7 @@ $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 
 ### 12. goroutine
 goroutine 是由 Go 运行时环境管理的轻量级线程。
-{% highlight go linenos %}
+```go
 package main
 
 import (
@@ -35,12 +35,12 @@ func main() {
   go say("world") //开启一个新的goroutine执行
   say("hello")
 }
-{% endhighlight %}
+```
 
 <!-- more -->
 
 ### 13. channel
-{% highlight go linenos %}
+```go
 package main
 
 import "fmt"
@@ -63,7 +63,7 @@ func main() {
 
   fmt.Println(x, y, x+y)
 }
-{% endhighlight %}
+```
 
 * 上一篇: [Go语法简略 － 方法和接口]({% post_url 2015-06-23-go-interface %})
 * 下一篇: [Go语法简略 － 面向对象]({% post_url 2015-06-29-go-orient-object %})

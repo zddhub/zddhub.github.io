@@ -17,7 +17,7 @@ $ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
 
 ### 10. 方法
 Go中没有类，但是可以为type 类型定义方法
-{% highlight go linenos %}
+```go
 package main
 
 import (
@@ -59,12 +59,12 @@ func main() {
   f := MyFloat(-math.Sqrt2)
   fmt.Println(f.Abs())
 }
-{% endhighlight %}
+```
 
 <!-- more -->
 
 ### 11. 接口
-{% highlight go linenos %}
+```go
 package main
 
 import (
@@ -107,11 +107,11 @@ type Vertex struct {
 func (v *Vertex) Abs() float64 { // Vertex实现Abser接口的方法
   return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
-{% endhighlight %}
+```
 
 Go中内置了一些常见的接口：
 #### Stringers
-{% highlight go linenos %}
+```go
 package main
 
 import "fmt"
@@ -137,10 +137,10 @@ func main() {
   z := Person{"Zaphod Beeblebrox", 9001}
   fmt.Println(a, z)
 }
-{% endhighlight %}
+```
 
 #### Errors
-{% highlight go linenos %}
+```go
 package main
 
 import (
@@ -171,7 +171,7 @@ func run() error {
     "it didn't work",
   }
 }
-{% endhighlight %}
+```
 
 #### Web servers
 ```go
