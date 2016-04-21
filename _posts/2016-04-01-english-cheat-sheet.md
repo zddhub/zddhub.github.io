@@ -36,18 +36,20 @@ tags: "English cheatsheet"
 
 > 单词的分类, 参考《1368个单词就够了》，请支持正版。
 
+## 名词
+
 ### 背下来就行的具体名词
 具体名词包括人、衣、食、住、行、动植物、日常用品和计量类名词, 共365个。
 
 - 人 (62个)
 
-  **person** kid child baby boy girl man woman friend lady gentleman boss customer student neighbor volunteer fool sir madam
+  **person** baby kid child boy girl man woman sir madam lady gentleman boss customer neighbor friend volunteer fool
 
-  **role** parent daughter son father monther grandfater grandmonther brother sister husband wife uncle aunt
+  **role** parent father monther grandfater grandmonther daughter son brother sister husband wife uncle aunt
 
-  **job** doctor nurse professor lawyer enginner teacher coach guard judge
+  **job** doctor nurse student teacher professor lawyer judge enginner coach guard
 
-  **group** people class team human staff society generation army government family
+  **group** people human family staff army generation class team society government
 
   **sound** voice music noise
 
@@ -55,7 +57,7 @@ tags: "English cheatsheet"
 
 - 衣 (23个)
 
-  **clothes** shirt shoes cap hat coat dress pants uniform suits underwear pocket jeans button zip sock
+  **clothes** cap hat shirt coat dress uniform suits underwear pants jeans zip pocket button sock shoes
 
   **jewelry** diamond ring
 
@@ -71,9 +73,9 @@ tags: "English cheatsheet"
 
   **fruit** apple pear orange banana
 
-  **ingredient** oil sugar salt butter cream
-
   **drink** coffee milk tea juice beer wine alcohol
+
+  **ingredient** oil sugar salt butter cream
 
   **nutrient** mineral vitamin protein
 
@@ -145,9 +147,5 @@ tags: "English cheatsheet"
   **date** year month day hour minute second
 
   **season** spring autumn summer winter
-
-
-
-
 
 
