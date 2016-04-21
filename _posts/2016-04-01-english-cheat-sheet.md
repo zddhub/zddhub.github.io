@@ -37,169 +37,117 @@ tags: "English cheatsheet"
 > 单词的分类, 参考《1368个单词就够了》，请支持正版。
 
 ### 背下来就行的具体名词
+具体名词包括人、衣、食、住、行、动植物、日常用品和计量类名词, 共365个。
 
-- 时间类 (35个)
+- 人 (62个)
 
-  **time** morning noon afternoon evening night tonight today yesterday tomorrow 'the day before yesterday' 'the day after tomorrow' workday weekend
+  **person** kid child baby boy girl man woman friend lady gentleman boss customer student neighbor volunteer fool sir madam
 
-  moment period history future birthday holiday festival schedule age
+  **role** parent daughter son father monther grandfater grandmonther brother sister husband wife uncle aunt
 
-  date year month day hour minute second
+  **job** doctor nurse professor lawyer enginner teacher coach guard judge
 
-  season spring autumn summer winter
+  **group** people class team human staff society generation army government family
 
-- 气候类 (6个)
+  **sound** voice music noise
+
+  **disease** fever flu cancer
+
+- 衣 (23个)
+
+  **clothes** shirt shoes cap hat coat dress pants uniform suits underwear pocket jeans button zip sock
+
+  **jewelry** diamond ring
+
+  **cosmetics** perfume lipstick powder
+
+- 食 (46个)
+
+  **food** meat steak bread sandwich egg cake soup dessert noodle pie chocolate sauce
+
+  **meal** breakfast lunch dinner
+
+  **vegetable** potato tomato carrot lettuce bean
+
+  **fruit** apple pear orange banana
+
+  **ingredient** oil sugar salt butter cream
+
+  **drink** coffee milk tea juice beer wine alcohol
+
+  **nutrient** mineral vitamin protein
+
+- 住 (42个)
+
+  **nature** sky star air light mountain forest ground field river sea stone water ice fire smoke hear
 
   **weather** rain snow wind cloud sun
 
-- 自然类 (17个)
+  **house** office room floor wall window door roof kitchen
 
-  **nature** sky star air light mountain forest ground field river sea stone
+  **furniture** bed chair desk table seat couch
 
-  water ice fire smoke hear
+  **organization** company charity
 
-- 植物类 (4个)
 
-  **plant** grass crop tree
+- 行 (39个)
 
-- 动物类 (20个)
+  **transport** traffic bicycle ship boat plane train
+
+  **vehicle** motorcycle bus car track brake engine gear tire wheel
+
+  **road** street bridge station
+
+  **place** town village city hospital school restaurant hotel university factory jail park zoo store club bar court market
+
+
+- 动植物 (29个)
 
   **animal** mouse bull tiger rabbit dragon snake horse sheep monkey chicken dog pig
 
   cat fish bird elephant bear lion reptile
 
-- 昆虫类 (4个)
-
   **insect** bee butterfly spider
-
-- 其它生物 (1个)
 
   **bacteria**
 
-- 地点类 (18个)
+  **plant** grass crop tree
 
-  **place** hospital school restaurant hotel university factory jail park zoo store club bar court market
 
-  town village city
-
-- 机构类
-
-  **organization** company charity
-
-- 声音类
-
-  **sound** voice music noise
-
-- 食品类
-
-  **food** meat steak bread sandwich egg cake soup dessert noodle pie chocolate sauce
-
-- 餐饮类
-
-  **meal** breakfast lunch dinner
-
-- 蔬菜类
-
-  **vegetable** potato tomato carrot lettuce bean
-
-- 水果类
-
-  **fruit** apple pear orange banana
-
-- 食材类
-
-  **ingredient** oil sugar salt butter cream
-
-- 饮料类
-
-  **drink** coffee milk tea juice beer wine alcohol
-
-- 营养类
-
-  **nutrient** mineral vitamin protein
-
-- 疾病类
-
-  **disease** fever flu cancer
-
-- 房屋类
-
-  **house** office room floor wall window door roof kitchen
-
-- 家具类
-
-  **furniture** bed chair desk table seat couch
-
-- 服装类
-
-  **clothes** shirt shoes cap hat coat dress pants uniform suits underwear pocket jeans button zip sock
-
-- 首饰类
-
-  **jewelry** diamond ring
-
-- 化妆品
-
-  **cosmetics** perfume lipstick powder
-
-- 交通类
-
-  **transport** traffic bicycle ship boat plane train
-
-- 车辆类
-
-  **vehicle** motorcycle bus car track brake engine gear tire wheel
-
-- 路桥类
-
-  **road** street bridge station
-
-- 装置类
-
-  **device** lock key bell scale tap
-
-- 设备类
-
-  **equipment** shower radio telephone camera computer TV fridge video
-
-- 容器类
-
-  **container** box cup dish plate bowl basket tub sink pot pan
-
-- 材料类
-
-  **material** cloth paper glass plastic gold paint chemical
-
-- 日常用品类
-
-  toy brush mirror chain board handle cartnoon bottle wood clock knife pen book album menu card envelope ticket pipe tube wire belt web film screen gift channel alarm electricity towel carper tool junk fork spoon medicine drug pill
-
-- 数量
-
-  **couple** double load pack lot
-
-- 单位
-
-  **unit** meter inch pound gram piece
-
-- 事情
+- 事情 (6个)
 
   **thing** issue matter stuff object event
 
-### 有关人的名词
 
-- 家庭角色类
+- 日常用品 (72个)
 
-  **role** parent daughter son father monther grandfater grandmonther brother sister husband wife uncle aunt
+  **toy** brush mirror chain board handle bottle wood pen book album envelope ticket menu card pipe tube wire belt web gift film cartnoon screen channel alarm electricity towel carper tool clock knife fork spoon junk medicine drug pill
 
-- 社会角色
+  **material** cloth paper glass plastic gold paint chemical
 
-  kid child baby boy girl man woman friend lady gentleman boss customer student neighbor person volunteer fool sir madam
+  **device** lock key bell scale tap
 
-- 职业类
+  **equipment** shower radio telephone camera computer TV fridge video
 
-  job doctor nurse professor lawyer enginner teacher coach guard judge
+  **container** box cup dish plate bowl basket tub sink pot pan
 
-- 群体类
 
-  group people class team human staff society generation army government family
+- 计量 (46个)
+
+  **unit** meter inch pound gram piece
+
+  **couple** double load pack lot
+
+  **time** morning noon afternoon evening night tonight today yesterday tomorrow 'the day before yesterday' 'the day after tomorrow' workday weekend
+
+  **moment** period history future birthday holiday festival schedule age
+
+  **date** year month day hour minute second
+
+  **season** spring autumn summer winter
+
+
+
+
+
+
