@@ -65,9 +65,9 @@ tags: "English cheatsheet"
 
 - 食 (46个)
 
-  **food** meat steak bread sandwich egg cake soup dessert noodle pie chocolate sauce
-
   **meal** breakfast lunch dinner
+
+  **food** meat steak bread sandwich egg cake soup dessert noodle pie chocolate sauce
 
   **vegetable** potato tomato carrot lettuce bean
 
@@ -81,7 +81,7 @@ tags: "English cheatsheet"
 
 - 住 (42个)
 
-  **nature** sky star air light mountain forest ground field river sea stone water ice fire smoke hear
+  **nature** sky star air light mountain forest ground field river sea stone water ice fire heat smoke
 
   **weather** rain snow wind cloud sun
 
@@ -92,15 +92,15 @@ tags: "English cheatsheet"
   **organization** company charity
 
 
-- 行 (39个)
+- 行 (40个)
 
-  **transport** traffic bicycle ship boat plane train
+  **transport** traffic ship boat bicycle train plane
 
-  **vehicle** motorcycle bus car track brake engine gear tire wheel
+  **vehicle** motorcycle bus car taxi track brake engine gear wheel tire
 
-  **road** street bridge station
+  **road** street station bridge
 
-  **place** town village city hospital school restaurant hotel university factory jail park zoo store club bar court market
+  **place** town village city school hospital hotel restaurant university factory jail court park zoo store market club bar
 
 
 - 动植物 (29个)
@@ -121,17 +121,17 @@ tags: "English cheatsheet"
   **thing** issue matter stuff object event
 
 
-- 日常用品 (72个)
+- 日常用品 (73个)
 
-  **toy** brush mirror chain board handle bottle wood pen book album envelope ticket menu card pipe tube wire belt web gift film cartnoon screen channel alarm electricity towel carper tool clock knife fork spoon junk medicine drug pill
+  **toy** gift mirror board handle junk pipe tube bottle web film cartnoon screen channel alarm clock electricity pen book envelope album ticket menu card towel carpet brush wire belt chain tool knife fork spoon medicine drug pill
 
-  **material** cloth paper glass plastic gold paint chemical
+  **material** cloth paper glass wood plastic gold paint chemical
 
   **device** lock key bell scale tap
 
-  **equipment** shower radio telephone camera computer TV fridge video
+  **equipment** shower fridge radio video camera telephone computer TV
 
-  **container** box cup dish plate bowl basket tub sink pot pan
+  **container** box bin cup dish plate bowl pan basket sink pot tub
 
 
 - 计量 (46个)
@@ -142,7 +142,7 @@ tags: "English cheatsheet"
 
   **time** morning noon afternoon evening night tonight today yesterday tomorrow 'the day before yesterday' 'the day after tomorrow' workday weekend
 
-  **moment** period history future birthday holiday festival schedule age
+  **period** moment history future birthday holiday festival schedule age
 
   **date** year month day hour minute second
 
