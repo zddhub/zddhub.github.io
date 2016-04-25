@@ -148,4 +148,28 @@ tags: "English cheatsheet"
 
   **season** spring autumn summer winter
 
+### 构成类名词
+除了知道是什么，还要知道由什么构成。
+
+  part
+
+  sideedge base core
+
+  **body** head face eye ear nose foot mouth tooth tongue neck shoulder breast chest stomach arm hand finger nail leg knee throat brain heart lung muscle bone nerve hair skin blood sweat
+
+  **mind** spirit soul emotion
+
+  **feeling** shame stress respect desire pain sense
+
+  strength force
+
+  **power** authority
+
+  **ability** sight intelligence memory skill
+
+  tail wing
+
+  flower leaf root branch
+
+  whole rest half
 
