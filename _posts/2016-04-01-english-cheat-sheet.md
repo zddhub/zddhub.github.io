@@ -153,7 +153,7 @@ tags: "English cheatsheet"
 
   part
 
-  sideedge base core
+  side edge base core
 
   **body** head face eye ear nose foot mouth tooth tongue neck shoulder breast chest stomach arm hand finger nail leg knee throat brain heart lung muscle bone nerve hair skin blood sweat
 
@@ -172,4 +172,47 @@ tags: "English cheatsheet"
   flower leaf root branch
 
   whole rest half
+  
+  
+### 属性类名词
+
+  **shape** appearance
+  
+  size space
+  
+  position
+  
+  point line end
+  
+  top bottom front back left right middle center corner direction east west north south
+  
+  quality feature character personality
+  
+  color
+  
+  weight
+  
+  tone
+  
+  meterial
+  
+  structure
+  
+  amount number measurement distance volume angle temperature
+  
+  level degree grade rank standard rate speed percentage
+  
+  kind type
+  
+  form
+  
+  way behavior mood logic tradition culture style pattern relation manner
+  
+  cause reason source excuse factor
+  
+  purpose goal
+  
+  effect result
+  
+  course process
 
