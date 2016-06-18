@@ -7,14 +7,16 @@ tags: "dit git"
 
 > 穷则独善其身，达则兼济天下。一个人一旦能够喂饱自己并有个安身之所，剩下的就是为别人做点什么了。我现在所做的一切，还都是为了自己。
 
-Dit 和 Git 使用相同的设计思路和数据结构，在表述上会优先使用 Git，当出现差别时会特别说明。以下说明两种最基本的数据结构：文件系统和对象。
+Dit 和 Git 使用相同的设计思路和数据结构，在表述上会优先使用 Git，当出现差别时会特别说明。以下说明两种最基本的数据结构：当前目录缓存和对象。
 
 <!-- more -->
 
-Git 文件系统
+Git 当前目录缓存
 -----------
 
-Dit 和 Git 一样，存储文件快照，所谓快照，就是指文件本身(实际使用 zlib 压缩之后存储)，如果文件没有改变，那么只存储该文件的引用。你可以使用 `git init` 初始化一个 Git 仓库, 并查看生成的文件目录结构：
+Git 做为一个内容控制系统(版本控制器)，所有的信息都保存在当前目录缓存(.git/)中，当前目录缓存保存了所有历史数据和当前项目的状态，保证 Git 的正常运行。
+
+Dit 和 Git 一样，存储文件快照，所谓快照，就是指文件本身(实际使用 [zlib](http://www.zlib.net/) 压缩之后存储)，如果文件没有改变，那么只存储该文件的引用。你可以使用 `git init` 初始化一个 Git 仓库, 并查看生成的文件目录结构：
 
 ```sh
 $ git init
@@ -78,9 +80,9 @@ blob 记录项目文件快照。实际文件通过 [zlib](http://www.zlib.net/) 
 
 ![blob]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-05/blob.png)
 
-blob 只保存文件的实际内容，不能引用其它 object，没有签名和认证，使用sha1值来保证存储内容的正确性。blob 是 Git 中最小的存储结构。blob 文件生成后不再改变。
+blob 只保存文件的实际内容，不能引用其它 object，没有签名和认证，使用sha1值来保证存储内容的正确性。blob 是 Git 中最小的内容存储结构。blob 文件生成后不再改变。
 
-假如需要添加一个内容为 dit 的文件 a 到 Git 仓库，则实际在 objects 中生成的快照为：
+假如需要添加一个内容为 dit 的文件 a 到 Git 仓库，则实际在 objects 中生成的快照文件为：
 
 ```sh
 $ tree .git/objects/
@@ -105,7 +107,7 @@ $ echo -e "blob 4\0dit" | shasum
 echo -e "blob 4\0dit" | openssl sha1
 (stdin)= 8f2c96ad676d7423d2c319fffb78cfb87c78c3e2
 
-# go 的实现: 我是试了很久才想到 \x00 的
+# go 的实现: 我是试了很久才想到 \x00 的，:(
 fmt.Printf("%x\n", sha1.Sum([]byte("blob 4\x00dit\n")))
 ```
 
@@ -140,20 +142,20 @@ committer zdd <zddhub@gmail.com> 1439825985 +0800
 
 Add a
 
-second line
+detail description
 ```
 
-如果一个 commit 对象没有 parent 信息，那把它称为 root 结点。理论上每个项目可以有多个 root 结点，但在实际使用中，通常把 Init commit 做为 root 结点。
+如果一个 commit 对象没有 parent 信息，那把它称为 root 结点。理论上每个项目可以有多个 root 结点，但在实际使用中，通常把 Initial commit 做为 root 结点。
 
-加头 `"commit size\0"` 后计算 sha1 值，并用 zlib 压缩后存储在 .git/objects 目录下。
+加头 `"commit size\0"` 后计算 sha1 值，并用 zlib 压缩后存储在 `.git/objects` 目录下。
 
 ![blob]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-05/commit.png)
 
 ### tag
 
-软件开发时，每个 commit 就是一个版本，tag 持有一个 commit，做为一个 “重要” 版本存在。tag 持有的 commit id 存在 ｀.git/refs/tags｀ 中。在初始版本的 Dit 中不被实现。
+软件开发时，每个 commit 就是一个版本，tag 持有一个 commit，做为一个 “重要” 版本存在。tag 持有的 commit id 存在 `.git/refs/tags` 中。在初始版本的 Dit 中不被实现。
 
 缓存
 ---
 
-Git 在缓存 (cache) 中记录当前仓库的状态，缓存的状态存储在 .git/index 文件中，来保证不同命令之间信息的传递。缓存是 Git 运作的关键, 搞清了它的数据结构和运作模式，Git 的实现思路也就呼之欲出了。
+Git 在缓存 (cache) 中记录当前仓库的状态，缓存的状态存储在 `.git/index` 文件中，来保证不同命令之间信息的传递。缓存是 Git 运作的关键, 搞清了它的数据结构和运作模式，Git 的实现思路也就呼之欲出了。
