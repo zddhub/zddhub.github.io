@@ -5,18 +5,14 @@ category: Memo
 tags: "Go 编程语言"
 ---
 
-> 优秀的程序员应该不限于只用一两种语言，对各种语言都要有猎涉，这样才能在合适的应用下选择最合适的语言。但优秀的程序员至少需要精通一到两种语言，在众多的编程语言中，我选择Go和Swift作为自己之后20年内的主要编程语言，并力争达到精通的境地。
+> 优秀的程序员应该不限于只用一两种语言，对各种语言都要有猎涉，这样才能在合适的应用下选择最合适的语言。但优秀的程序员至少需要精通一到两种语言，在众多的编程语言中，我选择 Go 和 Swift 作为自己之后20年内的主要编程语言，并力争达到精通的境地。
 
-本文主要记录[Go](https://golang.org/)方法和接口语法，方便查询。本文为了便于表述加了行号，复制后可切断行号，命令如下：
-
-```sh
-$ pbpaste | sed -e 's/^ *[0-9]\{1,\} //g'
-```
+本文主要记录 [Go](https://golang.org/) 方法和接口语法，方便查询。
 
 <!-- more -->
 
 ### 10. 方法
-Go中没有类，但是可以为type 类型定义方法
+Go 中没有类，但是可以为 type 类型定义方法
 
 ```go
 package main
@@ -32,18 +28,18 @@ type Vertex struct {
 
 // 该方法内只对接受者进行了读操作，所以此处使用变量或者指针都不会影响最终结果，
 // 但是使用指针能避免一次值拷贝
-func (v Vertex) Abs() float64 { // 定义Vertex的Abs方法
+func (v Vertex) Abs() float64 { // 定义 Vertex 的 Abs 方法
   return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
-func (v *Vertex) Scale(f float64) { // 接收者使用指针时，对v的值写操作后生效
+func (v *Vertex) Scale(f float64) { // 接收者使用指针时，对 v 的值写操作生效
   v.X = v.X * f
   v.Y = v.Y * f
 }
 
 type MyFloat float64
 
-func (f MyFloat) Abs() float64 { // 定义float64的Abs方法
+func (f MyFloat) Abs() float64 { // 定义 float64 的 Abs 方法
   if f < 0 {
     return float64(-f)
   }
@@ -111,6 +107,7 @@ func (v *Vertex) Abs() float64 { // Vertex实现Abser接口的方法
 ```
 
 Go中内置了一些常见的接口：
+
 #### Stringers
 ```go
 package main
