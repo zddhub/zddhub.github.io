@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "独孤九剑 - 总决"
+title: "独孤九剑(0x01) - 总决"
 category: Fun
 tags: "dit git"
 ---

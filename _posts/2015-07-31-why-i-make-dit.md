@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "我为什么要做 Dit"
+title: "独孤九剑(0x00) - 我为什么要做 Dit"
 category: Fun
 tags: "dit git"
 ---
