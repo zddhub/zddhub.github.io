@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "前端手记 todomvc 之 css 篇"
+title: "前端手记 TodoMVC 之 CSS 篇"
 category: Memo
 tags: "TodoMVC 前端手记"
 ---
