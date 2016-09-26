@@ -14,7 +14,7 @@ tags: "TodoMVC 前端手记"
 
 * ECMAScript 6.0 (ECMAScript 2015)
 
-JavaScript (js) 是前端工程师绕不过的编程语言，非常灵活，目前 js 已经打通前后端，成为程序员必备技能之一。最近 [微信小程序](https://mp.weixin.qq.com/wiki) 又让 js 火了一把。ECMAScript 6.0 (简称 SE6)是 js 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标是，使得 js 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+JavaScript (js) 是前端工程师绕不过的编程语言，非常灵活，目前 js 已经打通前后端，成为程序员必备技能之一。最近 [微信小程序](https://mp.weixin.qq.com/wiki) 又让 js 火了一把。ECMAScript 6.0 (简称 ES6)是 js 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标是，使得 js 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
 
 熟读 ES6 feature 可以帮我们写出更现代的代码，这里有两本书必须精读：[es6features](https://github.com/lukehoban/es6features) 和 [《ECMAScript 6入门》](http://es6.ruanyifeng.com/)。如果还不够的话，读读[标准](http://www.ecma-international.org/ecma-262/6.0/)吧。
 
@@ -25,11 +25,11 @@ JavaScript (js) 是前端工程师绕不过的编程语言，非常灵活，目�
 * babel: js 降级
 * ...
 
-后端 node.js v4.0＋ 已经支持大部分 ES6 feature。但是前端，各浏览器对 ES6 响应相对较慢，想用 ES6 的话，你需要 babel，将新 feature 编译成可以在浏览器中运行的原生 js 代码。我配置了一个 es6 + react 的开发环境(2100ad886643344af77c103c995dfb5360a6e492)。 你可以这样运行它:
+后端 node.js v4.0＋ 已经支持大部分 ES6 feature。但是前端，各浏览器对 ES6 响应相对较慢，想用 ES6 的话，你需要 babel，将新 feature 编译成可以在浏览器中运行的原生 js 代码。我配置了一个 ES6 + React 的开发环境(2100ad886643344af77c103c995dfb5360a6e492)。 你可以这样运行它:
 
 	webpack -w
 
-用 chrome 打开 `index.html`, 如果能看到 `Hello, React! hahah ...` 说明环境搭建完成。当然，也可以运行：
+用 chrome 打开 `react/index.html`, 如果能看到 `Hello, React! hahah ...` 说明环境搭建完成。当然，也可以运行：
 
 	node server.js # 另打开一个终端
 
@@ -100,7 +100,7 @@ React 将网页上的元素划分成不同模块的 component，每个 component
 
 * 第三步， 确定 UI 上的状态
 
-React 使用状态机来定义页面上的交互，组件在不同状态下显示不同的形式和内容。对于页面上的数据，React 把它分成两类，props 和 state，props 从父组件传入子组件，state 处理交互引起变化的数据。
+React 使用状态机来定义页面上的交互，组件在不同状态下显示不同的形式和内容。对于页面上的数据，React 把它分成两类: props 和 state。props 从父组件传入子组件，state 处理交互引起变化的数据。
 
 想想 Todo list 上的数据：
 
@@ -148,7 +148,7 @@ React 是单向数据流，数据从父组件层层传递给子组件，究竟�
 
 ### 和神作对比
 
-眼里过千遍不如手里过一遍，本例中有些地方，在具体实现时，才可能会考虑到。所有代码都托管在 [zddhub/todomvc](https://github.com/zddhub/todomvc) 上。依然可以根据图片名字的 commit id checkout 源码，查看具体的实现。
+眼里过千遍不如手里过一遍，本例中有很多地方，在具体实现时，才可能会考虑到。所有代码都托管在 [zddhub/todomvc](https://github.com/zddhub/todomvc) 上。依然可以根据图片名字的 commit id checkout 源码，查看具体的实现。
 
 ![TodoMVC React Demo]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-06/b122e36d02d72cf9ac7f7d7070b975ac1d0a9142.gif)
 
