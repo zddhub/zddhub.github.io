@@ -16,27 +16,28 @@ My site is separated into two parts:
 
 ### Workflow
 
-1. Clone repo and work on `blogs` branch (once at first time)
+* Clone repo and work on `blogs` branch (once at first time)
 
 ```sh
     git clone https://github.com/zddhub/zddhub.github.io.git
     git checkout -t origin/blogs
 ```
 
-2. Write post and push to blogs branch.
+* Write post and push to blogs branch.
 
-3. Run `./build_pages` to trigger Jekyll pages on Github side.
+* Run `./build_pages` to trigger Jekyll pages on Github side.
 
 
 ### How to work
 
-1. Prepare Blogs data and push on blogs branch.
-2. Add submodule to Jekyll site.
+* Prepare Blogs data and push on blogs branch.
+* Add submodule to Jekyll site.
+
 ```sh
     git submodule add -b blogs https://github.com/zddhub/zddhub.github.io .blogs
 ```
 
-3. Symlink a submodule files to Jekyll site.
+* Symlink a submodule files to Jekyll site.
 
 ```sh
     ln -s .blogs/posts _posts
