@@ -1,14 +1,14 @@
 zddhub's blog
 -------------
 
-I want a clean workspace to write, only includes plain text (such as: markdown file) and some images used in the article.
+I want to write in a clean workspace, that only includes plain text (such as: markdown file) and some images used in the article.
 
 Jekyll is a good choice but it mixed plain text and websites, so ...
 
 
 ### Blogs and Jekyll pages separation
 
-My site is separated into two parts:
+My site is separated into two parts (branches):
 
 - [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) - only include markdown file and some images
 - [Jekyll pages](https://github.com/zddhub/zddhub.github.io/tree/master) - Jekyll pages, html, layout, css, ...
