@@ -29,6 +29,7 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .idea
+.editorconfig
 
 # Komodo
 *.komodoproject
