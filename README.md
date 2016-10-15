@@ -8,7 +8,7 @@ Jekyll is a good choice but it mixed plain text and websites, so ...
 
 ### Blogs and Jekyll pages separation
 
-My site is separated into two parts: 
+My site is separated into two parts:
 
 - [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) - only include markdown file and some images
 - [Jekyll pages](https://github.com/zddhub/zddhub.github.io/tree/master) - Jekyll pages, html, layout, css, ...
@@ -19,7 +19,7 @@ My site is separated into two parts:
 * Clone repo and work on `blogs` branch (once at first time)
 
 ```sh
-    git clone https://github.com/zddhub/zddhub.github.io.git
+    git clone https://github.com/zddhub/zddhub.github.io.git master
     git checkout -t origin/blogs
 ```
 
