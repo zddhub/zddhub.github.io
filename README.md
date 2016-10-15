@@ -1,4 +1,4 @@
 zddhub's blog
 -------------
 
-blog content
+blog content (markdown and images)
