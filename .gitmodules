@@ -1,4 +1,4 @@
-[submodule "_blogs"]
-	path = _blogs
+[submodule ".blogs"]
+	path = .blogs
 	url = https://github.com/zddhub/zddhub.github.io
 	branch = blogs

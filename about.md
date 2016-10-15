@@ -1,1 +1,1 @@
-_blogs/about.md
+.blogs/about.md

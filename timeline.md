@@ -1,1 +1,1 @@
-_blogs/timeline.md
+.blogs/timeline.md
