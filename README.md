@@ -19,7 +19,7 @@ My site is separated into two parts:
 * Clone repo and work on `blogs` branch (once at first time)
 
 ```sh
-    git clone https://github.com/zddhub/zddhub.github.io.git master
+    git clone https://github.com/zddhub/zddhub.github.io.git -b master
     git checkout -t origin/blogs
 ```
 
