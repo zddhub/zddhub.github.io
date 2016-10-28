@@ -136,6 +136,6 @@ Redux 架构使用严格的单向数据流动方式，其生命周期分为以�
 
 ### 参考资料
 
-[Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.45qelzag9)
-[React](https://facebook.github.io/react/)
-[Redux](http://redux.js.org/)
+* [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.45qelzag9)
+* [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
