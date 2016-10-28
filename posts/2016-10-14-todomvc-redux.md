@@ -26,6 +26,7 @@ React 很好的处理了 View 层的复用，在数据方面，采用单向流�
 ### Redux 三个基本概念
 
 * Action
+
 Action 是把数据从应用层传递到 store 的有效载体，它是 store 数据的唯一来源。Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作。Action 仅仅表示某对象发生了什么行为，我们应该尽量减少在 action 中传递的数据。
 
 TodoMVC demo 的 Action：
@@ -45,6 +46,7 @@ TodoMVC demo 的 Action：
 可以用三个不同的 Action 来通知给 reducer，或者用一个 Action，设置不同的 status，到底用哪种完全取决于你。
 
 * Reducer
+
 Action 只是描述了有事情发生了这一事实，并没有指明应用如何更新 state。而这正是 reducer 要做的事情。reducer 就是一个纯函数，接收当前 state 和 action，返回新的 state。函数形式如下：
 
 	(previousState, action) => newState
@@ -58,6 +60,7 @@ Action 只是描述了有事情发生了这一事实，并没有指明应用如�
 记得不要修改 previousState 的值，创建一个新的对象返回给 newState。
 
 * Store
+
 使用 reducers 来根据 action 更新 state, 存储在 store 中。store 把之前创建的 Action 和 Reducer 联系在一起。store 的职责有：
 
 	1. 持有应用的 state；
@@ -87,27 +90,27 @@ Redux 架构使用严格的单向数据流动方式，其生命周期分为以�
 
 ```json
 {
-	todos: {
-		isFetching: false,
-		didInvalidate: false,
-		items: [
-			{
-			    "title": "Start Redux",
-			    "completed": false,
-			    "createdAt": "2016-10-18T00:15:50.105Z",
-			    "updatedAt": "2016-10-20T00:35:04.858Z",
-			    "id": 1
-			},
-			{
-			    "title": "Start TodoMVC",
-			    "completed": false,
-			    "createdAt": "2016-10-18T11:20:26.200Z",
-			    "updatedAt": "2016-10-20T00:35:04.858Z",
-			    "id": 2
-			}
-		]
-	},
-	filter: 'All'
+  todos: {
+  	isFetching: false,
+  	didInvalidate: false,
+  	items: [
+	  {
+        "title": "Start Redux",
+        "completed": false,
+        "createdAt": "2016-10-18T00:15:50.105Z",
+        "updatedAt": "2016-10-20T00:35:04.858Z",
+        "id": 1
+	  },
+	  {
+	    "title": "Start TodoMVC",
+	    "completed": false,
+	    "createdAt": "2016-10-18T11:20:26.200Z",
+	    "updatedAt": "2016-10-20T00:35:04.858Z",
+	    "id": 2
+	  }
+  	]
+  },
+  filter: 'All'
 }
 
 ```
@@ -128,7 +131,7 @@ Redux 架构使用严格的单向数据流动方式，其生命周期分为以�
 
 ### 和大神作品比较
 
-除了 [TodoMVC 自带的 demo](http://todomvc.com/examples/react/#/) 外， Redux 项目的例子里也有两个 [todoMVC 的例子](https://github.com/reactjs/redux/tree/master/examples), 我都看了哦，不过像我这种把 TodoMVC 的数据存储在服务器端的奇葩例子，还真不多见。
+除了 [TodoMVC 自带的 demo](http://todomvc.com/examples/react/#/) 外， Redux 项目的例子里也有两个 [todoMVC 的例子](https://github.com/reactjs/redux/tree/master/examples), 我都看了哦，不过像我这种把 TodoMVC 的数据存储在服务器端的奇葩做法，还真不多见。
 
 
 ### 参考资料
