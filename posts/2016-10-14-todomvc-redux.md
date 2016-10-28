@@ -94,20 +94,20 @@ Redux 架构使用严格的单向数据流动方式，其生命周期分为以�
     isFetching: false,
     didInvalidate: false,
     items: [
-    {
+      {
         "title": "Start Redux",
         "completed": false,
         "createdAt": "2016-10-18T00:15:50.105Z",
         "updatedAt": "2016-10-20T00:35:04.858Z",
         "id": 1
-    },
-    {
+      },
+      {
         "title": "Start TodoMVC",
         "completed": false,
         "createdAt": "2016-10-18T11:20:26.200Z",
         "updatedAt": "2016-10-20T00:35:04.858Z",
         "id": 2
-    }
+      }
     ]
   },
   filter: 'All'
