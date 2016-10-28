@@ -31,17 +31,17 @@ Action 是把数据从应用层传递到 store 的有效载体，它是 store �
 
 TodoMVC demo 的 Action：
 
-	ADD_TODO
-	REMOVE_TODO
-	COMPLETE_TOOD
-	TRIGGER_ALL_TODOS
-	FILTER_TODOS
+  ADD_TODO
+  REMOVE_TODO
+  COMPLETE_TOOD
+  TRIGGER_ALL_TODOS
+  FILTER_TODOS
 
 异步 API 一般有三个关键时间点可以通知给 reducer：
 
-	1. 请求开始
-	2. 请求成功结束
-	3. 请求失败
+  1. 请求开始
+  2. 请求成功结束
+  3. 请求失败
 
 可以用三个不同的 Action 来通知给 reducer，或者用一个 Action，设置不同的 status，到底用哪种完全取决于你。
 
@@ -49,13 +49,13 @@ TodoMVC demo 的 Action：
 
 Action 只是描述了有事情发生了这一事实，并没有指明应用如何更新 state。而这正是 reducer 要做的事情。reducer 就是一个纯函数，接收当前 state 和 action，返回新的 state。函数形式如下：
 
-	(previousState, action) => newState
+  (previousState, action) => newState
 
 只要传入参数相同，返回的 newState 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。保持 reducer 纯净非常重要。永远不要在 reducer 里做这些操作：
 
-	1. 修改传入参数；
-	2. 执行有副作用的操作，如 API 请求和路由跳转；
-	3. 调用非纯函数，如 Date.now() 或 Math.random()。
+  1. 修改传入参数；
+  2. 执行有副作用的操作，如 API 请求和路由跳转；
+  3. 调用非纯函数，如 Date.now() 或 Math.random()。
 
 记得不要修改 previousState 的值，创建一个新的对象返回给 newState。
 
@@ -63,11 +63,11 @@ Action 只是描述了有事情发生了这一事实，并没有指明应用如�
 
 使用 reducers 来根据 action 更新 state, 存储在 store 中。store 把之前创建的 Action 和 Reducer 联系在一起。store 的职责有：
 
-	1. 持有应用的 state；
-	2. 提供 getState() 方法获取 state；
-	3. 提供 dispatch(action) 方法更新 state；
-	4. 通过 subscribe(listener) 注册监听器;
-	5. 通过 subscribe(listener) 返回的函数注销监听器。
+  1. 持有应用的 state；
+  2. 提供 getState() 方法获取 state；
+  3. 提供 dispatch(action) 方法更新 state；
+  4. 通过 subscribe(listener) 注册监听器;
+  5. 通过 subscribe(listener) 返回的函数注销监听器。
 
 有了 reducer 之后，创建 store 只需要一句话 `let store = createStore(todoApp)`。接下来看看 redux 的数据流吧。
 
@@ -76,10 +76,10 @@ Action 只是描述了有事情发生了这一事实，并没有指明应用如�
 
 Redux 架构使用严格的单向数据流动方式，其生命周期分为以下四步：
 
-	1. 应用调用 store.dispatch(action) 发送 Action
-	2. Redux 根据传入的 action 调用对应的 reducer 方法
-	3. 根 reducer 把子 reducer 的结果合并成一颗 state 树
-	4. Redux store 保存根 reducer 生成的 state 树
+  1. 应用调用 store.dispatch(action) 发送 Action
+  2. Redux 根据传入的 action 调用对应的 reducer 方法
+  3. 根 reducer 把子 reducer 的结果合并成一颗 state 树
+  4. Redux store 保存根 reducer 生成的 state 树
 
 得到的 state 树即为当前应用的下一个 state，所有订阅 store.subscribe(listener) 的监听器都将被调用。监听器可以调用 store.getState() 获得当前 state。
 
@@ -91,24 +91,24 @@ Redux 架构使用严格的单向数据流动方式，其生命周期分为以�
 ```json
 {
   todos: {
-  	isFetching: false,
-  	didInvalidate: false,
-  	items: [
-	  {
+    isFetching: false,
+    didInvalidate: false,
+    items: [
+    {
         "title": "Start Redux",
         "completed": false,
         "createdAt": "2016-10-18T00:15:50.105Z",
         "updatedAt": "2016-10-20T00:35:04.858Z",
         "id": 1
-	  },
-	  {
-	    "title": "Start TodoMVC",
-	    "completed": false,
-	    "createdAt": "2016-10-18T11:20:26.200Z",
-	    "updatedAt": "2016-10-20T00:35:04.858Z",
-	    "id": 2
-	  }
-  	]
+    },
+    {
+        "title": "Start TodoMVC",
+        "completed": false,
+        "createdAt": "2016-10-18T11:20:26.200Z",
+        "updatedAt": "2016-10-20T00:35:04.858Z",
+        "id": 2
+    }
+    ]
   },
   filter: 'All'
 }
