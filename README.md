@@ -43,6 +43,7 @@ My site is separated into two parts:
     ln -s .blogs/posts _posts
     ln -s .blogs/asserts asserts
     ln -s .blogs/about.md about.md
+    ln -s .blogs/timeline.md timeline.md
 ```
 
 
