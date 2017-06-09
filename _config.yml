@@ -23,7 +23,7 @@ gravid:
 
 # Build settings
 markdown: kramdown
-theme: gravid
+# theme: gravid # If one day github support customize gem theme, will open this line
 exclude:
   - Gemfile
   - Gemfile.lock
