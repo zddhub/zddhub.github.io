@@ -1,0 +1,8 @@
+[submodule ".gravid"]
+	path = .gravid
+	url = https://github.com/zddhub/gravid.git
+	branch = master
+[submodule ".blogs"]
+	path = .blogs
+	url = https://github.com/zddhub/zddhub.github.io.git
+	branch = blogs
