@@ -44,7 +44,7 @@ JavaScript (js) 是前端工程师绕不过的编程语言，非常灵活，目�
 
 在 [前端手记 TodoMVC 之 CSS 篇]({% post_url 2016-08-27-todomvc-css %}) 我们按步骤实现了 TodoMVC 的前端 UI，如下图所示：
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
 
 假设 JSON API 返回的数据如下：
 
@@ -62,7 +62,7 @@ React 将网页上的元素划分成不同模块的 component，每个 component
 
 划分组件时使用单一职责原则，保证每个组件只做一件事情。下图是我的一个划分：
 
-![TodoMVC React Components]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-06/todomvc-react-components.png)
+![TodoMVC React Components]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-06/todomvc-react-components.png)
 
 划分了 7 个 component：
 
@@ -90,11 +90,11 @@ React 将网页上的元素划分成不同模块的 component，每个 component
 
 这是加上元素的效果，是不是和用 html 写的一样呢？
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-06/8dc5b7c94a93f2ae6a516ab119aa643bc8734d6d.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-06/8dc5b7c94a93f2ae6a516ab119aa643bc8734d6d.png)
 
 其中 style 的 class 和 js 有冲突，react 中用 className 定义样式，加上样式的 TodoMVC App 如下：
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-06/0352a2e9d04ce528c5f2632c794c42cf3b354a21.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-06/0352a2e9d04ce528c5f2632c794c42cf3b354a21.png)
 
 只做了个微小的调整，感觉还不错，之前的 css 真的是没白写呀。
 
@@ -150,7 +150,7 @@ React 是单向数据流，数据从父组件层层传递给子组件，究竟�
 
 眼里过千遍不如手里过一遍，本例中有很多地方，在具体实现时，才可能会考虑到。所有代码都托管在 [zddhub/todomvc](https://github.com/zddhub/todomvc) 上。依然可以根据图片名字的 commit id checkout 源码，查看具体的实现。
 
-![TodoMVC React Demo]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-06/b122e36d02d72cf9ac7f7d7070b975ac1d0a9142.gif)
+![TodoMVC React Demo]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-06/b122e36d02d72cf9ac7f7d7070b975ac1d0a9142.gif)
 
 开源的 TodoMVC 程序大都结合了各种框架，找到一个纯 js 实现的例子 [tastejs/todomvc](https://github.com/tastejs/todomvc/tree/gh-pages/examples/react/js)，大家可以比较一下和自己实现的区别，相互学习。
 

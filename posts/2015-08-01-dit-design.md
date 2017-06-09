@@ -34,7 +34,7 @@ Git的设计思想
 
 Git 不存储文件差异，把数据看作是对小型文件系统的一组快照。每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。下图中如果与前一个版本相比文件有改变，则存储新文件(快照)到下一个版本中。如果没有改变，则只存储之前文件的索引，如图虚线框所示。
 
-![git-snapshots]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-01/git-snapshots.png)
+![git-snapshots]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-01/git-snapshots.png)
 
 * 近乎所有操作都是本地执行
 
@@ -54,7 +54,7 @@ Git 有三种状态，你的文件可能处于其中之一：已提交（committ
 
 由此引入 Git 项目的三个工作区域的概念：Git 仓库、工作目录以及暂存区域。
 
-![git-work-area]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-01/git-work-area.png)
+![git-work-area]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-01/git-work-area.png)
 
 基本的 Git 工作流程如下：
 
@@ -69,7 +69,7 @@ Git 文件的生命周期
 
 编辑过某些文件之后，由于自上次提交后你对它们做了修改，Git 将它们标记为已修改文件。 我们逐步将这些修改过的文件放入暂存区，然后提交所有暂存了的修改，如此反复。所以使用 Git 时文件的生命周期如下：
 
-![git-lifecycle]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-01/git-lifecycle.png)
+![git-lifecycle]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-01/git-lifecycle.png)
 
 Git 保存数据的方式
 ---------------
@@ -85,11 +85,11 @@ $ git commit -m 'The initial commit of dit'
 
 现在，Git 仓库中有五个对象：三个 blob 对象（保存着文件快照）、一个树对象（记录着目录结构和 blob 对象索引）以及一个提交对象（包含着指向前述树对象的指针和所有提交信息）。
 
-![commit-and-tree]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-01/commit-and-tree.png)
+![commit-and-tree]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-01/commit-and-tree.png)
 
 做些修改后再次提交，那么这次产生的提交对象会包含一个指向上次提交对象（父对象）的指针。
 
-![commits-and-parents]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-01/commits-and-parents.png)
+![commits-and-parents]({{ post.img | replace: '..', site.url }}/asserts/images/2015-08-01/commits-and-parents.png)
 
 引用
 ---

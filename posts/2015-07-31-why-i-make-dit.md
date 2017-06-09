@@ -26,7 +26,7 @@ Dit
 ---
 
 对，接下来我会模仿 Git 实现一个类似的工具 [Dit](https://github.com/zddhub/dit) ，来打发无聊的业余时间。我已经为它想好了 logo，大家感受一下：😄
-![dit logo]({{ post.img | replace: '..', site.url }}/assets/dit_logo.png)
+![dit logo]({{ post.img | replace: '..', site.url }}/asserts/dit_logo.png)
 
 基于以下这几点：
 
