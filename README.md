@@ -41,7 +41,7 @@ My site is separated into two parts (branches):
 
 ```sh
     ln -s .blogs/posts _posts
-    ln -s .blogs/asserts asserts
+    ln -s .blogs/assets assets
     ln -s .blogs/about.md about.md
 ```
 

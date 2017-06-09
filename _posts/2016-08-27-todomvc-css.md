@@ -41,20 +41,20 @@ tags: "TodoMVC 前端手记"
 
 在开始 coding 前想好要做什么是很重要的，找个 UX 姐姐或者自己画吧。下图是我根据 [TodoMVC](http://todomvc.com/examples/react/#/) 的 demo 画的，当没有任何 todo 项时，只显示个输入框，非常简单。下面就开始动手实现吧。
 
-![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/todoMVC_mockup_new_todo.png)
+![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/todoMVC_mockup_new_todo.png)
 
 
 ### 第二步，写 html 页面
 
 对 mockup 进行划分，识别其中的元素，开始写 html 标签。以下是我的一个划分：
 
-![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/todomvc_mockup_new_todo_html.png)
+![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/todomvc_mockup_new_todo_html.png)
 
 从文中的图片名能找到对应的 commit id，进而看到代码哦，代码托管在 [zddhub/todomvc](https://github.com/zddhub/todomvc) 上。
 
 为了方便 css 选取，给主要标签都加了 class，这时的界面是如下所示的丑样子：
 
-![todomvc new-todo html]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/7d080efa0a1528984616f038b901331224cfa0ff.png)
+![todomvc new-todo html]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/7d080efa0a1528984616f038b901331224cfa0ff.png)
 
 
 ### 第三步，写 css 样式
@@ -63,15 +63,15 @@ tags: "TodoMVC 前端手记"
 
 * 给元素定位（包括：字体，背景色等）
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/0da9805174394731428e8021976366988895d129.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/0da9805174394731428e8021976366988895d129.png)
 
 * 调整每个元素的细节
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/a98d0ebb9f8e419a208876ea57936beb08dab9cc.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/a98d0ebb9f8e419a208876ea57936beb08dab9cc.png)
 
 * 设置颜色和阴影
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/9b684ea31ad383ffcaddc91a7c059169658cc19e.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/9b684ea31ad383ffcaddc91a7c059169658cc19e.png)
 
 * 响应式布局
 
@@ -91,14 +91,14 @@ tags: "TodoMVC 前端手记"
 
 当存在 todo 时的界面
 
-![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/todoMCV_mockup_todo_list.png)
+![todomvc new-todo mockup]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/todoMCV_mockup_todo_list.png)
 
 
 ### 第二步，写 html 页面
 
 界面再一次变成如下所示的丑样子：
 
-![todomvc new-todo html]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/5bc3f67db802da5c8b17ad1abd36f47974e40abb.png)
+![todomvc new-todo html]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/5bc3f67db802da5c8b17ad1abd36f47974e40abb.png)
 
 
 ### 第三步，写 css 样式
@@ -106,22 +106,22 @@ tags: "TodoMVC 前端手记"
 
 * 给元素定位（包括：字体，背景色）
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/d051b7f4849815ddece4ee53bdfcb67ee16e9977.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/d051b7f4849815ddece4ee53bdfcb67ee16e9977.png)
 
 
 * 调整每个元素的细节
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/96976034116027095374fb748b2e4644d6502f36.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/96976034116027095374fb748b2e4644d6502f36.png)
 
 
 * 设置颜色和阴影
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/0770d34cd9664268bf6c36c4e5961e6831733663.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/0770d34cd9664268bf6c36c4e5961e6831733663.png)
 
 
 * 设置动态效果
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
 
 
 * 响应式布局
@@ -133,15 +133,15 @@ tags: "TodoMVC 前端手记"
 
 我们的代码在最新版的 chrome 和 safari 上运行完美，在 firefox 上 checkbox 挂逼了。如下：
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/todoMVC_list_on_firefox.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/todoMVC_list_on_firefox.png)
 
 稍微改了一下，在 firefox 上最终效果如下。
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/7eb2746852d08858d99228e7ce8883e77685c3f9.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/7eb2746852d08858d99228e7ce8883e77685c3f9.png)
 
 追求完美的脚步是无止境的，但我们的 demo 就实现到这里，哈哈哈, 以下是最终的效果：
 
-![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/asserts/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
+![todomvc new-todo css position]({{ post.img | replace: '..', site.url }}/assets/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
 
 
 所有代码都托管在 [zddhub/todomvc](https://github.com/zddhub/todomvc) 上，可以根据图片名字的 id checkout 代码，查看具体的实现。

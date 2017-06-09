@@ -1,45 +1,6 @@
-# Ignore docs files
-_gh_pages
+*.gem
+.bundle
+.sass-cache
 _site
-_drafts
-.blogs
-.ruby-version
-
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.zip
-*.vi
-*~
-
-# OS or Editor folders
+Gemfile.lock
 .DS_Store
-._*
-Thumbs.db
-.cache
-.project
-.settings
-.tmproj
-*.esproj
-nbproject
-*.sublime-project
-*.sublime-workspace
-.idea
-.editorconfig
-
-# Komodo
-*.komodoproject
-.komodotools
-
-# grunt-html-validation
-validation-status.json
-validation-report.json
-
-# Folders to ignore
-node_modules
-bower_components
