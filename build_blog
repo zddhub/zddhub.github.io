@@ -1,0 +1,15 @@
+#!/bin/bash
+
+git checkout master
+
+git pull origin master
+
+git submodule init
+git submodule update --remote
+
+cp .gravid/_includes/* _includes
+
+git add .
+git commit --allow-empty -m 'rebuild pages: blogs-'$(cat .git/refs/heads/blogs)
+
+git push origin master
