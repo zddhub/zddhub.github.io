@@ -14,6 +14,9 @@ github_username:  zddhub
 gravid:
   date_format: "%m/%d/%Y"
 
+language: zh-CN
+enable_reward: true
+
 # Build settings
 markdown: kramdown
 # theme: gravid # If one day github support customize gem theme, will open this line
