@@ -10,6 +10,6 @@ git submodule update --remote
 cp .gravid/_includes/* _includes
 
 git add .
-git commit --allow-empty -m 'rebuild pages: blogs-'$(cat .git/refs/heads/blogs)
+git commit --allow-empty -m 'rebuild pages: '$(cat .git/refs/heads/blogs)
 
 git push origin master
