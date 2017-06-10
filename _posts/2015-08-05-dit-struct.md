@@ -80,7 +80,7 @@ Git 仓库中主要就存储了这些 object 对象。每个 object 对象按实
 
 blob 记录项目文件快照。实际文件通过 [zlib](http://www.zlib.net/) 压缩后存储在本地仓库的 objects 目录下。快照文件目录为其内容 sha1 值的前两位，文件名为之后的 38 位。Git 按内容存储文件快照，内容不同(sha1 值不同)的版本，对应不同的快照文件。
 
-![blob]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-05/blob.png)
+![blob](/assets/images/2015-08-05/blob.png)
 
 blob 只保存文件的实际内容，不能引用其它 object，没有签名和认证，使用sha1值来保证存储内容的正确性。blob 是 Git 中最小的内容存储结构。blob 文件生成后不再改变。
 
@@ -127,7 +127,7 @@ $ git cat-file -p af3d9d135f68fbec7e4ea7fde3ef19844746ae6f
 
 同样加上头 `"tree size\0"` 后计算 sha1 值，并用 zlib 压缩后存储在 .git/objects 目录下。
 
-![blob]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-05/tree.png)
+![blob](/assets/images/2015-08-05/tree.png)
 
 tree 同样没有签名和认证，生成后不再改变。
 
@@ -151,7 +151,7 @@ detail description
 
 加头 `"commit size\0"` 后计算 sha1 值，并用 zlib 压缩后存储在 `.git/objects` 目录下。
 
-![blob]({{ post.img | replace: '..', site.url }}/assets/images/2015-08-05/commit.png)
+![blob](/assets/images/2015-08-05/commit.png)
 
 ### tag
 
