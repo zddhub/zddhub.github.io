@@ -4,7 +4,12 @@
     <img src="/assets/avatar.jpg" class="avatar" alt="{{ site.title }}">
   </a>
   <nav class="site-nav">
-    <a class="sidebar-nav-item" href="/archive">Archive</a>
-    <a class="sidebar-nav-item" href="/about">About</a>
+    {% if site.language == 'zh-CN' %}
+      <a class="sidebar-nav-item" href="/archive">归档</a>
+      <a class="sidebar-nav-item" href="/about">关于</a>
+    {% else %}
+      <a class="sidebar-nav-item" href="/archive">Archive</a>
+      <a class="sidebar-nav-item" href="/about">About</a>
+    {% endif %}
   </nav>
 </header>
