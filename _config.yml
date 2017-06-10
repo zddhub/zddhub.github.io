@@ -1,25 +1,18 @@
 title: ZDDHUB
-tagline: Just for fun
+slogan: Just for fun
 author: GitHub User
-email: your-email@domain.com
+email: zddhub@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  ZDDHUB's blog | Just for fun
 
-url: http://zddhub.github.io
 baseurl: ""
+url: http://zddhub.github.io
 
 twitter_username: zddhub
 github_username:  zddhub
 
 gravid:
   date_format: "%m/%d/%Y"
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.html
 
 # Build settings
 markdown: kramdown
