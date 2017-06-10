@@ -37,7 +37,7 @@ My site is separated into three parts:
     ln -s .blogs/assets assets
     ln -s .blogs/_config.yml _config.yml
 
-	mkdir -p _includes # the symlinked files under `includes` cannot be used.
+    mkdir -p _includes # the symlinked files under `includes` cannot be used.
     ln -s .gravid/_layouts _layouts
     ln -s .gravid/_sass _sass
     ln -s .gravid/404.html 404.html
