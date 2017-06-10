@@ -12,7 +12,7 @@ ruby RUBY_VERSION
 
 gem "jekyll", "3.4.3"
 
-gem "gravid", "~>0.1.2"
+gem "gravid", "~>0.1.4"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
