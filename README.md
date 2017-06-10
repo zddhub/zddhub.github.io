@@ -52,7 +52,7 @@ My site is separated into three parts:
     git clone --recursive https://github.com/zddhub/zddhub.github.io.git
 ```
 
-* After you updated and pushed [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) or [Gravid](https://github.com/zddhub/gravid), run `./build_blog` to trigger Jekyll pages on Github side.
+* After you updated and pushed [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) or [Gravid](https://github.com/zddhub/gravid), run `./publish_blog` to trigger Jekyll pages on Github side.
 
 
 ### Gem-based blog
