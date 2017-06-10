@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: Archive
+title: 归档
 ---
 
-# Archive
+# 归档

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: 关于
 ---
 
 I am zddhub, a software engineer, lives in Xi'an now.
