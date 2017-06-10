@@ -1,8 +1,13 @@
 ---
 layout: page
-title: 关于
+title: 关于 ZDDHUB
 ---
 
-I am zddhub, a software engineer, lives in Xi'an now.
+屌丝程序员一枚，常年混迹于网上，兴趣广泛，心得全无。
 
-If you have any question or something fun, please feel free to [email me](mailto:zddhub@gmail.com).
+如果遇到好玩的事情一定想要和我分享的话，那就[写封邮件](mailto:zddhub@gmail.com)吧。
+
+
+Github: [zddhub](https://github.com/zddhub)
+
+Weibo: [zddhub](http://weibo.com/zddhub)
