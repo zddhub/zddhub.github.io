@@ -9,9 +9,9 @@ tags: OpenSSE OpenCV boost CentOS
 
 Today, I reinstall my centos system and configure recognizer on it (Recognizer is my online version demo, powered by OpenSSE v1.10. You can get an offline version on my [Github](https://github.com/zddhub/opensse)). This work actually took me two hours, it's unbearable thing! So, I decide to record.
 
-Until now, OpenSSE only dependent on OpenCV and boost (Core engine has canceled Qt library in new version). We start from OpenCV.
-
 <!-- more -->
+
+Until now, OpenSSE only dependent on OpenCV and boost (Core engine has canceled Qt library in new version). We start from OpenCV.
 
 ## OpenCV install
 

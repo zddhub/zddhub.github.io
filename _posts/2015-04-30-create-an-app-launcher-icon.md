@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "为Android Studio创建图标"
+title: "为 Android Studio 创建图标"
 category: Memo
 tags: "AndroidStudio ubuntu"
 ---

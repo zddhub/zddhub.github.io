@@ -9,6 +9,8 @@ tags: flex bison xx
 
 Flex is a tool for generating scanners: programs which recognized lexical patterns in text. flex reads the given input files, or its standard input if no file names are given, for a description of a scanner to generate.
 
+<!-- more -->
+
 The output of flex is the file `lex.yy.c`, which contains the scanning routine `yylex()`, a number of tables used by it for matching tokens, and a number of auxiliary routines and macros. By default, `yylex()` is declared as follows:
 
 ```c
@@ -17,7 +19,6 @@ int yylex()
     ... various definitions and the actions in here ...
 }
 ```
-<!-- more -->
 
 (If your environment supports function prototypes, then it will be "int yylex( void  )".) This definition may be changed by defining the "YY_DECL" macro. For example, you could use:
 
