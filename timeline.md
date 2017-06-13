@@ -3,6 +3,7 @@ layout: page
 title: Timeline
 ---
 
+- June  7, 2017: Develop a Gem-based Jekyll theme [gravid](https://github.com/zddhub/gravid).
 - June 27, 2016: Start my second job.
 - June 24, 2016: Quit Intel.
 - Sep  16, 2015: Redesign [daniu.io](http://www.daniu.io) for link collection.
