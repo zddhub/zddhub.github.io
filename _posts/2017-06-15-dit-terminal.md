@@ -76,20 +76,14 @@ dit - the stupid content tracker
 
 .SH SYNOPSIS
 
-dit [--version] [--help] [-C <path>] [-c <name>=<value>]
-   [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
-   [-p|--paginate|--no-pager] [--no-replace-objects] [--bare]
-   [--dit-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
-   [--super-prefix=<path>]
-   <command> [<args>]
+dit [--version] <command> [<args>]
 
 .SH DESCRIPTION
 Dit is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access
 to internals.
 
 .SH OPTIONS
---version
-   Prints the Dit suite version that the dit program came from.
+--version Prints the Dit suite version that the dit program came from.
 ...
 ```
 
