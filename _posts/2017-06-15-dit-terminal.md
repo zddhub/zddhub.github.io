@@ -11,6 +11,7 @@ tags: "dit git"
 
 <!-- more -->
 
+
 # 创建自己的 man page
 
 每当拿到一个新的命令，除了使用 `-h` 和 `--help` 查看用法之外，类*nux 用户还会自然而然的运行一个 `man` 命令，查看更详细的使用手册。
@@ -109,3 +110,32 @@ man1   man2   man3   man4   man5   man6   man7   man8   man9
 8   System administration commands (usually only for root)
 9   Kernel routines [Non standard]
 ```
+
+在撰写自己的 man pages 时，也应该遵循这种分类。
+
+
+# 终端颜色输出重定向
+
+命令输出时，可加上颜色显示，让输出信息更加友好。
+
+如下：
+
+```sh
+$ printf "\033[41;32m字体背景是红色，字是绿色\033[0m\n"
+```
+这种功能适用于任何形式的printf函数，或者变种。
+
+其中4表示背景色，3表示前景色。颜色编码：
+| 0 － black | 1 - red | 2 - green | 3 - yellow | 4 - blue | 5 - purple | 6 - cyan | 7 - white |
+
+当将带颜色的命令重定向到文件时，会打印颜色字符：
+
+```sh
+$ printf "\033[41;32m字体背景是红色，字是绿色\033[0m\n" > a.log
+$ vi a.log
+^[[41;32m字体背景是红色，字是绿色^[[0m
+```
+
+出现乱码，非常不爽。目前的解决方案是，借助命令行传入全局参数，来打开或者关闭颜色的输出。
+
+我的另一篇博客里有 Go 对终端颜色的实现,如果感兴趣请移步[这里](http://www.zddhub.com/knowledge/2015/07/23/terminal-color)。
