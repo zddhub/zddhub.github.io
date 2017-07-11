@@ -3,7 +3,7 @@ zddhub's blog
 
 I want to write in a clean workspace, that only includes plain text (such as: markdown file) and assets referenced in articles.
 
-Gem-based Jekyll theme is a good choice but github doesn't support customized theme now ([Supported themes](https://pages.github.com/themes/)).
+Gem-based Jekyll theme is a good choice but Github doesn't support customized theme now ([Supported theme list](https://pages.github.com/themes/)).
 
 so ...
 
@@ -12,7 +12,7 @@ so ...
 
 My site is separated into three parts:
 
-- [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) - only include markdown file and assets (also support gem-based theme)
+- [Blogs](https://github.com/zddhub/zddhub.github.io/tree/blogs) - Only include markdown files and assets (also support gem-based theme)
 - [Gravid](https://github.com/zddhub/gravid) - A simple and beautiful jekyll theme.
 - [Jekyll pages](https://github.com/zddhub/zddhub.github.io/tree/master) - Above two parts are included by `git submodule`, and this repo just link important files for Jekyll pages.
 
