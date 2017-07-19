@@ -6,8 +6,8 @@ title: Timeline
 - June  7, 2017: Develop a Gem-based Jekyll theme [gravid](https://github.com/zddhub/gravid).
 - June 27, 2016: Start my second job.
 - June 24, 2016: Quit Intel.
-- Sep  16, 2015: Redesign [daniu.io](http://www.daniu.io) for link collection.
-- Apr  30, 2015: Develop website daniu.io for study, only some screenshots can be found on [one blog](http://www.zddhub.com/fun/2015/09/16/daniu-io/).
+- Sep  16, 2015: Redesign daniu.io for link collection.
+- Apr  30, 2015: Develop website daniu.io for study, only some screenshots can be found on [one blog](http://www.zddhub.com/fun/2015/09/16/daniu-io).
 - Sep  25, 2014: Develop [Sketch Recognize Demo](http://sr.opensse.com/).
 - Nov  14, 2014: Develop [Open sketch search engine - OpenSSE](http://opensse.com/).
 - July 07, 2014: Start my first job in `Intel`.
