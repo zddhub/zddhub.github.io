@@ -38,3 +38,7 @@ Run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`.
 ### LICENSE
 
 All posts in my blog is under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)
+
+### Contact
+
+If you have any question or idea, please [email to me](mailto:zddhub@gmail.com).
