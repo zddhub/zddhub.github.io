@@ -90,3 +90,8 @@ If you want debug in local (master branch) with `jekyll server --watch`, you wil
 ```
 
 Don't worry, this is just a Warning.
+
+
+### Contact
+
+If you have any question or idea, please [email to me](mailto:zddhub@gmail.com).
