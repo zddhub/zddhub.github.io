@@ -7,7 +7,14 @@
     {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
     {% if site.slogan and page.url == '/' %} | {{ site.slogan | escape }}{% endif %}
   </title>
+  <meta name="keywords" content="gravid, zddhub, blog">
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:url" content="{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
