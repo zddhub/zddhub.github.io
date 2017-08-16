@@ -1,6 +1,20 @@
-<section>
+<section class="reward-section">
   {% if site.language == 'zh-CN' %}
-    <p class="reward">如果你喜欢这篇文章，欢迎<a href="/reward">打赏作者</a>以示鼓励</p>
+    <button class="reward-button" onclick="var qr = document.getElementById('qr'); if (qr.style.display === 'none') {qr.style.display='block'} else {qr.style.display='none'}">
+    <span>赏</span>
+    </button>
+    <p class="reward">如果你喜欢这篇文章，欢迎<a href="/reward">赞赏作者</a>以示鼓励</p>
+
+    <article id="qr" style="display: none;">
+        <div class="wechat">
+            <img src="/assets/zddhub_wechat_pay.png"> </img>
+            <p>微信</p>
+        </div>
+        <div class="alipay">
+            <img src="/assets/zddhub_alipay.png"> </img>
+            <p>支付宝</p>
+        </div>
+    </article>
   {% else %}
     <p class="reward">If you like this post，welcome to <a href="/reward">reward</a></p>
   {% endif %}
