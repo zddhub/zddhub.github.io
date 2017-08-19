@@ -6,7 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   ZDDHUB's blog | Just for fun
 
 baseurl: ""
-url: http://zddhub.github.io
+url: https://www.zddhub.com
 
 twitter_username: zddhub
 github_username:  zddhub
