@@ -138,4 +138,4 @@ $ vi a.log
 
 出现乱码，非常不爽。目前的解决方案是，借助命令行传入全局参数，来打开或者关闭颜色的输出。
 
-我的另一篇博客里有 Go 对终端颜色的实现,如果感兴趣请移步[这里](http://www.zddhub.com/knowledge/2015/07/23/terminal-color)。
+我的另一篇博客里有 Go 对终端颜色的实现,如果感兴趣请移步[这里](https://www.zddhub.com/knowledge/2015/07/23/terminal-color)。
