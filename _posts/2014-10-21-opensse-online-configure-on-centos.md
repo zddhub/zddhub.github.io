@@ -88,5 +88,5 @@ make install
 
 Make sure database has a correct path before build recognizer(`params.json` and `recognize.cpp`), and then `mkdir /tmp/opensse-tmp/` to cache temp image.
 
-Run web api, everything is going well, Do you want to [try](http://online.opensse.com/)?
+Run web api, everything is going well, Do you want to [try](https://online.opensse.com/)?
 

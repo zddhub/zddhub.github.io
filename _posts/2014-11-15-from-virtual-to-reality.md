@@ -39,7 +39,7 @@ tags: OpenSSE LineDrawings
 
 ### 当前工作
 
-基于OpenSSE，实现了一个[在线的草图识别](http://online.opensse.com)版本。受训练草图的限制，在准确率和本土化上都打了折扣。打算实现一个在线的草图收集共享平台，希望得到web开发者的支援。
+基于OpenSSE，实现了一个[在线的草图识别](https://online.opensse.com)版本。受训练草图的限制，在准确率和本土化上都打了折扣。打算实现一个在线的草图收集共享平台，希望得到web开发者的支援。
 
 ![OpenSSE Online](/assets/images/2014-11-15/opensse_online.png)
 
