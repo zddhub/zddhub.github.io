@@ -11,4 +11,4 @@ title: 经常访问的链接
 
 * [Jason](https://atjason.com/): 独立开发者，最难得的是每天都写一点
 
-* [创造狮导航](http://chuangzaoshi.com/): 含有大量优质的链接
+* [创造狮](http://chuangzaoshi.com/): 创意工作者导航
