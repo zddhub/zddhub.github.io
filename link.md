@@ -1,0 +1,1 @@
+.blogs/link.md
