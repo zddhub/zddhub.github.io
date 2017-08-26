@@ -17,9 +17,19 @@
   <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="apple-touch-icon-precomposed" href="/assets/apple-touch-icon.png">
+
   <link rel="shortcut icon" href="/assets/avatar.png">
-  <link rel="icon" href="/assets/avatar.png">
+  <link rel="icon" href="/assets/icons/zddhub_32.png" sizes="32x32">
+  <link rel="icon" href="/assets/icons/zddhub_192.png" sizes="192x192">
+
+  <link rel="apple-touch-icon-precomposed" href="/assets/icons/zddhub_180.png">
+  <link rel="apple-touch-icon" href="/assets/icons/zddhub_300.png">
+  <link rel="apple-touch-icon" href="/assets/icons/zddhub_152.png">
+  <link rel="apple-touch-icon" href="/assets/icons/zddhub_167.png">
+  <link rel="apple-touch-icon" href="/assets/icons/zddhub_180.png">
+
+  <meta name="msapplication-TileImage" content="{{ site.url }}/assets/icons/zddhub_270.png">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.url }}/feed.xml">
 </head>
