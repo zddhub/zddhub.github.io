@@ -131,6 +131,20 @@ $ git cat-file -p af3d9d135f68fbec7e4ea7fde3ef19844746ae6f
 
 tree 同样没有签名和认证，生成后不再改变。
 
+注：Git 只在存储 tree 的内容时，使用了二进制存储，而不是文本文件。如下所示的 tree，实际长度只有 29, 如果用二进制存储，实际长度应该是 55 才对。dit 使用简单的文本文件存储。
+
+```sh
+$ git cat-file 42477c2be645032c4dc8699fa4fa8acfcbc633af -t
+tree
+$ git cat-file 42477c2be645032c4dc8699fa4fa8acfcbc633af -p
+100644 blob 8f2c96ad676d7423d2c319fffb78cfb87c78c3e2    a
+$ git cat-file 42477c2be645032c4dc8699fa4fa8acfcbc633af -s
+29
+
+$ echo "100644 blob 8f2c96ad676d7423d2c319fffb78cfb87c78c3e2 a" | wc -c
+55
+```
+
 ### commit
 
 commit 只引用 tree, 每次提交时的文件信息都由 tree 来管理，commit 通过引用不同的 tree 来标记不同的版本。commit 拥有一个 parent 的引用，指明本次更改的父节点，通过父节点，可以查询整个提交历史。以下是某个 commit 的内容:
