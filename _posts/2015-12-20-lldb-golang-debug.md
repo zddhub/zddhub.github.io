@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "LLDB 调试 Golang"
+title: "LLDB debug Golang"
 category: Memo
-tags: "lldb Golang"
+tags: "lldb debug Golang"
 ---
 
-> 除了 GDB，还可以使用 LLDB
+> 除了 GDB，还可以使用 LLDB debug go code
 
-熟练一款调试工具对程序员来说是相当有必要的，想想我多久没用过调试工具了，从 Go 开始，让我静下心来，慢慢研究吧！
+熟练调试工具是程序员的必备技能，lldb 的发展势头，大有取缔 gdb 的趋势，因此需要把 lldb 加入到自己的工具箱里。
 
 # LLDB 命令
 
@@ -18,6 +18,18 @@ tags: "lldb Golang"
 对于常用命令，可设置别名，降低输入负担。(可通过别名设置和 GDB 相同的语法，降低记忆负担)。
 
 <!-- more -->
+
+常用命令集
+
+    go build -gcflags "-N -l" -o test test.go 关闭编译优化
+    b test.go:10    设置断点，如果项目中存在同名文件，会根据行号对应的内容选择一个，或者两个都选
+    run             运行到断点处
+    n               运行到下一行
+    ni              回到当前运行的代码片段
+    p varname       打印变量值
+    frame variable  打印当然 frame 中的所有变量
+    r               重新运行程序
+
 
 # LLDB 练习
 
@@ -121,7 +133,61 @@ Process 3302 stopped
 
 之后，通过 `c` 或 `n` 继续运行程序。
 
-查看变量的值：
+查看变量的值:
+
+    p varname
+
+```sh
+* thread #10, stop reason = breakpoint 3.1
+    frame #0: 0x0000000001093939 xx`main.counting(c=0x000000c420076060) at xx.go:10
+   7
+   8    func counting(c chan<- int) {
+   9      for i := 0; i < 10; i++ {
+-> 10       time.Sleep(1 * time.Second)
+   11       c <- i
+   12     }
+   13     close(c)
+(lldb) p i
+(int) i = 0
+(lldb) p c
+(chan<- int) c = 0x000000c420076060
+```
+
+
+查看当前 frame 中的所有变量
+
+    frame variable
+
+```sh
+(lldb) frame variable
+(chan<- int) c = 0x000000c420076060
+(int) i = 0
+([]*runtime.g) runtime.allgs = (len 5, cap 8) {
+  [0] = 0x000000c420000180
+  [1] = 0x000000c420000600
+  [2] = 0x000000c420000a80
+  [3] = 0x000000c420000f00
+  [4] = 0x000000c420001080
+}
+```
+
+命令 `ni` 回到当前断点所在的代码片段
+
+```sh
+(lldb) ni
+Process 35396 stopped
+* thread #10, stop reason = instruction step over
+    frame #0: 0x0000000001093941 xx`main.counting(c=0x000000c420076060) at xx.go:10
+   7
+   8    func counting(c chan<- int) {
+   9      for i := 0; i < 10; i++ {
+-> 10       time.Sleep(1 * time.Second)
+   11       c <- i
+   12     }
+   13     close(c)
+```
+
+watch 变量的值：
 
 ```sh
 (lldb) watch set var i
