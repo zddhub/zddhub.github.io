@@ -116,7 +116,7 @@ func main() {
   fmt.Println(l)
 
   x := make([]Laugher, 2)
-  x[0], x[1] = h, b // 两个不同类型的元素，实现了通一接口
+  x[0], x[1] = h, b // 两个不同类型的元素，实现了同样的接口
   for _, value := range x {
     value.Laugh() // 多态的调用Laugh，显示不同的功能
   }
