@@ -17,6 +17,10 @@ gravid:
 language: zh-CN
 enable_reward: true
 
+google_analytics:
+  enable: true
+  tracking_id: "UA-48441839-1"
+
 # Build settings
 markdown: kramdown
 # theme: gravid # If one day github support customize gem theme, will open this line
