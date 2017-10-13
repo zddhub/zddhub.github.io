@@ -1,7 +1,7 @@
 zddhub's blog
 -------------
 
-All posts in [my blog](www.zddhub.com) store here.
+All posts in [my blog](https://www.zddhub.com) store here.
 
 
 ### Pushlish posts to github page
