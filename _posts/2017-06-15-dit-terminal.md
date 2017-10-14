@@ -139,3 +139,39 @@ $ vi a.log
 出现乱码，非常不爽。目前的解决方案是，借助命令行传入全局参数，来打开或者关闭颜色的输出。
 
 我的另一篇博客里有 Go 对终端颜色的实现,如果感兴趣请移步[这里](https://www.zddhub.com/knowledge/2015/07/23/terminal-color)。
+
+# Bash completion 自动补全
+
+Shell 使用 complete 实现命令补全，用法非常简单，用法示例如下：
+
+```sh
+_dit_complete()
+{
+    local cur_word prev_word
+
+    # COMP_WORDS is an array of words in the current command line.
+    # COMP_CWORD is the index of the current word (the one the cursor is
+    # in). So COMP_WORDS[COMP_CWORD] is the current word; we also record
+    # the previous word here, although this specific script doesn't
+    # use it yet.
+    cur_word="${COMP_WORDS[COMP_CWORD]}"
+    prev_word="${COMP_WORDS[COMP_CWORD-1]}"
+
+    # Ask dit to generate a list of sub commands it supports
+    sub_commands="init add commit cat-file"
+
+    case ${prev_word} in
+        dit)
+            COMPREPLY=( $(compgen -W "${sub_commands}" -- ${cur_word}) )
+            return 0
+            ;;
+        cat-file)
+            COMPREPLY=( $(compgen -W "-p -s -t -h" -- ${cur_word}) )
+            return 0
+            ;;
+    esac
+    return 0
+}
+
+complete -o bashdefault -o nospace -F _dit_complete dit
+```
