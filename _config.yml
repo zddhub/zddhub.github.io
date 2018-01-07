@@ -32,14 +32,3 @@ plugins_dir:
   - jekyll-paginate
 paginate: 5
 paginate_path: "/journal/page:num/"
-
-# # Pagination Settings
-# pagination:
-#   enabled: true
-#   per_page: 5
-#   permalink: '/journal/page/:num/'
-#   title: ':title - page :num of :max'
-#   limit: 0
-#   sort_field: 'date'
-#   sort_reverse: true
-#   indexpage: 'journal'
