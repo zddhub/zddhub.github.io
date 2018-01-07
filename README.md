@@ -34,7 +34,7 @@ My site is separated into three parts:
     ln -s .blogs/about.md about.md
     ln -s .blogs/archive.md archive.md
     ln -s .blogs/index.md index.md
-    ln -s .blogs/assets assets
+    ln -s .blogs/journal.md journal.md
     ln -s .blogs/_config.yml _config.yml
 
     mkdir -p _includes # the symlinked files under `includes` cannot be used.
