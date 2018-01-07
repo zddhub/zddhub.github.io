@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: 文章归档
+title: 博客归档
 ---
 
-# 文章归档
+# 博客归档
