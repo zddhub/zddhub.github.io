@@ -23,7 +23,21 @@ google_analytics:
 
 # Build settings
 markdown: kramdown
-# theme: gravid # If one day github support customize gem theme, will open this line
+theme: gravid # If one day github support customize gem theme, will open this line
 exclude:
   - Gemfile
   - Gemfile.lock
+
+plugins_dir:
+  - jekyll-paginate-v2
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/journal/page/:num/'
+  title: ':title - page :num of :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  indexpage: 'journal'
