@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "独孤九剑(0x05) - 终端篇"
+title: "独孤九剑 Dit (0x05) - 终端篇"
 category: Fun
 tags: "dit git"
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "独孤九剑(0x02) - 数据结构篇"
+title: "独孤九剑 Dit (0x02) - 数据结构篇"
 category: Fun
 tags: "dit git"
 ---
