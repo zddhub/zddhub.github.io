@@ -4,19 +4,19 @@ title: "The legend of white snake"
 journal: '2018年17周'
 ---
 
-Today I will show you a story named The legend of white snake. It's very famous traditional story of China, there are a lot of versions, I will show you the one.
+Today I will show you a story named The legend of white snake. It's very famous traditional story in China, there are a lot of versions, I will show you the one.
 
-In tradition, If one man died, he must drink a soup named MengPoTang that will make him forget everything. And then, He will have a new life. so every one has a lot of previous lifes, but we often cannot remember that.
+In tradition, People think if one man died, he must drink a soup named MengPoTang that will make him forget everything. And then, He will be born again and have a new life. so every one has a lot of previous lifes, but unfortunately we often cannot remember that.
 
 Our story starts from their previous life. A shepherd boy saved one small white snake from a man making a living by catch snake.
 
-1700 years later, the white snake becames beautiful girl. shepherd boy becames handsome boy, and catch snake man becames buddhist monk.
+1700 years later, Shepherd boy becames handsome boy, and catch snake man becames buddhist monk. the small white snake becames huge white snake :), it has magic and becames beautiful girl.
 
-How to talk with a girl? The best way is lend her an umbrella, Xuxian is good at this.
+How to talk with a girl and start new relationship? The best way in China is to lend her an umbrella, Xuxian is good at this.
 
 They fell in love when they met and then get married. After married, they worked as docter and saved a lots of people's life.
 
-They have a happiness life because Xu xian helped White snake skip in previous life, and White snake also wants to repay. But Fahai don't think like this, he want to revenge. So fighting between Fahai and the couple started.
+Why people can fall in love at first glance? It's an easy question in our story, because they have story in their previous life. Xu xian helped White snake skip, and White snake also wants to repay. Live is magical feelings that can kept in thousand yeas, hate is also. Fahai doesn't forget their story, he want to revenge. So fightings between Fahai and the couple is comming.
 
 * Round one: One day, Fahai met Xuxian and told him "Your wife is a snake", But Xuxian said: "No, My wife is a human being!". "Do you dare to drink realgar wine to her?", "Yes". And then, White snake drinks realgar wine and becomes the huge white snake. Xu xian was scared to death. At last, White snake steals ganoderma grass and saved her husband back.
 
