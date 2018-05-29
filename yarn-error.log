@@ -1,0 +1,32 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js self-update
+
+PATH: 
+  /usr/local/mysql/bin/:/usr/local/opt/python/libexec/bin:/usr/local/opt/libxml2/bin:/usr/local/opt/python@2/bin:/Users/ddzhang/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Wireshark.app/Contents/MacOS:.:/Users/ddzhang/Library/Android/sdk/platform-tools:/Users/ddzhang/Tools/Qt5.6.2/5.6/clang_64/bin:/Users/ddzhang/Projects/toy/bin:/Users/ddzhang/Projects/toy/src/github.com/zddhub/dit/bin:/Users/ddzhang/Library/Caches/Homebrew/rea-slip-utils--git/bin:/Users/ddzhang/Projects/rea/deploy
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.1.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "/Users/ddzhang/Projects/toy/src/github.com/zddhub/zddhub.github.io"
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
+      at <anonymous>
