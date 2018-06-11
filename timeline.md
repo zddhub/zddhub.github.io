@@ -3,7 +3,8 @@ layout: page
 title: Timeline
 ---
 
-- June  7, 2017: Develop a Gem-based Jekyll theme [gravid](https://github.com/zddhub/gravid){:target="_blank"}.
+- June 8, 2018: Business travel on Melbourne.
+- June 7, 2017: Develop a Gem-based Jekyll theme [gravid](https://github.com/zddhub/gravid){:target="_blank"}.
 - June 27, 2016: Start my second job.
 - June 24, 2016: Quit Intel for family.
 - Sep  16, 2015: Redesign daniu.io for link collection.
