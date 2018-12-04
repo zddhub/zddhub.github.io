@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Rails、mysql 异常"
+title: "Rails 使用 mysql2 出现的段错误"
 category: Mics
-tags: "Rails mysql2"
+tags: "Rails mysql2 segmentation fault"
 ---
 
 这两周做了一个 `rails` 项目，有重新认识 `rails` 之感，接着重新认识了一下自己。把其中一个有意思的 bug 拿出来分析一下。
@@ -46,6 +46,6 @@ c:0039 p:0104 s:0192 e:000191 METHOD /Users/zddhub/.rbenv/versions/2.5.1/lib/rub
 
 ![mysql bin](/assets/images/2018-11-22/mysql_command.jpg)
 
-详细的 log 在[这里](/assets/images/2018-11-22/mysql2_bug.log)。
+详细的 log 在[这里](https://raw.githubusercontent.com/zddhub/zddhub.github.io/b05e2dc384566be711c1260c050be91e0719ebee/assets/images/2018-11-22/mysql2_%20bug.log)。
 
 解决这个问题并不难，难得是解决这个问题的思路。认真看 log， 主要是真正思考。
