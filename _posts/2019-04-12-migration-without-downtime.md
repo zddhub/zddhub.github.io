@@ -5,28 +5,28 @@ category: Memo
 tags: "migration without downtime, rails, PostgreSQL"
 ---
 
-已上线服务若停机，轻则影响使用者的心情，重则会造成无法估计的损失。试想如果淘宝停机五分钟，那会损失多少真金白银。但数据库表结构却不可能在一开始就设计的十分完美，需要不断迁移，不断迭代。本文尝试分析数据库迁移时可能造成停机的原因，并以 Rails + PostgreSQL 为例，提出不停机的数据库迁移方案 (Zero downtime migrations)。
+已上线服务若停机，轻则影响使用者的心情，重则会造成无法估计的损失。试想如果淘宝停机五分钟，那会损失多少真金白银。但数据库表结构却不可能在一开始就设计的十分完美，需要不断迁移，不断迭代。本文尝试分析数据库迁移时可能造成的停机原因，并以 Rails + PostgreSQL 为例，提出不停机的数据库迁移方案 (Zero downtime migrations)。
 
 <!-- more -->
 
 ### 为什么会停机？
 
-在做数据库迁移时，为什么会造成停机？总的来说有两种原因：
+在做数据库迁移时，为什么会造成停机？总的来说有两个原因：
 
 * 应用程序代码不能同时兼容迁移前/后的数据库
 * 迁移导致数据库锁表
 
-分别来看一下如何避免这两种情况的发生。
+分别来看一下如何避免这两种情况的发生：
 
 ### 代码不兼容迁移前后的数据库
 
-如果不停机，在迁移脚本运行后，新应用程序部署成功前，有一段时间，当前代码要运行在新数据库表结构上，如果不做向后兼容，会因为表结构不匹配而导致应用程序挂掉。解决这种问题的方法很简单，只要记住这句话：**代码需要能同时运行在迁移前/后的数据库上**。通常分以下三步走，来保证这一点：
+如果不停机，在迁移脚本运行后，新应用程序部署成功前，有一段时间，当前代码要运行在新数据库表结构上，如果不做向前兼容，会因为表结构不匹配而导致应用程序挂掉。解决这种问题的方法很简单，只要记住这句话：**代码需要能同时运行在迁移前/后的数据库上**。通常分以下三步走，来保证这一点：
 
 1. 修改代码，保证代码能兼容迁移后的数据库
 2. 运行迁移脚本
 3. 删除兼容的代码，保证只运行在新数据库上
 
-举个例子来说明一下这个问题：
+举个例子来说明这个问题：
 
 #### 从表中删除一列
 
@@ -40,16 +40,15 @@ class RemoveStatusFromUsers < ActiveRecord::Migration
 end
 ```
 
-可以保证一点，代码中没有明确使用 `status` 列，也不是其它表的外键。乍一看是非常安全的，单从数据库方面考虑，删除这样一列是安全的。但若访问你的应用，会抛出如下异常：
+可以保证一点，`status` 列没有被使用，也不是其它表的外键。乍一看是非常安全的，单从数据库方面考虑，删除列是安全的。但若访问应用，会得到如下异常：
 
 ```rb
 PGError: ERROR: column "status" does not exist
 ```
 
-原因是 `ActiveRecord` 会提前读取并缓存表的所有列，当你删除 `status`列后，新数据保存时就找不到 `status` 列。解决方法当然很简单，像上面一样分三步走：
+原因是 `ActiveRecord` 会提前读取并缓存表的所有列，当你删除 `status` 后，新数据保存时在数据库中找不到 `status` 列。解决方法当然很简单，像上面一样分三步走：
 
-1. 兼容迁移后的数据库，可通过忽略 `status` 字段来实现。
-
+a. 兼容迁移后的数据库，可通过忽略 `status` 字段来实现。
 ```rb
 # For Rails 5+
 class User < ApplicationRecord
@@ -64,8 +63,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-2. 运行迁移脚本
-
+b. 运行迁移脚本
 ```rb
 class RemoveStatusFromUsers < ActiveRecord::Migration
   def change
@@ -74,8 +72,7 @@ class RemoveStatusFromUsers < ActiveRecord::Migration
 end
 ```
 
-3. 删除兼容的代码
-
+c. 删除兼容的代码
 ```rb
 class User < ActiveRecord::Base
 end
@@ -91,7 +88,7 @@ end
 - 表的操作：增/删/重命名表
 - 列的操作：增/删/重命名列，更改类型，添加引用/索引/限制等
 
-下表中总结了 19 中常见的数据库迁移操作：
+下表总结了 19 中常见的数据库迁移操作：
 
 ![migration actions](/assets/images/2019-04-12/migration-scenarios.png)
 
@@ -106,7 +103,7 @@ end
 * 添加/重命名索引
 * 添加外键/限制
 
-针对这几个问题，我们来看一下：
+针对这几种情况，我们逐一解决：
 
 #### 添加一列，默认值不为空
 
@@ -124,7 +121,7 @@ end
 
 *推荐的做法*
 
-不停机的做法是，先添加一列，不要默认值，再设置默认值，能避免锁表。
+先添加一列，不要默认值，再设置默认值，能避免锁表。
 
 ```rb
 class AddSomeColumnToUsers < ActiveRecord::Migration[5.2]
@@ -139,7 +136,7 @@ class AddSomeColumnToUsers < ActiveRecord::Migration[5.2]
 end
 ```
 
-这样设置的默认值只会对新数据有效，如果数据库中已存在没有默认值的行，需要另起一个迁移脚本，写默认值到旧数据中，写数据操作不要和设置默认值的操作放在一个文件。确保写数据操作不要处于同一个事务中，在 rails 中，可用 `disable_ddl_transaction!` 来实现，如下所示：
+这样设置的默认值只会对新数据有效，如果数据库中已存在没有默认值的行，需要另起一个迁移脚本，写默认值到旧数据中，写操作不要和设置默认值的操作放在一个文件。确保这种写操作不要处于事务中，在 Rails 中，可用 `disable_ddl_transaction!` 来实现，如下所示：
 
 ```rb
 class BackfillSomeColumn < ActiveRecord::Migration[5.2]
@@ -297,8 +294,7 @@ end
 
 重命名表可以用类似改变列类型的思路来实现。在 Postgres 这种关系型数据库中，有视图的概念，视图是构建在表之上的逻辑结构。幸运的是，插入或者删除视图时，会同时更新底层的表。用视图可以简化重命名表的操作。
 
-1. 创建视图
-
+a. 创建视图
 ```rb
 class CreateAuthorsView < ActiveRecord::Migration[5.2]
   def up
@@ -311,8 +307,7 @@ class CreateAuthorsView < ActiveRecord::Migration[5.2]
 end
 ```
 
-2. 修改代码，使用新名称 `authors` 代替 `persons`
-
+b. 修改代码，使用新名称 `authors` 代替 `persons`
 ```rb
   + AuthorModel
   + AuthorController
@@ -322,8 +317,7 @@ end
   - PersonService
 ```
 
-3. 重命名表名，并删掉旧视图
-
+c. 重命名表名，并删掉旧视图
 ```rb
 class RenameTable < ActiveRecord::Migration[5.2]
   def up
@@ -343,7 +337,7 @@ end
 
 ### 不停机迁移不是银弹
 
-正如上文所示，要保证应用不停机，要想清楚迁移后的数据库结构，需要修改代码做兼容，并按照严格的顺序部署应用，执行迁移脚本。如果数据库表结构变化比较大，这种工作会变得繁重并容易出错，在这种情况下，也许停机发布是一个不错的选择。Airbnb 就曾有过停机发布的[做法](https://medium.com/airbnb-engineering/how-we-partitioned-airbnb-s-main-database-in-two-weeks-55f7e006ff21 )
+正如上文所示，要保证应用不停机，要想清楚迁移后的数据库结构，需要修改代码做兼容，并按照严格的顺序部署应用，执行迁移脚本。如果数据库表结构变化比较大，这种工作会变得繁重并容易出错，在这种情况下，也许停机发布是一个不错的选择。Airbnb 就曾有过停机发布的[做法](https://medium.com/airbnb-engineering/how-we-partitioned-airbnb-s-main-database-in-two-weeks-55f7e006ff21)。
 
 停机发布需要注意以下几点：
 
@@ -360,6 +354,6 @@ end
 - [Zero downtime migrations](https://github.com/LendingHome/zero_downtime_migrations)
 - [Paper: Zero-Downtime SQL Database Schema Evolution for Continuous Deployment](https://repository.tudelft.nl/islandora/object/uuid:af89f8ba-fc34-4084-b479-154be397718f/datastream/OBJ/download)
 - [Renaming tables with zero downtime](http://itbrokeand.ifixit.com/2015/08/13/renaming-tables-with-zero-downtime.html)
-- [zero downtime with activerecord](https://medium.com/klaxit-techblog/zero-downtime-migrations-with-activerecord-47528abe5136)
+- [Zero downtime with activerecord](https://medium.com/klaxit-techblog/zero-downtime-migrations-with-activerecord-47528abe5136)
 
 
