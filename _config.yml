@@ -22,11 +22,13 @@ google_analytics:
   tracking_id: "UA-48441839-1"
 
 # Build settings
-markdown: kramdown
+# markdown: kramdown
 # theme: gravid # If one day github support customize gem theme, will open this line
 exclude:
   - Gemfile
   - Gemfile.lock
+  - .blogs
+  - .gravid
 
 plugins_dir:
   - jekyll-paginate
