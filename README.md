@@ -41,6 +41,7 @@ My site is separated into three parts:
     ln -s .gravid/_layouts _layouts
     ln -s .gravid/_sass _sass
     ln -s .gravid/404.html 404.html
+    ln -s .gravid/ads.txt ads.txt
 ```
 
 

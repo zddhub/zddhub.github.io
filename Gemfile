@@ -10,9 +10,9 @@ ruby RUBY_VERSION
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-gem "jekyll", "3.4.3"
+gem "jekyll", "~> 4.0"
 
-gem "gravid", "~>0.1.13"
+gem 'gravid', '~> 1.0'
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
