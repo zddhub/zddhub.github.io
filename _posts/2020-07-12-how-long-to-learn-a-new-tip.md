@@ -5,11 +5,11 @@ category: Mics
 tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 ---
 
-> 还记得最近学会的新技巧，一共花了多久吗？这里记录了我学习 `VS Code` 设置语言命令（`VS Code Change language mode`）的路线图，总共花了 5 个小时。
+> 还记得最近学会的新技巧，一共花了多久吗？这里记录了我学习 `VS Code` 设置语言命令（`Change language mode`）的路线图，总共花了 5 个小时。
 
 <!-- more -->
 
-### 问题发生的背景
+### 背景
 
 在大公司待过的人一定非常能理解，跟日志打交道的时间远远大于写代码的时间。很长的一段时间里，我都是在 Jira 和 log 里度过的。因为经常要从日志里复制出一段 json，通过它来找到程序的 bug。但不便利的是，日志里的 json 是没有格式化的，如果想格式化（我用 `VS Code`），必须做以下几步：
 
@@ -28,7 +28,7 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 新建一个标签 -> 复制内容到新标签 -> 格式化 -> 用完后关闭标签
 ```
 
-首先去掉保存文件的步骤，其次，关闭标签比删除文件个人觉得省力不少。那么，我们要解决的问题是，如何在不保存文件的情况下，格式化它呢？
+首先不保存文件，其次，关闭标签比删除文件更轻量。那么，我们要解决的问题是，`VS Code` 如何在不保存文件的情况下，格式化代码呢？
 
 ### 现实很骨感
 
@@ -38,15 +38,15 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 
 ### 解决方案
 
-- 1. 寻找插件
+- 寻找插件
 
-按照 `VS Code` 的提示，最便捷的方案就是寻找并安装插件了。如果能有人遇到同样的问题，并且解决了的话, 那最简单的招数就是，找到它，然后安装。
+按照 `VS Code` 的提示，最便捷的方案就是寻找并安装插件了。如果已经有人遇到了相同的痛点并且解决了, 那就找到它，然后安装。
 
-一番寻觅，也安装了若干插件，结果都没能解决我的问题。我想，没有人有像我这么变态的需求吧。
+一番寻觅，也安装了若干插件，结果都没能解决我的问题。我想，没有人会有像我这么变态的需求。
 
-- 2. 开发一款自己的插件
+- 开发一款自己的插件
 
-在**静默了一周**之后，我终于忍不了了。像这种问题，如果你没觉得它是个问题，大可创建一个 `json` 文件，专门用来格式化 json，如果一但觉得是个问题，在使用时就会一遍遍的抗拒，直到非解决不可为止。
+在**静默了一周**之后，我终于忍不了了。像这种问题，如果你没觉得它是个问题，完全可以创建一个 json 文件，专门用来格式化 json，如果一但觉得是个问题，在使用时就会一遍遍的抗拒，直到非解决不可为止。
 
 自己开发一个格式化的插件有技术含量吗？`VS Code` 已经有强大的 `Format Document` 了，按照它运行的流程可以想见，`Format Document` 先通过文件后缀名判断语言，然后根据特定语言进行格式化操作。那么我们要做的只是把判断语言的操作给替换掉就可以了。`VS Code` 是开源的，格式化的代码应该也能找见。我理想的命令是这样的 `Format JSON` 格式化 json，`Format JavaScript` 格式化 `JavaScript`, ...。难度不大，但有用。说干就干。
 
@@ -66,7 +66,7 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 
 至此，我的问题解决了，整个人都舒服多了。
 
-- 3. 遇到新命令
+- 遇到新命令
 
 从写代码到发布，大概用了**一个小时**，之后完善了一下 Readme，又读了读文档，发现有一篇文章写的很不错，名字叫 [Creating a Formatter Extension](https://code.visualstudio.com/blogs/2016/11/15/formatters-best-practices)，里面讲到一些开发 Format 类插件的最佳实践，其中最重要的一条就是，使用 `Format Document` 和 `Format Selection` 这样通用的命令，尤其应该避免使用像 `Format Foo File.` 这种名字，我就是个反例呀。
 
