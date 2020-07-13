@@ -25,6 +25,7 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 为什么要保存立马要删除的文件呢？我理想的流程应该像下面这样子：
 
 ```
+理想的步骤：
 新建一个标签 -> 复制内容到新标签 -> 格式化 -> 用完后关闭标签
 ```
 
@@ -50,7 +51,7 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 
 自己开发一个格式化的插件有技术含量吗？`VS Code` 已经有强大的 `Format Document` 了，按照它运行的流程可以想见，`Format Document` 先通过文件后缀名判断语言，然后根据特定语言进行格式化操作。那么我们要做的只是把判断语言的操作给替换掉就可以了。`VS Code` 是开源的，格式化的代码应该也能找见。我理想的命令是这样的 `Format JSON` 格式化 json，`Format JavaScript` 格式化 `JavaScript`, ...。难度不大，但有用。说干就干。
 
-因为是第一次开发 `VS Code` 插件，照着[官网](https://code.visualstudio.com/api/get-started/your-first-extension)先来了个 Hello World，大概学了一下 `VS Code` 的基本概念和目录结构，大概花了**20分钟**。
+因为是第一次开发 `VS Code` 插件，照着[官网](https://code.visualstudio.com/api/get-started/your-first-extension)先来了个 Hello World，大概学了一下 `VS Code` 的基本概念和目录结构，大概花了**二十分钟**。
 
 学完 Hello World，命令和架子都打好了，现在需要的就是填入格式化代码了，搜了一下 `VS Code` 源码，看了 [`FormatDocumentAction`](https://github.com/microsoft/vscode/blob/846aec810ede01f4c262cbffe59a7ac7e33c5b4b/src/vs/editor/contrib/format/formatActions.ts#L209) 的实现，确实有些复杂，直接调用的可能性不大，如果复制一份到插件里，`VS Code` 的更新不能及时同步到插件，头大。
 
@@ -58,7 +59,7 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 
 现在的问题是如何把语言的信息告诉 `VS Code`，又继续搜了一下 API，找到了一个只读属性，`languageId`, 文档是这样描述的 `The identifier of the language associated with this document`。赶紧试了一下，Untitled 文件输出的 `languageId=plaintext`, JSON 文件的 `languageId=json`。是它，真的是它。一分钟后我就找到了设置它的方法 `setTextDocumentLanguage`。到此为止，我的七巧板凑齐了。这个过程大概花了**十分钟**。
 
-接下来就简单了，把七巧板组装一下，一个私人定制的 `VS Code` 插件就出来了。源码在[这里](https://github.com/zddhub/format-code)，有兴趣的同学可以去看看。为了能在公司的电脑上使用，我当然是选择发布在 [Marketplace](https://marketplace.visualstudio.com/items?itemName=zddhub.format-code) 上了,可以去[下载](https://marketplace.visualstudio.com/items?itemName=zddhub.format-code)，或者在插件里搜索 `format-code` 找到它。发布的过程很顺滑，官方文档写的真是相当好呀。
+接下来就简单了，把七巧板组装一下，一个私人定制的 `VS Code` 插件就出来了。源码在[这里](https://github.com/zddhub/format-code)，有兴趣的同学可以去看看。为了能在公司的电脑上使用，我当然是选择发布在 [Marketplace](https://marketplace.visualstudio.com/items?itemName=zddhub.format-code) 上了,可以去[下载](https://marketplace.visualstudio.com/items?itemName=zddhub.format-code)，或者在插件里搜索 **`format-code`** 找到它。发布的过程很顺滑，官方文档写的真是相当好呀。
 
 其实可以支持更多的语言，但是懒人如我，只支持了自己常用的几种，在命令面板输入 `Format JSON` 就可以格式化 JSON 文件了。
 
@@ -89,3 +90,5 @@ tags: "VS Code; VS Code extensions; Change language mode; Format Document"
 - 使用原生命令: `CMD+SHIFT+P -> Change language mode -> 输入JSON选择语言 -> 输入 Format Document -> 格式化完成`
 
 流程上，插件还是短了一截的，我是一定会用的，你呢？
+
+学习这个技巧花费的时间：实现 2.5 小时 + 2.5 小时写这篇文章。
