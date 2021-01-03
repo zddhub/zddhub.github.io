@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "改变一个得多久"
+title: "改变一个人得多久"
 journal: '2019年09周'
 ---
 
