@@ -63,5 +63,5 @@ func main() {
 }
 ```
 
-* 上一篇: [Go语法简略 － 方法和接口]({% post_url 2015-06-23-go-interface %})
-* 下一篇: [Go语法简略 － 面向对象]({% post_url 2015-06-29-go-orient-object %})
+* 上一篇: [Go语法简略 － 方法和接口]({% post_url 2015/2015-06-23-go-interface %})
+* 下一篇: [Go语法简略 － 面向对象]({% post_url 2015/2015-06-29-go-orient-object %})

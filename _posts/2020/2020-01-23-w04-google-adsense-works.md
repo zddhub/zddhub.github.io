@@ -4,7 +4,7 @@ title: "Google AdSense 工作啦"
 journal: '2020年04周'
 ---
 
-上周末又一次申请了 Google AdSense，起初是失败的。失败后发了一篇[关于 Google AdSense 的博客]({% post_url 2020-01-18-w03-google-adsense %})吐槽了一下后，再次申请，竟然被通过了。如果你最近访问我的博客，应该可以看到广告。
+上周末又一次申请了 Google AdSense，起初是失败的。失败后发了一篇[关于 Google AdSense 的博客]({% post_url 2020/2020-01-18-w03-google-adsense %})吐槽了一下后，再次申请，竟然被通过了。如果你最近访问我的博客，应该可以看到广告。
 
 <!-- more -->
 

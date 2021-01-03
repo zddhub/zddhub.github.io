@@ -191,5 +191,5 @@ type Image interface {
 }
 ```
 
-* 上一篇: [Go语法简略 － 基础篇]({% post_url 2015-06-22-go %})
-* 下一篇: [Go语法简略 － goroutine]({% post_url 2015-06-23-goroutine %})
+* 上一篇: [Go语法简略 － 基础篇]({% post_url 2015/2015-06-22-go %})
+* 下一篇: [Go语法简略 － goroutine]({% post_url 2015/2015-06-23-goroutine %})

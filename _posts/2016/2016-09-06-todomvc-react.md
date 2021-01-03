@@ -42,7 +42,7 @@ JavaScript (js) 是前端工程师绕不过的编程语言，非常灵活，目�
 
 * 回顾一下 UI
 
-在 [前端手记 TodoMVC 之 CSS 篇]({% post_url 2016-08-27-todomvc-css %}) 我们按步骤实现了 TodoMVC 的前端 UI，如下图所示：
+在 [前端手记 TodoMVC 之 CSS 篇]({% post_url 2016/2016-08-27-todomvc-css %}) 我们按步骤实现了 TodoMVC 的前端 UI，如下图所示：
 
 ![todomvc new-todo css position](/assets/images/2016-09-04/d3d6da9aee6cc74cff3d5feda1577bde87467b58.png)
 

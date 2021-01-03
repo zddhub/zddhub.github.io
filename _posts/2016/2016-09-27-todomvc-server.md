@@ -5,11 +5,11 @@ category: Memo
 tags: "TodoMVC 前端手记"
 ---
 
-在上一篇 [前端手记 TodoMVC 之 React 篇]({% post_url 2016-09-06-todomvc-react %}) 中实现了单页应用 TodoMVC，直接把数据存在前端，当刷新或者重新打开网站时，所有数据都会丢失。虽然对于 TodoMVC 这种应用，把数据缓存在前端是一个不错的选择，但以练习为目的，我还是打算特意为之，实现一个简单的 Server，提供 RESTful API，把 TodoMVC 相关的数据存储在后台。
+在上一篇 [前端手记 TodoMVC 之 React 篇]({% post_url 2016/2016-09-06-todomvc-react %}) 中实现了单页应用 TodoMVC，直接把数据存在前端，当刷新或者重新打开网站时，所有数据都会丢失。虽然对于 TodoMVC 这种应用，把数据缓存在前端是一个不错的选择，但以练习为目的，我还是打算特意为之，实现一个简单的 Server，提供 RESTful API，把 TodoMVC 相关的数据存储在后台。
 
 <!-- more -->
 
-为了 focus 在前端，这里用一个比较重的 web 框架 [sails](http://sailsjs.org/) 来实现服务器端，并且尽量忽略实现细节。并根据实现的 RESTful API 来更新 [前端手记 TodoMVC 之 React 篇]({% post_url 2016-09-06-todomvc-react %}) 中的数据来源。
+为了 focus 在前端，这里用一个比较重的 web 框架 [sails](http://sailsjs.org/) 来实现服务器端，并且尽量忽略实现细节。并根据实现的 RESTful API 来更新 [前端手记 TodoMVC 之 React 篇]({% post_url 2016/2016-09-06-todomvc-react %}) 中的数据来源。
 
 
 ### RESTful API
@@ -107,7 +107,7 @@ TodoMVC 只实现一个 API
 
 ### TodoMVC with Server
 
-替换在上一篇 [前端手记 TodoMVC 之 React 篇]({% post_url 2016-09-06-todomvc-react %}) 中实现的 TodoMVC Demo 的数据来源。使用 AJAX (Asynchronous Javascript and XML) 从 API 服务器请求数据，设置到 state 上触发 React 重绘。
+替换在上一篇 [前端手记 TodoMVC 之 React 篇]({% post_url 2016/2016-09-06-todomvc-react %}) 中实现的 TodoMVC Demo 的数据来源。使用 AJAX (Asynchronous Javascript and XML) 从 API 服务器请求数据，设置到 state 上触发 React 重绘。
 
 数据从 API 获取之后，通过 props 层层传递到各个子 compoent。只修改了 `TodoApp` 这个顶级 component， 其它负责展示的 componnet 保持不变。 这种单向的数据传递方式，使得事情变得非常简单。
 
