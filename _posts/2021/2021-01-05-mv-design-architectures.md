@@ -85,7 +85,7 @@ Model-View-ViewModel (MVVM) 首次出现在微软的 WPF 和 Silverlight 项目�
 
 ![MVVM diagram][MVVM]
 
-如图所示，MVVM 和 Cocoa MVC 的实现非常接近，不用之处在于：Cocoa MVC 版本中的 View Controller 除了负责业务逻辑外，还负责创建 UI，和 View 的耦合更紧密。而 MVVM 中的 ViewModel 不创建任何 UI，只封装与 UI 相关的状态。ViewModel 相比于 ViewController 更加轻量。
+如图所示，MVVM 和 Cocoa MVC 的实现非常接近，不同之处在于：Cocoa MVC 版本中的 View Controller 除了负责业务逻辑外，还负责创建 UI，和 View 的耦合更紧密。而 MVVM 中的 ViewModel 不创建任何 UI，只封装与 UI 相关的状态。ViewModel 相比于 ViewController 更加轻量。
 
 MVVM 会利用绑定技术，View 变化时，ViewModel 会自动变化，反之亦然。所以，MVVM 模式又被称作：[model-view-binder 模式][model-view-binder]。
 
@@ -112,7 +112,7 @@ MVVM 会利用绑定技术，View 变化时，ViewModel 会自动变化，反之
 |:---------|:--|:--|
 |Controller| 操作数据并控制 View | 在 MV 中占主导地位，同时控制 MV |
 |Presenter | 负责响应 View 的行为 | 连接 Model 和 View |
-|ViewModel | 负责 View 的状态 并响应 View 的行为 | 和 View 强绑定 |
+|ViewModel | 负责 View 的状态 并响应 View 的行为 | 和 View 强(弱)绑定 |
 
 在实际使用时，并不单一使用某一种架构。也不只分成三层，可以构建 Service，Storage，NetworkRequest 等多层。
 
