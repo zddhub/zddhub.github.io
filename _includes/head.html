@@ -1,4 +1,5 @@
 <head>
+  {% if site.google_analytics.enable %} {% include google-analytics.html %} {% endif %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +40,5 @@
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-  <script async src="//www.google-analytics.com/analytics.js"></script>
   <script data-ad-client="ca-pub-1326478359331739" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
