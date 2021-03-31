@@ -7,12 +7,14 @@ tags: "Swift; SwiftUI; MVVM; Combine; Notes; IOS"
 
 2021 年才做 IOS 应用开发，你觉得晚了吗？我认为时间刚刚好。Swift [发布][Swift] (2014 年) 才不到 10 年, [ABI][ABI_Stability_and_More] 稳定还不到两年。[SwiftUI][SwiftUI] 也不到两年，势头正浓。Swift 的成熟让新人彻底抛弃 Objective-C 的历史包袱。再考虑到苹果努力打通各个平台的雄心壮志，未来无限可能，绝对值得投资。
 
-本文带你从 0 到 1 开发一款类 Notes 应用，并使用 [MVVM 模式][MV_Design_Architectures]构建程序。为了更好的理解本文的内容，强烈建议先自学以下内容：
+本文带你从 0 到 1 开发一款类 Notes 应用，并使用 [MVVM 模式][MV_Design_Architectures]构建程序。
+
+<!-- more -->
+
+为了更好的理解本文的内容，强烈建议先自学以下内容：
 
 - [SwiftUI Tutorials][SwiftUI], 练习并使用 SwiftUI 实现 Landmark 程序
 - [Combine][Combine]
-
-<!-- more -->
 
 ### 目标
 
