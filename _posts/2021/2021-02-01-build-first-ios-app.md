@@ -23,13 +23,12 @@ tags: "Swift; SwiftUI; MVVM; Combine; Notes; IOS"
 该版本支持的功能：
 - 文件夹列表：列出所有文件夹，支持新增文件夹
 - 查看文件夹中的 Notes 列表
-- 查看 Notes 内容
 
 ### 步骤
 
 `程序 = 算法 + 数据结构`。对于 Notes 这类应用来说，还用不上什么算法，主要的就是数据结构，想清楚应用的需求后，我一般分三步走来实现一个程序：
 1. 定义数据结构
-2. 画出界面
+2. 画界面
 3. 响应交互和逻辑
 
 这三步走完后，MVP 就有了，接下来进一步迭代，最终完成程序。
@@ -160,6 +159,106 @@ Input 具体实现成枚举型，表示不同的行为，通过触发不同的�
 
 ### 2. 画界面
 
+`NoteListView` 持有一个 `NoteListState`，包含绘制 Note List 的所有数据。
+
+```Swift
+struct NoteListView: View {
+    @ObservedObject
+    var viewModel: AnyViewModel<NoteListState, NoteListInput>
+
+    var body: some View {
+        List(viewModel.state.notes) { note in
+            NavigationLink(destination: NoteDetailView(service: viewModel.state.service, note: note).navigationBarTitleDisplayMode(.inline)) {
+                NoteRowView(note: note)
+            }
+        }
+        .navigationBarTitle(viewModel.state.folder.name)
+    }
+
+    init(service: NoteService, folder: Folder) {
+        self.viewModel = AnyViewModel(NoteListViewModel(service: service, folder: folder))
+    }
+}
+```
+
+每一个 Item 都是一个 `NoteRowView`, 具体包含 Note 的 title，更新时间和摘要。
+
+```Swift
+struct NoteRowState {
+    var note: Note
+    var updatedAtString: String
+}
+
+struct NoteRowView: View {
+    @ObservedObject
+    var viewModel: AnyViewModel<NoteRowState, Never>
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(viewModel.state.note.title).font(.headline)
+            HStack {
+                Text(viewModel.state.updatedAtString)
+                Text(viewModel.state.note.content).font(.subheadline).lineLimit(1)
+            }
+        }
+    }
+
+    init(note: Note) {
+        self.viewModel = AnyViewModel(NoteRowViewModel(note: note))
+    }
+}
+```
+
+### 3. 响应交互和逻辑
+
+逻辑代码放在对应的 ViewModel 里面，SwiftUI 接受到用户事件后，trigger 一个 Input 给 ViewModel，ViewModel 处理具体的业务。例如 `NoteListView` 在 onAppear 方法里 reload 数据：
+
+```Swift
+enum NoteListInput {
+    case reload
+}
+
+struct NoteListView: View {
+    @ObservedObject
+    var viewModel: AnyViewModel<NoteListState, NoteListInput>
+
+    var body: some View {
+        List(...)
+        .navigationBarTitle(viewModel.state.folder.name)
+        .onAppear {
+            self.reload()
+        }
+    }
+}
+
+private extension NoteListView {
+    func reload() {
+        viewModel.trigger(.reload)
+    }
+}
+```
+
+View 把 reload 事件转发给 viewModel，viewModel 根据事件类型，从 service 中获取 Note List，并更新 state。
+
+```Swift
+class NoteListViewModel: ViewModel {
+    @Published var state: NoteListState
+    func trigger(_ input: NoteListInput) {
+        switch input {
+        case .reload:
+            self.state.notes = state.service.noteList(folderId: state.folder.id)
+        }
+    }
+}
+```
+
+这样，一个 NoteList 页面就做好了。
+
+### 写在最后
+
+看到这里，一个简单的 Note List 页面就做好了。本文给出的代码只展示了关键部分，对于细节，请大家自行实现。
+
+项目代码在[这里](https://github.com/zddhub/notes)，将择时机开源。没开源前如果对源码感兴趣，欢迎[邮件](mailto:zddhub@gmail.com) 索要。
 
 ### 参考资料
 - [SwiftUI Architectures](https://github.com/quickbirdstudios/SwiftUI-Architectures)
