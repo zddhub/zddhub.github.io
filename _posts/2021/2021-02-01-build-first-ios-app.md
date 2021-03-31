@@ -41,7 +41,7 @@ tags: "Swift; SwiftUI; MVVM; Combine; Notes; IOS"
 
 - Folder - 存储目录
 
-```Swift
+```swift
 struct Folder: Identifiable {
     var id: UUID = UUID()
     var name: String
@@ -52,7 +52,7 @@ struct Folder: Identifiable {
 
 - Note - 存储记事本
 
-```Swift
+```swift
 struct Note: Identifiable {
     var id: UUID = UUID()
     var title: String
@@ -66,7 +66,7 @@ struct Note: Identifiable {
 
 为了方便对 Model 的操作，这里提供一个 `NoteService` 协议，用来封装对 Model 的 CRUD。其定义如下：
 
-```Swift
+```swift
 protocol NoteService {
     func folderList() -> [Folder]
 
@@ -82,7 +82,7 @@ protocol NoteService {
 
 为了快速实现原型，第一版使用一个 `MockNoteService` 来实现这个协议：
 
-```Swift
+```swift
 class MockNoteService: NoteService {
     func folderList() -> [Folder] {
         return folders
@@ -147,7 +147,7 @@ class MockNoteService: NoteService {
 
 因此，实现一个 ViewModel 协议，View 持有遵循该协议的 ViewModel 类。ViewModel 类封装了 View 的状态和行为，state 只实现了 get 方法，在外部不可写。如下所示：
 
-```Swift
+```swift
 protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == Void {
     associatedtype State
     associatedtype Input
@@ -163,7 +163,7 @@ Input 具体实现成枚举型，表示不同的行为，通过触发不同的�
 
 `NoteListView` 持有一个 `NoteListState`，包含绘制 Note List 的所有数据。
 
-```Swift
+```swift
 struct NoteListView: View {
     @ObservedObject
     var viewModel: AnyViewModel<NoteListState, NoteListInput>
@@ -185,7 +185,7 @@ struct NoteListView: View {
 
 每一个 Item 都是一个 `NoteRowView`, 具体包含 Note 的 title，更新时间和摘要。
 
-```Swift
+```swift
 struct NoteRowState {
     var note: Note
     var updatedAtString: String
@@ -215,7 +215,7 @@ struct NoteRowView: View {
 
 逻辑代码放在对应的 ViewModel 里面，SwiftUI 接受到用户事件后，trigger 一个 Input 给 ViewModel，ViewModel 处理具体的业务。例如 `NoteListView` 在 onAppear 方法里 reload 数据：
 
-```Swift
+```swift
 enum NoteListInput {
     case reload
 }
@@ -242,7 +242,7 @@ private extension NoteListView {
 
 View 把 reload 事件转发给 viewModel，viewModel 根据事件类型，从 service 中获取 Note List，并更新 state。
 
-```Swift
+```swift
 class NoteListViewModel: ViewModel {
     @Published var state: NoteListState
     func trigger(_ input: NoteListInput) {
