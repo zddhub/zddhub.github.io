@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "卸载 Sophos"
-journal: '2021年19周'
+journal: '2021年20周'
 ---
 
 当新系统 macOS Big Sir `version 11.3.1 (20E241)` + Sophos `version 10.0.4`, 遇上  Charles (`v4.6.1`), 不出两分钟，操作系统直接关闭，连黑屏的机会都没有。
