@@ -41,4 +41,4 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/avatar.jpg
+      image: /assets/avatar_40.jpg
