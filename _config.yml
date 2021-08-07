@@ -30,7 +30,15 @@ exclude:
   - .blogs
   - .gravid
 
-plugins_dir:
+plugins:
+  - jekyll-seo-tag
   - jekyll-paginate
+
 paginate: 5
 paginate_path: "/journal/page:num/"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/avatar.png
