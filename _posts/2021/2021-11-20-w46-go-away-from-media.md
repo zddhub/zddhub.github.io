@@ -6,8 +6,8 @@ journal: '2021年46周'
 
 这一周，我很忙。但平均每天用手机 6 小时 20 分钟，上一周平均每天用手机 7 小时 51 分钟。我大部分时间都用在了腾讯视频，王者荣耀，抖音，微信和微博上，这些时间浪费真的是太可惜了。
 
-[screen-time-ww46](/assets/images/2021-11-20/screen-time-ww46.png)
-[screen-time-ww45](/assets/images/2021-11-20/screen-time-ww45.png)
+![screen-time-ww46](/assets/images/2021-11-20/screen-time-ww46.png)
+![screen-time-ww45](/assets/images/2021-11-20/screen-time-ww45.png)
 
 最近有些时候感觉很累，但是也睡不着，又不想做东西而一再被拖延。一直自责于自己自律能力太差，而最近读书了解到这根本不是自律的问题，这是**典型的精力透支现象**。当精力不济却还想不停给自己打鸡血，对抗这种趋势，拖延就会跳出来提醒你了。这是身体的自我保护机制，后知后觉呀。
 
