@@ -20,4 +20,4 @@ journal: '2021年48周'
 
 怎么会有这么多时间玩积木呢？当时是从看手机省下的。这周总共使用手机 16 小时，相比上一周减少 20%（其中，开车使用百度地图 3 小时，流利说英语 5 小时），这么一算，上周一共使用手机玩乐 8 小时。
 
-![screen-time-ww48](/assets/images/2021-12-04/screen-time-ww48.jpg)
+![screen-time-ww48](/assets/images/2021-12-04/screen-time-ww48.png)
