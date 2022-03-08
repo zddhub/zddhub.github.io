@@ -18,3 +18,5 @@ title: 经常访问的链接
 * [创造狮](http://chuangzaoshi.com/){:target="_blank"}: 创意工作者导航
 
 * [大蜕](https://www.homuralovelive.com/){:target="_blank"}: 大蜕
+
+* [Doliant's Meditation World](https://doliant.cn/){:target="_blank"}: Doliant's Meditation World
