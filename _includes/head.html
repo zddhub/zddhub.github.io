@@ -4,10 +4,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>
-    {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
-    {% if site.slogan and page.url == '/' %} | {{ site.slogan | escape }}{% endif %}
-  </title>
+  {% seo %}
+
   <link rel="alternate" type="application/rss+xml" title="RSS feed for {{ site.title | escape }}" href="{{ site.url }}/feed">
   {% if page.tags != null %}
     <meta name="keywords" content="{{ page.tags }}">
@@ -34,9 +32,5 @@
   <link rel="manifest" href="/assets/icons/manifest.json">
   <meta name="msapplication-TileImage" content="{{ site.url }}/assets/icons/zddhub_270.png">
 
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-
   <script data-ad-client="ca-pub-1326478359331739" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-  {% seo %}
 </head>
