@@ -19,7 +19,7 @@ enable_reward: true
 
 google_analytics:
   enable: true
-  tracking_id: "UA-48441839-1"
+  measurement_id: "G-5M46LQ8M7B"
 
 # Build settings
 # markdown: kramdown
