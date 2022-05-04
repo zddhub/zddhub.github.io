@@ -17,7 +17,6 @@ iOS 应用开发少不了和服务器打交道，而 URL 加载系统用来加�
 
 在创建 `URLSession` 时，可以设置 `URLSessionConfiguration` 来配置 `URLSession` 的行为和策略。通过 `URLSessionDelegate` 来检测 Session 的生命周期。
 
-![URLSession](/assets/images/2022-05-04/url-loading-system.svg)
-
+<img src="/assets/images/2022-05-04/url-loading-system.svg" width="100%">
 
 [URL_Loading_System]: https://developer.apple.com/documentation/foundation/url_loading_system
