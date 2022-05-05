@@ -58,4 +58,164 @@ iOS 应用开发少不了和服务器打交道，而 URL 加载系统用来加�
 
 使用时可根据需要选择合适的 API，个人倾向于 Async API > Combine API >  Completion Handler API > Normal API。
 
+### 示例程序
+
+由于 `URLSessionDataTask` 支持所有的四类使用方式，所以以 `URLSessionDataTask` 为例，来展示 URL 加载系统的使用。
+
+#### 准备工作
+
+用来示例的程序是一个展示个人信息的卡片，如下图所示：
+
+![profile view](/assets/images/2022-05-04/profile-view.png)
+
+对应的 View 实现为：
+
+```swift
+  var body: some View {
+    VStack(spacing: 0) {
+      HStack() {
+        if !viewModel.isFetching {
+          avatar
+          detail
+        } else {
+          Text("Loading ...")
+        }
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .background(.background)
+      .cornerRadius(8)
+      .shadow(
+        color: .primary.opacity(0.20),
+        radius: 2,
+        x: 0.0,
+        y: 1.0
+      )
+      .padding()
+    }
+    .onAppear {
+      viewModel.fetchData()
+    }
+  }
+
+  private var avatar: some View {
+    Group {
+      if viewModel.avatar != nil {
+        Image(uiImage: UIImage(data: viewModel.avatar!)!)
+          .resizable()
+          .frame(width: 120, height: 120)
+          .cornerRadius(80)
+          .background(.white)
+          .clipShape(Circle())
+          .padding(8)
+      } else {
+        EmptyView()
+      }
+    }
+  }
+
+  private var detail: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text("\(viewModel.name)")
+        .font(.title)
+
+      HStack {
+        Image(systemName: "mail")
+        Text("\(viewModel.email)")
+      }
+
+      if viewModel.blogUrl != nil {
+        HStack {
+          Image(systemName: "link")
+          Link("\(viewModel.blog)", destination: viewModel.blogUrl!)
+        }
+      }
+    }
+  }
+```
+
+所用的数据来自 JSON 格式的 API. 查看 JSON payload：`curl https://zddhub.com/assets/profile.json`，如下所示：
+
+```json
+{
+  "name": "zddhub",
+  "avatar": "https://zddhub.com/assets/zddhub_big.png",
+  "email": "zddhub@gmail.com",
+  "blog": "www.zddhub.com",
+  "bio": "Just for fun!"
+}
+```
+
+对应的 Model 为：
+
+```swift
+struct Profile: Decodable {
+  let name: String
+  let avatar: String
+  let email: String
+  let blog: String
+}
+```
+
+`ProfileViewModel` 持有一个 Profile 的 model，加载完 API 后，将 profile 的值赋值给 model，View 将完成自动刷新。
+
+```swift
+class ProfileViewModel: ObservableObject {
+  @Published private var url: URL
+  @Published private var model: Profile?
+}
+```
+
+这是一个简单的 MVVM 的架构。以下所有加载数据的代码，都写在 `ProfileViewModel` 里。
+
+#### Async API
+
+#### Combine API
+
+```swift
+  cancellable = URLSession.shared
+    .dataTaskPublisher(for: url)
+    .tryMap { element -> Data in
+      guard let httpResponse = element.response as? HTTPURLResponse,
+            httpResponse.statusCode == 200 else {
+        throw URLError(.badServerResponse)
+      }
+      return element.data
+    }
+    .decode(type: Profile.self, decoder: JSONDecoder())
+    .receive(on: DispatchQueue.main)
+    .sink { print("Received completion: \($0)")} receiveValue: { profile in
+      self.model = profile
+      self.isFetching = false
+    }
+```
+
+#### Completion Handler API
+
+```swift
+  let task = URLSession.shared.dataTask(with: url) { data, response, error in
+    if let error = error {
+      print("Client error \(error)")
+      return
+    }
+
+    guard let httpResponse = response as? HTTPURLResponse,
+          (200...299).contains(httpResponse.statusCode) else {
+      print ("Service error \(String(describing: response))")
+      return
+    }
+
+    if let mimeType = httpResponse.mimeType, mimeType == "application/json",
+        let data = data {
+      DispatchQueue.main.async {
+        self.model = try? JSONDecoder().decode(Profile.self, from: data)
+      }
+    }
+
+    self.isFetching = false
+  }
+  task.resume()
+```
+
+####  Normal API
+
 [URL_Loading_System]: https://developer.apple.com/documentation/foundation/url_loading_system
