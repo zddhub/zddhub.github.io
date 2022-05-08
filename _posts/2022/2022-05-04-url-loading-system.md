@@ -5,7 +5,7 @@ category: Note
 tags: "URL Loading System, URLSession, Swift, iOS"
 ---
 
-[URL Loading System][URL_Loading_System]，通过 URLs，使用标准的网络协议，与服务器交换数据。
+[URL Loading System][URL_Loading_System]，通过 URLs，使用标准的网络协议，与服务器交换数据。本文帮助理解 URL 加载系统，并通过示例代码练习如何使用它，示例代码开源。
 
 <!-- more -->
 
@@ -41,22 +41,22 @@ iOS 应用开发少不了和服务器打交道，而 URL 加载系统用来加�
 
 每种 task 提供了多种使用方式（为什么要这样？Python 告诉我们解决问题最直接的方法应该有一种，最好只有一种），如下表所示：
 
-| Task type                | Async API | Completion Handler API | Combine API | Normal API |
+| Task type                | Combine API | Async API | Completion Handler API | Normal API |
 |:-|:-|:-|:-|:-|
 |`URLSessionDataTask`      | ✅ | ✅ | ✅ | ✅ |
-|`URLSessionUploadTask`    | ✅ | ✅ | - | ✅ |
-|`URLSessionDownloadTask`  | ✅ | ✅ | - | ✅ |
+|`URLSessionUploadTask`    | - | ✅ | ✅ | ✅ |
+|`URLSessionDownloadTask`  | - | ✅ | ✅ | ✅ |
 |`URLSessionStreamTask`    | - | - | - | ✅ |
 |`URLSessionWebSocketTask` | - | - | - | ✅ |
 
 其中，
 
+- Combine API: 使用 Combine publisher 来获取结果
 - Async API: 使用 `async/await` 关键字来调用 API
 - Completion Handler API: 使用回调的方式，在 completionHandler 中处理结果
-- Combine API: 使用 Combine publisher 来获取结果
 - Normal API：只创建对应的 task，需要使用 delegate 获取结果
 
-使用时可根据需要选择合适的 API，个人倾向于 Async API > Combine API >  Completion Handler API > Normal API。
+使用时可根据需要选择合适的 API，个人倾向于 Combine API > Async API > Completion Handler API > Normal API。
 
 ### 示例程序
 
@@ -71,65 +71,54 @@ iOS 应用开发少不了和服务器打交道，而 URL 加载系统用来加�
 对应的 View 实现为：
 
 ```swift
-  var body: some View {
-    VStack(spacing: 0) {
-      HStack() {
-        if !viewModel.isFetching {
-          avatar
-          detail
-        } else {
-          Text("Loading ...")
-        }
-      }
-      .frame(maxWidth: .infinity, alignment: .leading)
-      .background(.background)
-      .cornerRadius(8)
-      .shadow(
-        color: .primary.opacity(0.20),
-        radius: 2,
-        x: 0.0,
-        y: 1.0
-      )
-      .padding()
+var body: some View {
+    VStack {
+      profileCard
     }
+    .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
     .onAppear {
-      viewModel.fetchData()
+      viewModel.loadData(loadingMethodType)
+    }
+    .onChange(of: loadingMethodType) { newValue in
+      viewModel.loadData(newValue)
     }
   }
 
-  private var avatar: some View {
-    Group {
-      if viewModel.avatar != nil {
-        Image(uiImage: UIImage(data: viewModel.avatar!)!)
-          .resizable()
-          .frame(width: 120, height: 120)
-          .cornerRadius(80)
-          .background(.white)
-          .clipShape(Circle())
-          .padding(8)
-      } else {
-        EmptyView()
-      }
-    }
-  }
+  private var profileCard: some View {
+    HStack {
+      Image(uiImage: viewModel.avatar)
+        .resizable()
+        .frame(width: 120, height: 120)
+        .cornerRadius(80)
+        .background(.white)
+        .clipShape(Circle())
+        .padding(8)
 
-  private var detail: some View {
-    VStack(alignment: .leading, spacing: 8) {
-      Text("\(viewModel.name)")
-        .font(.title)
+      VStack(alignment: .leading) {
+        Text(viewModel.name)
+          .font(.title)
 
-      HStack {
-        Image(systemName: "mail")
-        Text("\(viewModel.email)")
-      }
+        HStack {
+          Image(systemName: "mail")
+          Text("\(viewModel.email)")
+        }
 
-      if viewModel.blogUrl != nil {
         HStack {
           Image(systemName: "link")
           Link("\(viewModel.blog)", destination: viewModel.blogUrl!)
         }
       }
     }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(backgroundColor)
+    .cornerRadius(8)
+    .shadow(
+      color: shadowColor,
+      radius: 4,
+      x: 0.0,
+      y: 1.0
+    )
+    .padding()
   }
 ```
 
@@ -160,36 +149,55 @@ struct Profile: Decodable {
 
 ```swift
 class ProfileViewModel: ObservableObject {
-  @Published private var url: URL
+  private var url: URL
   @Published private var model: Profile?
 }
 ```
 
-这是一个简单的 MVVM 的架构。以下所有加载数据的代码，都写在 `ProfileViewModel` 里。
-
-#### Async API
+这里使用一个简单的 MVVM 的架构。示例代码已开源，去 [zddhub/url-loading-system ](https://github.com/zddhub/url-loading-system) 查看完整示例代码。
 
 #### Combine API
 
+Combine API 目前只支持 `URLSessionDataTask`，使用 SwiftUI 的话可以优先选用。
+
 ```swift
-  cancellable = URLSession.shared
-    .dataTaskPublisher(for: url)
-    .tryMap { element -> Data in
-      guard let httpResponse = element.response as? HTTPURLResponse,
-            httpResponse.statusCode == 200 else {
-        throw URLError(.badServerResponse)
+  URLSession.shared
+      .dataTaskPublisher(for: url)
+      .tryMap { (data: Data, response: URLResponse) in
+        return data
       }
-      return element.data
-    }
-    .decode(type: Profile.self, decoder: JSONDecoder())
-    .receive(on: DispatchQueue.main)
-    .sink { print("Received completion: \($0)")} receiveValue: { profile in
-      self.model = profile
-      self.isFetching = false
-    }
+      .decode(type: Profile.self, decoder: JSONDecoder())
+      .receive(on: DispatchQueue.main)
+      .sink {_ in } receiveValue: { model in
+        self.model.send(model)
+      }
+      .store(in: &cancellable)
+```
+
+#### Async API
+
+`async/await` 要求的 iOS 版本比较高，使用前需确认 iOS 版本不小于 15。
+
+> When it was originally announced, Swift concurrency required at least iOS 15, macOS 12, watchOS 8, tvOS 15, or on other platforms at least Swift 5.5.
+
+```swift
+  let (data, response) = try await URLSession.shared.data(from: url)
+
+  guard let httpResponse = response as? HTTPURLResponse,
+        (200...299).contains(httpResponse.statusCode) else {
+    print ("Service error \(String(describing: response))")
+    return
+  }
+
+  if let mimeType = httpResponse.mimeType, mimeType == "application/json",
+      let model = try? JSONDecoder().decode(Profile.self, from: data) {
+    self.model.send(model)
+  }
 ```
 
 #### Completion Handler API
+
+这里要注意创建的 `task` 是挂起的状态，需要手动 `resume` 后才能执行。
 
 ```swift
   let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -205,17 +213,85 @@ class ProfileViewModel: ObservableObject {
     }
 
     if let mimeType = httpResponse.mimeType, mimeType == "application/json",
-        let data = data {
-      DispatchQueue.main.async {
-        self.model = try? JSONDecoder().decode(Profile.self, from: data)
-      }
+        let data = data,
+        let model = try? JSONDecoder().decode(Profile.self, from: data) {
+        self.model.send(model)
     }
-
-    self.isFetching = false
   }
   task.resume()
 ```
 
 ####  Normal API
+
+这里展示了创建常规的 Session 的方法，虽然 configuration 什么都没改，但是你可以。由于这里的 `dataTask` 只创建了 task，所以需要设置 delegate，才能拿到 loading 后的值。
+
+这里需要注意的是 `func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)` 这个方法会被调用多次，如果 data 过大，会分批传送，需要自己拼接数据后再处理。
+
+```swift
+  let session = URLSession(configuration: URLSessionConfiguration.default)
+  let task = session.dataTask(with: url)
+  task.delegate = coordinator
+
+  task.resume()
+
+  class Coordinator: NSObject, URLSessionDataDelegate {
+    var loadingMethod: LoadingMethod
+    private var data: Data? = nil
+
+    init(_ loadingMethod: LoadingMethod) {
+      self.loadingMethod = loadingMethod
+    }
+
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+      guard error == nil, let data = data, let model = try? JSONDecoder().decode(Profile.self, from: data) else {
+        self.data = nil
+        return
+      }
+
+      self.loadingMethod.model.send(model)
+      self.data = nil
+    }
+
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+      if self.data == nil {
+        self.data = data
+      } else {
+        self.data?.append(data)
+      }
+    }
+  }
+```
+
+#### Loading Avatar
+
+上例中都使用 url 作为参数来创建 task，这里展示一种使用 URLRequest 创建 task 的例子，来抓去头像。
+
+正如你在下述代码中看到的那样，可以配置缓存策略和超时，当然，你也可以对 request 进行更改。
+
+```swift
+let request = URLRequest(url: avatarUrl, cachePolicy: URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 5.0)
+
+URLSession.shared
+  .dataTaskPublisher(for: request)
+  .tryMap { (data: Data, response: URLResponse) in
+    return data
+  }
+  .receive(on: DispatchQueue.main)
+  .sink { _ in
+  } receiveValue: { data in
+    self.avatarData = data
+  }
+  .store(in: &cancellable)
+```
+
+### 总结
+
+URL 加载系统是使用最频繁的模块，值得反复练习。主要使用 URLSession 创建 task 执行不同的操作。所有 task 中，`URLSessionDataTask` 最常用，所以本文选取 `URLSessionDataTask` 为例，需要熟练掌握。
+
+本文示例完整源码地址 [zddhub/url-loading-system ](https://github.com/zddhub/url-loading-system)。
+
+### 练习
+
+网上得来终觉浅，绝知此事要躬行。读完本文后，可以用类似的方法，练习上传 `URLSessionUploadTask` 和下载 `URLSessionUploadTask` 的创建和使用。
 
 [URL_Loading_System]: https://developer.apple.com/documentation/foundation/url_loading_system
