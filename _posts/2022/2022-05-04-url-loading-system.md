@@ -124,7 +124,11 @@ var body: some View {
   }
 ```
 
-所用的数据来自 JSON 格式的 API. 查看 JSON payload：`curl https://zddhub.com/assets/profile.json`，如下所示：
+所用的数据来自 JSON 格式的 API. 查看 JSON payload，如下所示：
+
+```shell
+$ `curl https://zddhub.com/assets/profile.json`
+```
 
 ```json
 {
