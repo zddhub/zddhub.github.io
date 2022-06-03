@@ -57,10 +57,24 @@ Each MFE has one user experience, so the custodian team has all controls for it 
 
 A shell app is a central app, that integrates all user experiences via MFEs to deliver the whole solution to our users. This central app is just a shell, no more business logic is involved. Each team has a responsibility to integrate their own MFEs to shell app, This is only one mess place that every team can work on. It's not a big deal due to its lightweight implemation. In the stable team, the changes on this repository is just upgrading the version of MFEs.
 
+### The example
+
+[Feed me][Feed_Me] application, a website where customers can order food, is a good example which Cam Jackson used to demonstrate MFEs in his [Micro Frontends article][Micro_Frontends]. Here we use the same application but designs it for mobile, hope it can be a standard applicaton that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework.
+
+There are three user experiences that are located in there tab views:
+
+- Users can search, filter and browser restaurants
+- Users can order food in each restaurant
+- Users should have an about page that shows user profile, order history and payment options.
+
+[Design for mobile]
+
+It will be split to 3 MFEs and 1 shell app. For mobile especial, it also supports dark mode.
+
+Throughout the rest of this article, we'll be using this example application wherever we need example code or scenarios.
 
 
 CONTENTS
-- The example
 - Integration approaches
   - Build-time integration
   - Run-time integration via WKWebView
@@ -85,4 +99,5 @@ Conclusion
 [Micro_Frontends]: https://martinfowler.com/articles/micro-frontends.html
 [Technology_Radar_Micro_Frontends]: https://www.thoughtworks.com/radar/techniques/micro-frontends
 [Technology_Radar_Micro_Frontends_For_Mobile]: https://www.thoughtworks.com/radar/techniques/micro-frontends-for-mobile
-
+[Feed_Me]: https://demo.microfrontends.com/
+[TodoMVC]: https://todomvc.com/
