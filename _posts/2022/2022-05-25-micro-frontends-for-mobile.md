@@ -3,6 +3,7 @@ layout: post
 title: "Micro Frontends for Mobile"
 category: Article
 tags: "Application architecture; Micro Frontends; Mobile"
+lang: en
 ---
 
 On web, We have seen significant benefits from including [Micro Frontends][Micro_Frontends], which breaks up frontend monoliths into many smaller, more manageable pieces, and makes many teams to work simultaneously on a large and complex product. But Micro Frontends for mobile seems stucks these days. In this article we will describe a comprehensive guide to bring these benefits to native mobile apps, as well as cover some of the implementation options that are available for mobile. And finally we will dive deep into a full example application to show the technique.
@@ -138,13 +139,49 @@ Embedding a WKWebView object programmatically into your view hierarchy is anothe
 
 We recommend hosting a WKWebView into the MFE, whether it could serve the whole user experience or not.
 
+
+### Micro Frontends Environment
+
+After spliting monolithic app to smaller MFEs, the custodian teams can work autonomously. It's possible to reinvent the wheel when they makes all decisions without considering other teams. So it's a big win to setup a foundational MFE environment that provides common capabilities, which allows custodian team to only focus on their own user experiences.
+
+[Diagram here]
+
+There are some common capabilities should (not must) put into MFE environment:
+- UI components
+- Router
+- Authentication and Authorization
+- Network
+- Cache
+- Tag analytics
+- Logger and monitor system integration
+- Create MFE App
+...
+
+It's a good way to create a team to focus on MFE environment setup, And make MFEs team easlier.
+
+
+### Cross MFE communication
+
+If you found one MFE has many communications with other one, or communicate with many MFEs, You might rethink your MFE seperation. A good MFE seperation can reduce commnunication among them, but it can't avoid it.
+
+Navigation is a common commnuication, for example, when we click restaurant card, it will bring us in order screen. We can solve this problem via router, a common tool in our MFE environment, as mentioned above.
+
+Another common way is to use Notification, which broadcasts information through a notification to all registered observers. MFE can subscribe notification to exchange information.
+
+
+### Backend services
+
+Since we have seperated our frontends via user experiences, it's straightforward to seperate [micro services][Micro_Services] using user experiences as well. Comparing [BFF][BFF] pattern, User experiences API can be used by both mobile and web, and also help write decoupling code on server side.
+
+[Diagram here]
+
+
+### Decision Record
+
+Idea exchanges, inspirations and thinking process is a valuabe possession for a team. What/how/why the team makes current decision is worthy to record. It's a good way to share contexts in years.
+
 CONTENTS
 
-- Styling
-- Shared component libraries
-- Cross-application communication
-- Backend communication
-- Testing
 - The example in detail
   - The container
   - The micro frontends
@@ -163,3 +200,5 @@ Conclusion
 [Technology_Radar_Micro_Frontends_For_Mobile]: https://www.thoughtworks.com/radar/techniques/micro-frontends-for-mobile
 [Feed_Me]: https://demo.microfrontends.com/
 [TodoMVC]: https://todomvc.com/
+[BFF]: https://samnewman.io/patterns/architectural/bff/
+[Micro_Services]: https://martinfowler.com/articles/microservices.html
