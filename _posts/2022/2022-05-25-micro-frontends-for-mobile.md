@@ -57,27 +57,89 @@ Each MFE has one user experience, so the custodian team has all controls for it 
 
 A shell app is a central app, that integrates all user experiences via MFEs to deliver the whole solution to our users. This central app is just a shell, no more business logic is involved. Each team has a responsibility to integrate their own MFEs to shell app, This is only one mess place that every team can work on. It's not a big deal due to its lightweight implemation. In the stable team, the changes on this repository is just upgrading the version of MFEs.
 
+
 ### The example
 
-[Feed me][Feed_Me] application, a website where customers can order food, is a good example which Cam Jackson used to demonstrate MFEs in his [Micro Frontends article][Micro_Frontends]. Here we use the same application but designs it for mobile, hope it can be a standard applicaton that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework.
+[Feed me][Feed_Me] application, a website where users can order food, is a good example which Cam Jackson used to demonstrate MFEs in his [Micro Frontends article][Micro_Frontends]. Here we use the same application but designs it for mobile, hope it can be a standard applicaton that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described as below [4][Feed_Me] :
 
-There are three user experiences that are located in there tab views:
-
-- Users can search, filter and browser restaurants
-- Users can order food in each restaurant
-- Users should have an about page that shows user profile, order history and payment options.
+- There should be a restaurant screen where users can search, filter and browse for restaurants.
+- Each restaurant needs its own screen that shows its menu items, and allows a user to order.
+- Users should have a profile page where they can see their order history, track delivery, and customise their payment options.
 
 [Design for mobile]
 
-It will be split to 3 MFEs and 1 shell app. For mobile especial, it also supports dark mode.
+For appearance, we uses a similar design with website. In addition, It supports dark mode.
 
 Throughout the rest of this article, we'll be using this example application wherever we need example code or scenarios.
 
+### Integration approaches
+
+Before integration, we need to split MFEs out first. Given the business above, there are many reasonably approaches to split MFEs out. We recommend spliting MFEs via different user experiences. There are three user experiences, which are located in three tab views:
+
+- Users can search, filter and browser restaurants  - `Browse MFE`
+- Users can order food in each restaurant - `RestaurantOrder MFE`
+- Users should have an about screen that shows user profile, order history and payment options. - `About MFE`
+
+It will be split to 3 MFEs and 1 shell app.
+
+[Diagram for integration]
+
+By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familar with them.
+
+#### Build-time integration
+
+It is a major, somehow a only approach to integrate MFEs to a shell app. It's to publish each MFE as a Swift package, and have shell app that include all MFEs as its dependencies. Here is your `Package.resolved` might look:
+
+```swift
+{
+  "pins" : [
+    {
+      "identity" : "about",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/micro-frontends-mobile/About",
+      "state" : {
+        "revision" : "e96fdbada870a92fccf918b8b250f9c9d4751149",
+      }
+    },
+    {
+      "identity" : "browse",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/micro-frontends-mobile/Browse",
+      "state" : {
+        "revision" : "a3590f11f00016e94de4fcb0aa193b14dacd9a57",
+      }
+    },
+    {
+      "identity" : "restaurantorder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/micro-frontends-mobile/RestaurantOrder",
+      "state" : {
+        "revision" : "e82e3faa1ccf669f115166aa73e1954dbd228581",
+      }
+    }
+  ],
+  "version" : 2
+}
+```
+
+Due to bring in coupling at build and release stage, This approach is not recommended on Web, but there is no other choices on Mobile native.
+
+#### Run-time integration via WKWebView
+
+Benefited from WKWebView, you can use to incorporate web content seamlessly into you app. It's a good time to use it When your app’s content changes frequently.
+
+```swift
+var webView: WKWebView = WKWebView()
+let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
+webView.load(request)
+```
+
+Embedding a WKWebView object programmatically into your view hierarchy is another way, It makes WKWebView have native experience to use your navigation delegate to modify the web view’s navigation behavior. The users can't feel differently to use it, but we will get automatically updates via web service after our app is released.
+
+We recommend hosting a WKWebView into the MFE, whether it could serve the whole user experience or not.
 
 CONTENTS
-- Integration approaches
-  - Build-time integration
-  - Run-time integration via WKWebView
+
 - Styling
 - Shared component libraries
 - Cross-application communication
