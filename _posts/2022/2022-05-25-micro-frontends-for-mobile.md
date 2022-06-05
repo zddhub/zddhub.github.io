@@ -139,6 +139,8 @@ Embedding a WKWebView object programmatically into your view hierarchy is anothe
 
 We recommend hosting a WKWebView into the MFE, whether it could serve the whole user experience or not.
 
+Notice your app might be rejected if the core features and functionality dynamically with web technology like HTML5, due to [App Store Review Guidelines][App_Updates_for_HTML5_Apps].
+
 
 ### Micro Frontends Environment
 
@@ -148,6 +150,7 @@ After spliting monolithic app to smaller MFEs, the custodian teams can work auto
 
 There are some common capabilities should (not must) put into MFE environment:
 - UI components
+- Configuration
 - Router
 - Authentication and Authorization
 - Network
@@ -180,14 +183,339 @@ Since we have seperated our frontends via user experiences, it's straightforward
 
 Idea exchanges, inspirations and thinking process is a valuabe possession for a team. What/how/why the team makes current decision is worthy to record. It's a good way to share contexts in years.
 
+
+### The example in detail
+
+The rest of this article will be a detailed explanation how feed me application can be implemented. We'll focus mostly on how to use Swift package to host MFEs, and how to integrate them in shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
+
+We didn't setup our own services and all assets are coming from Cam Jackson's [demo][micro-frontends-demo].
+
+
+#### The MFE Environment
+
+Let's start from [Env][Env]. Env is a singleton of the MFE environment, it hosts and manages all common capabilities for MFE. In our demo, it is implemented to an `ObservableObject` and treated as `EnvironmentObject`. 
+
+```swift
+public class Env: ObservableObject {
+  public private(set) static var shared: Env!
+
+  public static func initialize(router: Router = Router(), configuration: Configuration = Configuration()) -> Env {
+    if shared != nil {
+      return shared
+    }
+
+    shared = Env(router: router, configuration: configuration)
+    return shared
+  }
+
+  init(router: Router, configuration: Configuration) {
+    self.router = router
+    self.configuration = configuration
+  }
+
+  public let router: Router
+  public let configuration: Configuration
+}
+```
+
+Currently env only hosts two capabilities:
+
+##### Configuration
+
+In our demo, we put some theme configurations like `backgroundColor` and `tabBarTintColor` which will be shared in all MFEs to make visiual consistency. And also, the color can be changed to adapt dark mode automatically. Another configurations are host, here we shamelessly use Cam Jackson's APIs.
+
+```swift
+public struct Configuration {
+  public init() {}
+  public var backgroundColor: Color {
+    UI.color(token: .backgroundColor)
+  }
+
+  public var tabBarTintColor: Color {
+    UI.color(token: .tabBarTintColor)
+  }
+
+  public var host: String {
+    "https://content.demo.microfrontends.com"
+  }
+
+  public var demoHost: String {
+    "https://demo.microfrontends.com"
+  }
+}
+```
+
+##### Router
+
+The router is carefully designed for navigation. Our demo uses it to switch user experience from browse restaurant list to order screen.
+
+```swift
+open class Router: ObservableObject {
+  public init() {}
+  open func navigate<Source>(to: String, source: () -> Source) -> AnyView where Source : View {
+    AnyView(NavigationLink {
+      route(to)
+    } label: {
+      source()
+    })
+  }
+
+  open func route(_ to: String) -> AnyView {
+    AnyView(Text("\(to)"))
+  }
+}
+```
+
+Instead of encapsulating destination view, here `Router` encapsulate `NavigationLink`. It needs to be wrappered by `NavigationView` when we use it. There is a detailed example later. Here, `Router` has a default implementation, it will route to a View with Text. You can overwrite it in your app. The typical route function should be like below:
+
+```swift
+  override func route(_ to: String) -> AnyView {
+    if to.match("/restaurants") {
+      return BrowseView()
+    } else if to.match("/restaurants/{id}") {
+      return OrderView()
+    } else {
+      ...
+    }
+  }
+```
+
+In our design. ShellApp is a good place to overwrite Router. You can also design your own Router pattern, it is a principle not to create dependencies among MFEs, not to let Env know you have a component named OrderView, that is defined on RestaurantOrder MFE.
+
+Env is a facade that handles all fundational capabilities for all your MFEs and shell APP, you can add more mentioned on Micro Frontends Environment section.
+
+#### The micro frontends
+
+We use [Swift packages][swift_packages] to manager our MFEs, it's easy to change to [Cocopods][cocoapods] if you like. Each MFE is a Swift package. Take Browse MFE as an example, The project folder structure is like below:
+
+```sh
+.
+├── BrowseExample
+│   ├── BrowseExample
+│   └── BrowseExample.xcodeproj
+├── Package.swift
+├── README.md
+├── Sources
+│   └── Browse
+└── Tests
+    └── BrowseTests
+```
+
+Except package files, we add an example app named `BrowseExample`, which will depend on Browse MFE package locally. Adding Browse MFE as a local package here is a good idea, we can open `BrowseExample` app and edit the package. In contrast, we can't edit remote package even if we can see the source code.
+
+An example app is important in our scenario, we need rely on it to deliver our MFEs to internal app library for test purpose. And also, it's a good place to elaborate on how to integrate.
+
+##### Browse MFE
+
+[Browse MFE][Browse] is a restaurant screen where users can search, filter and browse for restaurants. 
+
+[Screenshot here]
+
+Let's start from example app, `BrowseView` is a screen level component which is imported from Browse MFE.
+
+```swift
+import SwiftUI
+import Browse
+import Env
+
+struct ContentView: View {
+  var body: some View {
+    NavigationView {
+      BrowseView()
+        .navigationBarHidden(true)
+        .environmentObject(Env.initialize())
+    }
+  }
+}
+```
+
+Since there is a navigation, when we click `RestaurantCard`, it will navigate to other screen. So we inject Env shared instance to BrowseView as a environment object, which can be read by any child by using EnvironmentObject.
+
+```swift
+import Env
+
+struct RestaurantListView: View {
+  var restaurantList: RestaurantList
+  @EnvironmentObject var env: Env
+
+  var body: some View {
+    ScrollView {
+      VStack(spacing: 16) {
+        ForEach(restaurantList) { restaurant in
+          env.router.navigate(to: restaurant.url.path) {
+            RestaurantCard(restaurant: restaurant)
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.url.path)`, it will navigate to `OrderView` screen finally, but In Browse MFE, we don't know there is a screen named `OrderView`, that is implemented in Order MFE. Env.router helps us to write decoupling code.
+
+##### Order MFE
+
+[Two Screenshots here]
+
+[RestaurantOrder MFE][RestaurantOrder] is a order screen that users can review, choose and order foods in each restaurant. There are two scenarios to show order view in Feed me app:
+
+1. When you click `RestaurantCard`, it will navigate to order view with specific restaurant information
+
+    We pass a specific url and show order information as below:
+
+    ```swift
+    public struct OrderView: View {
+      public init(url: URL) {
+        self.url = url
+      }
+
+      public var body: some View {
+        ...
+      }
+    }
+    ```
+
+2. When you click `Surprise Me` tab, it will show order view with a random restaurant information
+
+    Here, we don't need a url, we will load restaurant list, and random pick up one to show.
+
+
+    ```swift
+    public struct RandomOrderView: View {
+      public init() {}
+      public var body: some View {
+        Group {
+          if viewModel.url != nil {
+            OrderView(url: viewModel.url!)
+          } else {
+            ProgressView()
+          }
+        }
+        .onAppear {
+          viewModel.loadData()
+        }
+      }
+    }
+    ```
+
+    Maybe you have noticed, we need to fetch restaurant list when we show `RestaurantList`. And here we fetch it again for Suprise tab. Although we can fix this issue using service side cache or client side cache in Env, it is a kind of cost we need to afford in MFE architecture.
+
+All of these two scenarios, we think they are the same user experiences, so we use one MFE instead of two ones, but export two public views.
+
+There is a question: Which view should be displayed on the example app?. The answer is both definitely.
+
+##### About MFE
+
+[Screenshot here]
+
+[About MFE][About] should be an screen that shows user profile, order history and payment options. In our example, we simplify it as a static content screen. But we get some information from web service via WKWebView to show run-time integration way.
+
+We wrapped WKWebView in `AboutWebView` and load web content as below:
+
+```swift
+struct AboutWebView: UIViewRepresentable {
+  let url: URL
+  var webView: WKWebView = WKWebView()
+  @Binding var dynamicHeight: CGFloat
+
+  func makeUIView(context: UIViewRepresentableContext<AboutWebView>) -> WKWebView {
+    let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
+    webView.load(request)
+
+    return webView
+  }
+
+  ...
+}
+```
+
+In order to let users have native experience, we delegate link click event to open Safari.
+
+```swift
+  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+    if navigationAction.navigationType == .linkActivated, let url = navigationAction.request.url, await UIApplication.shared.canOpenURL(url) {
+      DispatchQueue.main.async {
+        UIApplication.shared.open(url)
+      }
+      return .cancel
+    } else {
+      return .allow
+    }
+  }
+```
+
+##### Shell App
+
+[ShellApp][ShellApp] is a centrel app that integrate all MFEs to the whole one. It's an only app that wil be deployed to our end users.
+
+Let's have a look, the content view is pretty simple, right?
+
+```swift
+struct ContentView: View {
+
+  init() {
+    _ = Env.initialize(router: AppRouter() as Router)
+  }
+
+  var body: some View {
+    TabView {
+      browse
+        .tabItem {
+          Image(systemName: "magnifyingglass")
+          Text("Restaurant")
+        }
+      RandomOrderView()
+        .tabItem {
+          Image(systemName: "shuffle")
+          Text("Surprise me")
+        }
+      AboutView()
+        .tabItem {
+          Image(systemName: "person")
+          Text("About")
+        }
+    }
+  }
+}
+```
+
+Let's focus on how to navigate to OrderView when the user click RestaurantCard, which is sub childrend of `BrowseView`. There are two things need be done in shell APP.
+
+1. Wrap BrowserView with NavigationView
+
+    ```swift
+      var browse: some View {
+        NavigationView {
+          BrowseView()
+            .foregroundColor(.primary)
+            .navigationBarHidden(true)
+            .environmentObject(Env.shared)
+        }
+      }
+    ```
+2. Overwrite Router to inject `OrderView`
+
+    ```swift
+    class AppRouter: Router {
+      override func route(_ to: String) -> AnyView {
+        AnyView(
+          OrderView(url: url(to))
+            .navigationBarTitleDisplayMode(.inline)
+        )
+      }
+
+      private func url(_ to: String) -> URL {
+        URL(string: "\(Env.shared.configuration.host)\(to)")!
+      }
+    }
+    ```
+
+Wow, We are finished! Explore full source code on [Github][micro-frontends-mobile].
+
 CONTENTS
 
-- The example in detail
-  - The container
-  - The micro frontends
-  - Cross-application communication via routing
-  - Common content
-  - Infrastructure
+
 Downsides
   - Payload size
   - Environment differences
@@ -202,3 +530,13 @@ Conclusion
 [TodoMVC]: https://todomvc.com/
 [BFF]: https://samnewman.io/patterns/architectural/bff/
 [Micro_Services]: https://martinfowler.com/articles/microservices.html
+[micro-frontends-mobile]: https://github.com/micro-frontends-mobile
+[micro-frontends-demo]: https://github.com/micro-frontends-demo
+[Env]: https://github.com/micro-frontends-mobile/Env
+[Browse]: https://github.com/micro-frontends-mobile/Browse
+[RestaurantOrder]: https://github.com/micro-frontends-mobile/RestaurantOrder
+[About]: https://github.com/micro-frontends-mobile/About
+[ShellApp]: https://github.com/micro-frontends-mobile/ShellApp
+[swift_packages]: https://developer.apple.com/documentation/swift_packages
+[cocoapods]: https://cocoapods.org/
+[App_Updates_for_HTML5_Apps]: https://developer.apple.com/news/?id=09062019b
