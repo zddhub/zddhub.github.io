@@ -125,7 +125,7 @@ It is a major, somehow a only approach to integrate MFEs to a shell app. It's to
 
 Due to bring in coupling at build and release stage, This approach is not recommended on Web, but there is no other choices on Mobile native.
 
-#### Run-time integration via WKWebView
+#### Partially Run-time integration via WKWebView
 
 Benefited from WKWebView, you can use to incorporate web content seamlessly into you app. It's a good time to use it When your app’s content changes frequently.
 
@@ -137,7 +137,7 @@ webView.load(request)
 
 Embedding a WKWebView object programmatically into your view hierarchy is another way, It makes WKWebView have native experience to use your navigation delegate to modify the web view’s navigation behavior. The users can't feel differently to use it, but we will get automatically updates via web service after our app is released.
 
-We recommend hosting a WKWebView into the MFE, whether it could serve the whole user experience or not.
+We recommend hosting a WKWebView into the MFE, whether it could serve the whole user experience or not. Since the MFE still need to integrate it shell app on build-time, it's a partially run-time integration solution.
 
 Notice your app might be rejected if the core features and functionality dynamically with web technology like HTML5, due to [App Store Review Guidelines][App_Updates_for_HTML5_Apps].
 
@@ -513,14 +513,28 @@ Let's focus on how to navigate to OrderView when the user click RestaurantCard, 
 
 Wow, We are finished! Explore full source code on [Github][micro-frontends-mobile].
 
-CONTENTS
 
+### Downsides
 
-Downsides
-  - Payload size
-  - Environment differences
-  - Operational and governance complexity
-Conclusion
+#### Build-time integration approache
+
+It's a major difference comparing with micro frontends for web. Limited to platform, we can do nothing to improve it. We've seen enough pain caused by such a lockstep release process in the microsevices age, but we still believe it can be manageable on mobile.
+
+On the contrary, Re-compiling and building will reduce target size.
+
+#### Duplication
+
+It's ideal model to put all functional capabilities in MFE env. In real world, building full capabilities needs years normally, but the user experience team moves fast. It's inevitable to reinvent wheels among independent teams. For instance, we have 5 different tracking solutions in our organization with 8 MFEs at the begining.
+
+And also, duplicated network requests are the second big problem. Multiply the requests traffic will heave service's burden.
+
+#### Complexity for small teams
+
+It seems obvious that micro frontends make things complexity. There are more codebases, more pipelines, more services and more contents. If you are working in a small team, it's a waste. Keep in mind to choose mirco frontends architecture for a big organization.
+
+### Conclusion
+
+Micro frontends for mobile costs a bit more than for web, but we believe that these risks can be managed, and that the benefits still outweigh the costs, especially in big mobile organization.
 
 
 [Micro_Frontends]: https://martinfowler.com/articles/micro-frontends.html
