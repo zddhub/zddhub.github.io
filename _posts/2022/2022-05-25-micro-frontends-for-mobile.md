@@ -10,13 +10,13 @@ On the Web, We have seen significant benefits from including [micro frontends][m
 
 <!-- more -->
 
-[Micro frontends][micro-frontends], aka MFEs, have continued to gain in popularity since they were marked as 'Adopt' in the Thoughtworks technology radar in 2019 [1][technology-radar-micro-frontends]. We've seen many projects use this architecture in the last few years, and the result turns out very well. So that for many of our colleagues this is becoming the sensible default pattern for building modern enterprise web applications.
+[Micro frontends][micro-frontends], aka MFEs, have continued to gain in popularity since they were marked as 'Adopt' in the Thoughtworks technology radar in 2019 [[1]][technology-radar-micro-frontends]. We've seen many projects use this architecture in the last few years, and the result turns out very well. So that for many of our colleagues this is becoming the sensible default pattern for building modern enterprise web applications.
 
-In the meantime, Micro frontends for mobile are not going well like the Web. It's brought in the Thoughtworks technology radar since 2020 but still stops at 'Trial' stage [2][technology-radar-micro-frontends-for-mobile]. Many mobile developers continue to struggle with the monolithic codebase. Sadly, there's not much guide that outlines what the Micro frontends for mobile are and how to do it.
+In the meantime, Micro frontends for mobile are not going well like the Web. It's brought in the Thoughtworks technology radar since 2020 but still stops at 'Trial' stage [[2]][technology-radar-micro-frontends-for-mobile]. Many mobile developers continue to struggle with the monolithic codebase. Sadly, there's not much guide that outlines what the Micro frontends for mobile are and how to do it.
 
 Lately mobile has been becoming the first-class citizen for business requirement shipping. Some companies start with mobile apps directly instead of Web App, especially unicorn companies. And more and more corporations are paying more attention to the mobile platform, and the mobile team goes from a dozen people to scores of people, even hundreds. At the same time, declarative UI (SwiftUI, Jetpack compose) makes mobile development analogous to Web development. A lot of Web frontend technologies and solutions are crowding into mobile, Micro frontends are no exception.
 
-Micro frontends are defined as "An architectural style where independently deliverable frontend applications are composed into a greater whole" [3][micro-frontends]. Unlike Web applications, the mobile app has more limitations. For example, we deliver one app to the Apple App Store or Google Play store instead of several applications. A hotfix is disallowed by the mobile platform. So we refined the definition of micro frontends for mobile as below:
+Micro frontends are defined as "An architectural style where independently deliverable frontend applications are composed into a greater whole" [[3]][micro-frontends]. Unlike Web applications, the mobile app has more limitations. For example, we deliver one app to the Apple App Store or Google Play store instead of several applications. A hotfix is disallowed by the mobile platform. So we refined the definition of micro frontends for mobile as below:
 
 > An architectural style where independently deliverable frontend components with the same cohesive user experience are composed into a greater whole.
 
@@ -61,7 +61,7 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 
 ### The example
 
-[Feed me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [4][feed-me] :
+[Feed Me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [4][feed-me] :
 
 - There should be a restaurant screen where users can search, filter and browse for restaurants.
 - Each restaurant needs a screen that shows its menu items and allows a user to order.
@@ -75,7 +75,7 @@ Throughout the rest of this article, we'll be using this example application whe
 
 ### Integration approaches
 
-Before integration, we need to split MFEs out first. Given the business above, there are many reasonable approaches to splitting MFEs out. We recommend spliting MFEs via different user experiences. There are three user experiences, which are located in three tab views:
+Before integration, we need to split MFEs out first. Given the business above, there are many reasonable approaches to splitting MFEs out. We recommend splitting MFEs via different user experiences. There are three user experiences, which are located in three-tab views:
 
 - Users can search, filter and browser restaurants  - `Browse MFE`
 - Users can order food in each restaurant - `RestaurantOrder MFE`
@@ -85,7 +85,7 @@ It will be split into 3 MFEs and 1 shell app.
 
 [Diagram for integration]
 
-By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familar with them.
+By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with them.
 
 #### Build-time integration
 
@@ -165,7 +165,7 @@ It's a good way to create a team to focus on MFE environment setup And make MFEs
 
 ### Cross MFE communication
 
-If you found one MFE has many communications with another one or communicates with many MFEs, You might rethink your MFE separation. A good MFE seperation can reduce commnunication among them, but it can't avoid it.
+If you found one MFE has many communications with another one or communicates with many MFEs, You might rethink your MFE separation. A good MFE separation can reduce communication among them, but it can't avoid it.
 
 Navigation is a common communication, for example, when we click a restaurant card, it will bring us to an order screen. We can solve this problem via a router, a common tool in our MFE environment, as mentioned above.
 
@@ -186,7 +186,7 @@ Idea exchanges, inspiration and thinking processes is a valuable possession for 
 
 ### The example in detail
 
-The rest of this article will be a detailed explanation of how the feed me application can be implemented. We'll focus mostly on how to use the Swift package to host MFEs, and how to integrate them into the shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
+The rest of this article will be a detailed explanation of how the Feed Me application can be implemented. We'll focus mostly on how to use the Swift package to host MFEs, and how to integrate them into the shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
 
 We didn't set up our services and all assets are coming from Cam Jackson's [demo][micro-frontends-demo].
 
@@ -222,7 +222,7 @@ Currently env only hosts two capabilities:
 
 ##### Configuration
 
-In our demo, we put some theme configurations like `backgroundColor` and `tabBarTintColor` which will be shared in all MFEs to make visiual consistency. And also, the color can be changed to adapt to dark mode automatically. Another configurations are host, here we shamelessly use Cam Jackson's APIs.
+In our demo, we put some theme configurations like `backgroundColor` and `tabBarTintColor` which will be shared in all MFEs to make visual consistency. And also, the color can be changed to adapt to dark mode automatically. Another configurations are host, here we shamelessly use Cam Jackson's APIs.
 
 ```swift
 public struct Configuration {
@@ -266,7 +266,7 @@ open class Router: ObservableObject {
 }
 ```
 
-Instead of encapsulating the destination view, here `Router` encapsulates `NavigationLink`. It needs to be wrappered by `NavigationView` when we use it. There is a detailed example later. Here, `Router` has a default implementation, it will route to a View with Text. You can overwrite it in your app. The typical route function should be like the below:
+Instead of encapsulating the destination view, here `Router` encapsulates `NavigationLink`. It needs to be wrapped by `NavigationView` when we use it. There is a detailed example later. Here, `Router` has a default implementation, it will route to a View with Text. You can overwrite it in your app. The typical route function should be like the below:
 
 ```swift
   override func route(_ to: String) -> AnyView {
@@ -301,7 +301,7 @@ We use [Swift packages][swift_packages] to manage our MFEs, it's easy to change 
     └── BrowseTests
 ```
 
-Except package files, we add an example app named `BrowseExample`, which will depend on the Browse MFE package locally. Adding Browse MFE as a local package here is a good idea, we can open the `BrowseExample` app and edit the package. In contrast, we can't edit the remote package even if we can see the source code.
+Except for package files, we add an example app named `BrowseExample`, which will depend on the Browse MFE package locally. Adding Browse MFE as a local package here is a good idea, we can open the `BrowseExample` app and edit the package. In contrast, we can't edit the remote package even if we can see the source code.
 
 An example app is important in our scenario, we need to rely on it to deliver our MFEs to the internal app library for test purposes. And also, it's a good place to elaborate on how to integrate.
 
@@ -362,7 +362,7 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
 
 1. When you click `RestaurantCard`, it will navigate to an order view with the specific restaurant information
 
-    We pass a specific url and show order information as below:
+    We pass a specific URL and show order information as below:
 
     ```swift
     public struct OrderView: View {
@@ -399,7 +399,7 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
     }
     ```
 
-    Maybe you have noticed, that we need to fetch the restaurant list when we show `RestaurantList`. And here we fetch it again for the Suprise tab. Although we can fix this issue using service side cache or client side cache in Env, it is a kind of cost we need to afford in MFE architecture.
+    Maybe you have noticed, that we need to fetch the restaurant list when we show `RestaurantList`. And here we fetch it again for the Suprise tab. Although we can fix this issue using service-side cache or client-side cache in Env, it is a kind of cost we need to afford in MFE architecture.
 
 In all of these two scenarios, we think they are the same user experiences, so we use one MFE instead of two ones, but export two public views.
 
@@ -516,21 +516,21 @@ Wow, We are finished! Explore full source code on [Github][micro-frontends-mobil
 
 ### Downsides
 
-#### Build-time integration approache
+#### Build-time integration approach
 
-It's a major difference compared with micro frontends for the Web. Limited to the platform, we can do nothing to improve it. We've seen enough pain caused by such a lockstep release process in the microsevices age, but we still believe it can be manageable on mobile.
+It's a major difference compared with micro frontends for the Web. Limited to the platform, we can do nothing to improve it. We've seen enough pain caused by such a lockstep release process in the microservices age, but we still believe it can be manageable on mobile.
 
 On the contrary, Re-compiling and building will reduce the target size.
 
 #### Duplication
 
-It's an ideal model to put all functional capabilities in MFE env. In the real world, building full capabilities need years normally, but the user experience team moves fast. It's inevitable to reinvent wheels among independent teams. For instance, we have 5 different tracking solutions in our organization with 8 MFEs at the begining.
+It's an ideal model to put all functional capabilities in MFE env. In the real world, building full capabilities need years normally, but the user experience team moves fast. It's inevitable to reinvent wheels among independent teams. For instance, we have 5 different tracking solutions in our organization with 8 MFEs at the beginning.
 
 And also, duplicated network requests are the second big problem. Multiplying the traffic of the requests will heave the service's burden.
 
 #### Complexity for small teams
 
-It seems obvious that micro frontends make things complex. There are more codebases, more pipelines, more services and more content. If you are working in a small team, it's a waste. Keep in mind to choose mirco frontends architecture for a big organization.
+It seems obvious that micro frontends make things complex. There are more codebases, more pipelines, more services and more content. If you are working in a small team, it's a waste. Keep in mind to choose micro frontends architecture for a big organization.
 
 ### Conclusion
 
