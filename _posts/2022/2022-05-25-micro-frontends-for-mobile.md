@@ -61,7 +61,7 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 
 ### The example
 
-[Feed Me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [4][feed-me] :
+[Feed Me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [[4]][feed-me] :
 
 - There should be a restaurant screen where users can search, filter and browse for restaurants.
 - Each restaurant needs a screen that shows its menu items and allows a user to order.
@@ -554,5 +554,5 @@ Micro frontends for mobile cost a bit more than for web, but we believe that the
 [swift_packages]: https://developer.apple.com/documentation/swift_packages
 [cocoapods]: https://cocoapods.org/
 [app-updates-for-html5-apps]: https://developer.apple.com/news/?id=09062019b
-[integration-approaches]: /assets/images/2021-05-25/integration-approaches.png
-[feed-me-design]: /assets/images/2021-05-25/feed-me-design.png
+[integration-approaches]: /assets/images/2022-05-25/integration-approaches.png
+[feed-me-design]: /assets/images/2022-05-25/feed-me-design.png
