@@ -67,7 +67,7 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 - Each restaurant needs a screen that shows its menu items and allows a user to order.
 - Users should have a profile page where they can see their order history, track delivery, and customize their payment options.
 
-[Design for mobile]
+![Design for Feed Me][feed-me-design]
 
 For appearance, we use a similar design to the website. In addition, It supports dark mode.
 
@@ -83,7 +83,7 @@ Before integration, we need to split MFEs out first. Given the business above, t
 
 It will be split into 3 MFEs and 1 shell app.
 
-[Diagram for integration]
+![Integration approaches][integration-approaches]
 
 By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with them.
 
@@ -554,3 +554,5 @@ Micro frontends for mobile cost a bit more than for web, but we believe that the
 [swift_packages]: https://developer.apple.com/documentation/swift_packages
 [cocoapods]: https://cocoapods.org/
 [app-updates-for-html5-apps]: https://developer.apple.com/news/?id=09062019b
+[integration-approaches]: /assets/images/2021-05-25/integration-approaches.png
+[feed-me-design]: /assets/images/2021-05-25/feed-me-design.png
