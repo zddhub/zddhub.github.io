@@ -20,9 +20,9 @@ Micro frontends are defined as "An architectural style where independently deliv
 
 > An architectural style where independently deliverable frontend components with the same cohesive user experience are composed into a greater whole.
 
-The MFE for mobile is a component that addresses the same cohesive user experience, owns by a single small team, and can be built, tested and deployed to an internal application store with an example app independently. The Shell app will integrate all MFEs and be released to the public.
+The MFE for mobile is one or more components that address the same cohesive user experience, owns by a single small team, and can be built, tested and deployed to an internal application store with an example app independently. The Shell app will integrate all MFEs and be released to the public.
 
-[Digram here for MFE mobile]
+![MFE Overview][mfe-overview]
 
 ### Benefits
 
@@ -68,6 +68,7 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 - Users should have a profile page where they can see their order history, track delivery, and customize their payment options.
 
 ![Design for Feed Me][feed-me-design]
+*Figure: A food delivery app may have several reasonably complex screens*
 
 For appearance, we use a similar design to the website. In addition, It supports dark mode.
 
@@ -84,6 +85,7 @@ Before integration, we need to split MFEs out first. Given the business above, t
 It will be split into 3 MFEs and 1 shell app.
 
 ![Integration approaches][integration-approaches]
+*Figure: Each micro frontend is deployed via an example app independently, and only the shell app is released to production.*
 
 By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with them.
 
@@ -146,16 +148,18 @@ Notice your app might be rejected if the core features and functionality dynamic
 
 After splitting the monolithic app into smaller MFEs, the custodian teams can work autonomously. It's possible to reinvent the wheel when they make all decisions without considering other teams. So it's a big win to set up a foundational MFE environment that provides common capabilities, which allows the custodian team to only focus on their own user experiences.
 
-[Diagram here]
+[Micro Frontends Environment][mfe-env]
+*Figure: Two-layer architecture for mobile MFEs.*
+
 
 Some common capabilities should (not must) be put into the MFE environment:
 - UI components
 - Configuration
 - Router
-- Authentication and Authorization
+- Authentication and authorization
 - Network
 - Cache
-- Tag analytics
+- Analytics tracking
 - Logger and monitor system integration
 - Create MFE App
 ...
@@ -174,10 +178,10 @@ Another common way is to use Notification, which broadcasts information through 
 
 ### Backend services
 
-Since we have separated our frontends via user experiences, it's straightforward to separate [micro services][micro-services] using user experiences as well. Comparing the [BFF][BFF] pattern, User experiences API can be used by both mobile and web, and also help write decoupling code on the server-side.
+Since we have separated our frontends via user experiences, it's straightforward to separate [micro services][micro-services] using user experiences as well. Comparing the [BFF][BFF] pattern, User experiences API can be used by both mobile and web, and also help write cohesive and decoupling code on the server-side.
 
-[Diagram here]
-
+![Backend services][backend-service]
+*Figure: Group services using user experiences.*
 
 ### Decision Record
 
@@ -187,6 +191,9 @@ Idea exchanges, inspiration and thinking processes is a valuable possession for 
 ### The example in detail
 
 The rest of this article will be a detailed explanation of how the Feed Me application can be implemented. We'll focus mostly on how to use the Swift package to host MFEs, and how to integrate them into the shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
+
+![Shell App dark mode][shell-app-dark]
+![Shell App light mode][shell-app-light]
 
 We didn't set up our services and all assets are coming from Cam Jackson's [demo][micro-frontends-demo].
 
@@ -309,7 +316,9 @@ An example app is important in our scenario, we need to rely on it to deliver ou
 
 [Browse MFE][Browse] is a restaurant screen where users can search, filter and browse for restaurants. 
 
-[Screenshot here]
+
+![Browse MFE Dark Mode][browse-dark]
+![Browse MFE Light Mode][browse-light]
 
 Let's start with the example app, `BrowseView` is a screen-level component that is imported from Browse MFE.
 
@@ -356,7 +365,8 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
 
 ##### Order MFE
 
-[Two Screenshots here]
+![Order MFE dark mode][restaurant-order-dark]
+![Order MFE light mode][restaurant-order-light]
 
 [RestaurantOrder MFE][RestaurantOrder] is an order screen that users can review, choose and order foods in each restaurant. There are two scenarios to show order view in the Feed Me app:
 
@@ -407,7 +417,8 @@ There is a question: Which view should be displayed on the example app?. The ans
 
 ##### About MFE
 
-[Screenshot here]
+![About MFE dark mode][about-dark]
+![About MFE light mode][about-light]
 
 [About MFE][About] should be a screen that shows the user profile, order history and payment options. In our example, we simplify it as a static content screen. But we get some information from web service via `WKWebView` to show run-time integration way.
 
@@ -554,5 +565,17 @@ Micro frontends for mobile cost a bit more than for web, but we believe that the
 [swift_packages]: https://developer.apple.com/documentation/swift_packages
 [cocoapods]: https://cocoapods.org/
 [app-updates-for-html5-apps]: https://developer.apple.com/news/?id=09062019b
+
+[mfe-overview]: /assets/images/2022-05-25/mfe-overview.png
 [integration-approaches]: /assets/images/2022-05-25/integration-approaches.png
 [feed-me-design]: /assets/images/2022-05-25/feed-me-design.png
+[mfe-env]: /assets/images/2022-05-25/mfe-env.png
+[backend-service]: /assets/images/2022-05-25/backend-service.png
+[browse-dark]: /assets/images/2022-05-25/browse-dark.png#gh-dark-mode-only
+[browse-light]: /assets/images/2022-05-25/browse-light.png#gh-light-mode-only
+[restaurant-order-dark]: /assets/images/2022-05-25/restaurant-order-dark.png#gh-dark-mode-only
+[restaurant-order-light]: /assets/images/2022-05-25/restaurant-order-light.png#gh-light-mode-only
+[about-dark]: /assets/images/2022-05-25/about-dark.png#gh-dark-mode-only
+[about-light]: /assets/images/2022-05-25/about-light.png#gh-light-mode-only
+[shell-app-dark]: /assets/images/2022-05-25/shell-app-dark.gif#gh-dark-mode-only
+[shell-app-light]: /assets/images/2022-05-25/shell-app-light.gif#gh-light-mode-only
