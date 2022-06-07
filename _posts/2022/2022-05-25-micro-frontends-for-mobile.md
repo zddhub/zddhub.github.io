@@ -23,6 +23,7 @@ Micro frontends are defined as "An architectural style where independently deliv
 The MFE for mobile is one or more components that address the same cohesive user experience, owns by a single small team, and can be built, tested and deployed to an internal application store with an example app independently. The Shell app will integrate all MFEs and be released to the public.
 
 ![MFE Overview][mfe-overview]
+*Figure: Each MFE is a collection of components, tested with Example App and released with Shell App.*
 
 ### Benefits
 
@@ -48,7 +49,8 @@ It's easy to push some code buttons under delivery pressure when working on a bi
 
 Due to platform limitations, we can't deploy several mobile applications and compose them into one on the app store. But we can use an example app to deploy MFE components to the internal app library. Each MFE example app should have its pipeline, which builds, tests and deploys it to the internal app library. Example app should try to simulate the real app environment.
 
-[Digram here for composing]
+![Integration approaches][integration-approaches]
+*Figure: Each micro frontend is deployed via an example app independently, and only the shell app is released to production.*
 
 #### Autonomous teams
 
@@ -83,9 +85,6 @@ Before integration, we need to split MFEs out first. Given the business above, t
 - Users should have an about screen that shows the user profile, order history and payment options. - `About MFE`
 
 It will be split into 3 MFEs and 1 shell app.
-
-![Integration approaches][integration-approaches]
-*Figure: Each micro frontend is deployed via an example app independently, and only the shell app is released to production.*
 
 By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with them.
 
@@ -192,8 +191,12 @@ Idea exchanges, inspiration and thinking processes is a valuable possession for 
 
 The rest of this article will be a detailed explanation of how the Feed Me application can be implemented. We'll focus mostly on how to use the Swift package to host MFEs, and how to integrate them into the shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
 
-![Shell App dark mode][shell-app-dark]
-![Shell App light mode][shell-app-light]
+|||
+|:-:|:-:|
+|Light mode| Dark mode|
+![Shell App light mode][shell-app-light]|![Shell App dark mode][shell-app-dark]
+
+*Screenshot: Shell app is on light mode and dark mode.*
 
 We didn't set up our services and all assets are coming from Cam Jackson's [demo][micro-frontends-demo].
 
@@ -316,9 +319,12 @@ An example app is important in our scenario, we need to rely on it to deliver ou
 
 [Browse MFE][Browse] is a restaurant screen where users can search, filter and browse for restaurants. 
 
+|||
+|:-:|:-:|
+|Light mode| Dark mode|
+![Browse MFE Light Mode][browse-light]|![Browse MFE Dark Mode][browse-dark]
 
-![Browse MFE Dark Mode][browse-dark]
-![Browse MFE Light Mode][browse-light]
+*Screenshot: Example app of Browse MFE is on light mode and dark mode.*
 
 Let's start with the example app, `BrowseView` is a screen-level component that is imported from Browse MFE.
 
@@ -365,8 +371,12 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
 
 ##### Order MFE
 
-![Order MFE dark mode][restaurant-order-dark]
-![Order MFE light mode][restaurant-order-light]
+|||
+|:-:|:-:|
+|Light mode| Dark mode|
+![Order MFE light mode][restaurant-order-light]|![Order MFE dark mode][restaurant-order-dark]
+
+*Screenshot: Example app of Order MFE is on light mode and dark mode.*
 
 [RestaurantOrder MFE][RestaurantOrder] is an order screen that users can review, choose and order foods in each restaurant. There are two scenarios to show order view in the Feed Me app:
 
@@ -417,8 +427,12 @@ There is a question: Which view should be displayed on the example app?. The ans
 
 ##### About MFE
 
-![About MFE dark mode][about-dark]
-![About MFE light mode][about-light]
+|||
+|:-:|:-:|
+|Light mode| Dark mode|
+![About MFE light mode][about-light]|![About MFE dark mode][about-dark]
+
+*Screenshot: Example app of About MFE is on light mode and dark mode.*
 
 [About MFE][About] should be a screen that shows the user profile, order history and payment options. In our example, we simplify it as a static content screen. But we get some information from web service via `WKWebView` to show run-time integration way.
 
@@ -571,11 +585,11 @@ Micro frontends for mobile cost a bit more than for web, but we believe that the
 [feed-me-design]: /assets/images/2022-05-25/feed-me-design.png
 [mfe-env]: /assets/images/2022-05-25/mfe-env.png
 [backend-service]: /assets/images/2022-05-25/backend-service.png
-[browse-dark]: /assets/images/2022-05-25/browse-dark.png#gh-dark-mode-only
-[browse-light]: /assets/images/2022-05-25/browse-light.png#gh-light-mode-only
-[restaurant-order-dark]: /assets/images/2022-05-25/restaurant-order-dark.png#gh-dark-mode-only
-[restaurant-order-light]: /assets/images/2022-05-25/restaurant-order-light.png#gh-light-mode-only
-[about-dark]: /assets/images/2022-05-25/about-dark.png#gh-dark-mode-only
-[about-light]: /assets/images/2022-05-25/about-light.png#gh-light-mode-only
-[shell-app-dark]: /assets/images/2022-05-25/shell-app-dark.gif#gh-dark-mode-only
-[shell-app-light]: /assets/images/2022-05-25/shell-app-light.gif#gh-light-mode-only
+[browse-dark]: /assets/images/2022-05-25/browse-dark.png
+[browse-light]: /assets/images/2022-05-25/browse-light.png
+[restaurant-order-dark]: /assets/images/2022-05-25/restaurant-order-dark.png
+[restaurant-order-light]: /assets/images/2022-05-25/restaurant-order-light.png
+[about-dark]: /assets/images/2022-05-25/about-dark.png
+[about-light]: /assets/images/2022-05-25/about-light.png
+[shell-app-dark]: /assets/images/2022-05-25/shell-app-dark.gif
+[shell-app-light]: /assets/images/2022-05-25/shell-app-light.gif
