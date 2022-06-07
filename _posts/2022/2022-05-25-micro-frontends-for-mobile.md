@@ -191,9 +191,8 @@ Idea exchanges, inspiration and thinking processes is a valuable possession for 
 
 The rest of this article will be a detailed explanation of how the Feed Me application can be implemented. We'll focus mostly on how to use the Swift package to host MFEs, and how to integrate them into the shell app. And the full source code can be seen on [Github][micro-frontends-mobile].
 
-|||
-|:-:|:-:|
 |Light mode| Dark mode|
+|:-:|:-:|
 ![Shell App light mode][shell-app-light]|![Shell App dark mode][shell-app-dark]
 
 *Screenshot: Shell app is on light mode and dark mode.*
@@ -319,9 +318,8 @@ An example app is important in our scenario, we need to rely on it to deliver ou
 
 [Browse MFE][Browse] is a restaurant screen where users can search, filter and browse for restaurants. 
 
-|||
-|:-:|:-:|
 |Light mode| Dark mode|
+|:-:|:-:|
 ![Browse MFE Light Mode][browse-light]|![Browse MFE Dark Mode][browse-dark]
 
 *Screenshot: Example app of Browse MFE is on light mode and dark mode.*
@@ -371,9 +369,8 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
 
 ##### Order MFE
 
-|||
-|:-:|:-:|
 |Light mode| Dark mode|
+|:-:|:-:|
 ![Order MFE light mode][restaurant-order-light]|![Order MFE dark mode][restaurant-order-dark]
 
 *Screenshot: Example app of Order MFE is on light mode and dark mode.*
@@ -427,9 +424,8 @@ There is a question: Which view should be displayed on the example app?. The ans
 
 ##### About MFE
 
-|||
-|:-:|:-:|
 |Light mode| Dark mode|
+|:-:|:-:|
 ![About MFE light mode][about-light]|![About MFE dark mode][about-dark]
 
 *Screenshot: Example app of About MFE is on light mode and dark mode.*
