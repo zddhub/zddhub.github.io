@@ -147,7 +147,7 @@ Notice your app might be rejected if the core features and functionality dynamic
 
 After splitting the monolithic app into smaller MFEs, the custodian teams can work autonomously. It's possible to reinvent the wheel when they make all decisions without considering other teams. So it's a big win to set up a foundational MFE environment that provides common capabilities, which allows the custodian team to only focus on their own user experiences.
 
-[Micro Frontends Environment][mfe-env]
+![Micro Frontends Environment][mfe-env]
 *Figure: Two-layer architecture for mobile MFEs.*
 
 
