@@ -6,13 +6,13 @@ tags: "Application architecture; Micro Frontends; Mobile"
 lang: en
 ---
 
-On the Web, We have seen significant benefits from including [micro frontends][micro-frontends], which breaks up frontend monoliths into many smaller, more manageable pieces, and makes many teams work simultaneously on a large and complex product. But Micro frontends for mobile seem stuck these days. In this article, we will describe a comprehensive guide to bringing these benefits to native mobile apps, as well as cover some of the implementation options that are available for mobile. And finally, we will dive deep into a full example application to show the technique.
+On the Web, We have seen significant benefits from including [micro frontends][micro-frontends], which break up frontend monoliths into many smaller, more manageable pieces, and make many teams work simultaneously on a large and complex product. But Micro frontends for mobile seem stuck these days. In this article, we will describe a comprehensive guide to bringing these benefits to native mobile apps, as well as cover some of the implementation options that are available for mobile. And finally, we will dive deep into a full example application to show the technique.
 
 <!-- more -->
 
-[Micro frontends][micro-frontends], aka MFEs, have continued to gain in popularity since they were marked as 'Adopt' in the Thoughtworks technology radar in 2019 [[1]][technology-radar-micro-frontends]. We've seen many projects use this architecture in the last few years, and the result turns out very well. So that for many of our colleagues this is becoming the sensible default pattern for building modern enterprise web applications.
+[Micro frontends][micro-frontends], aka MFEs, have continued to gain in popularity since they were marked as 'Adopt' on the Thoughtworks technology radar in 2019 [[1]][technology-radar-micro-frontends]. We've seen many projects use this architecture in the last few years, and the result turns out very well. So that for many of our colleagues this is becoming the sensible default pattern for building modern enterprise web applications.
 
-In the meantime, Micro frontends for mobile are not going well like the Web. It's brought in the Thoughtworks technology radar since 2020 but still stops at 'Trial' stage [[2]][technology-radar-micro-frontends-for-mobile]. Many mobile developers continue to struggle with the monolithic codebase. Sadly, there's not much guide that outlines what the Micro frontends for mobile are and how to do it.
+In the meantime, Micro frontends for mobile are not going well like the Web. It's brought in the Thoughtworks technology radar since 2020 but still stops at the 'Trial' stage [[2]][technology-radar-micro-frontends-for-mobile]. Many mobile developers continue to struggle with the monolithic codebase. Sadly, there's not much guide that outlines what the Micro frontends for mobile are and how to do it.
 
 Lately mobile has been becoming the first-class citizen for business requirement shipping. Some companies start with mobile apps directly instead of Web App, especially unicorn companies. And more and more corporations are paying more attention to the mobile platform, and the mobile team goes from a dozen people to scores of people, even hundreds. At the same time, declarative UI (SwiftUI, Jetpack compose) makes mobile development analogous to Web development. A lot of Web frontend technologies and solutions are crowding into mobile, Micro frontends are no exception.
 
@@ -20,7 +20,7 @@ Micro frontends are defined as "An architectural style where independently deliv
 
 > An architectural style where independently deliverable frontend components with the same cohesive user experience are composed into a greater whole.
 
-The MFE for mobile is one or more components that address the same cohesive user experience, owns by a single small team, and can be built, tested and deployed to an internal application store with an example app independently. The Shell app will integrate all MFEs and be released to the public.
+The MFE for mobile is one or more components that address the same cohesive user experience, owns by a single small team, and can be built, tested, and deployed to an internal application store with an example app independently. The Shell app will integrate all MFEs and be released to the public.
 
 ![MFE Overview][mfe-overview]
 *Figure: Each MFE is a collection of components, tested with Example App and released with Shell App.*
@@ -41,13 +41,13 @@ For a big legacy codebase, the new option is to split a single user experience a
 
 #### Simple, decoupled codebases
 
-We split our codebase into smaller ones via user experience boundaries from a monolithic codebase. The smaller codebases tend to be simpler and easier for developers to work with. Additionally, the smaller codebases mean less build time, less test time and less knowledge transfer cost.
+We split our codebase into smaller ones via user experience boundaries from a monolithic codebase. The smaller codebases tend to be simpler and easier for developers to work with. Additionally, the smaller codebases mean less build time, less test time, and less knowledge transfer cost.
 
 It's easy to push some code buttons under delivery pressure when working on a large codebase. Sometimes just for temporary convenience, the complexity would be brought in two components that should not know about each other. Simple and smaller codebases can help us write high cohesion and low coupling code.
 
 #### Independent deployment
 
-Due to platform limitations, we can't deploy several mobile applications and compose them into one on the app store, or the end user's mobile phones. But we can use an example app to deploy MFE components to the internal app library. Each MFE example app should have its pipeline, which builds, tests and deploys it to the internal app library. Example app should try to simulate the real app environment.
+Due to platform limitations, we can't deploy several mobile applications and compose them into one on the app store, or the end user's mobile phones. But we can use an example app to deploy MFE components to the internal app library. Each MFE example app should have its pipeline, which builds, tests, and deploys it to the internal app library. Example app should try to simulate the real app environment.
 
 ![Integration approaches][integration-approaches]
 *Figure: Each micro frontend is deployed via an example app independently, and only the shell app is released to production.*
@@ -63,9 +63,9 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 
 ### The example
 
-[Feed Me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [[4]][feed-me] :
+[Feed Me][feed-me] application, a website where users can order food is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [[4]][feed-me] :
 
-- There should be a restaurant screen where users can search, filter and browse for restaurants.
+- There should be a restaurant screen where users can search, filter, and browse for restaurants.
 - Each restaurant needs a screen that shows its menu items and allows users to order.
 - Users should have a profile page where they can see their order history, track delivery, and customize their payment options.
 
@@ -80,9 +80,9 @@ Throughout the rest of this article, we'll be using this example application whe
 
 Before integration, we need to split MFEs out first. Given the business above, there are many reasonable approaches to splitting MFEs out. We recommend splitting MFEs via different user experiences. There are three user experiences, which are located in three-tab views:
 
-- Users can search, filter and browser restaurants  - `Browse MFE`
+- Users can search, filter, and browser restaurants  - `Browse MFE`
 - Users can order food in each restaurant - `RestaurantOrder MFE`
-- Users should have an about screen that shows the user profile, order history and payment options. - `About MFE`
+- Users should have an about screen that shows the user profile, order history, and payment options. - `About MFE`
 
 It will be split into 3 MFEs and 1 shell app.
 
@@ -148,6 +148,7 @@ Notice your app might be rejected if the core features and functionality dynamic
 After splitting the monolithic app into smaller MFEs, the custodian teams can work autonomously. It's possible to reinvent the wheel when they make all decisions without considering other teams. So it's a big win to set up a foundational MFE environment that provides common capabilities, which allows the custodian team to only focus on their own user experiences.
 
 ![Micro Frontends Environment][mfe-env]
+
 *Figure: Two-layer architecture for mobile MFEs.*
 
 
@@ -315,7 +316,7 @@ An example app is important in our scenario, we need to rely on it to deliver ou
 
 ##### Browse MFE
 
-[Browse MFE][Browse] is a restaurant screen where users can search, filter and browse for restaurants. 
+[Browse MFE][Browse] is a restaurant screen where users can search, filter, and browse for restaurants.
 
 |Light mode| Dark mode|
 |:-:|:-:|
@@ -429,7 +430,7 @@ There is a question: Which view should be displayed on the example app?. The ans
 
 *Screenshot: Example app of About MFE is on light mode and dark mode.*
 
-[About MFE][About] should be a screen that shows the user profile, order history and payment options. In our example, we simplify it as a static content screen. But we get some information from web service via `WKWebView` to show run-time integration way.
+[About MFE][About] should be a screen that shows the user profile, order history, and payment options. In our example, we simplify it as a static content screen. But we get some information from web service via `WKWebView` to show run-time integration way.
 
 We wrapped WKWebView in `AboutWebView` and load web content as below:
 
@@ -550,7 +551,7 @@ And also, duplicated network requests are the second big problem. Multiplying th
 
 #### Complexity for small teams
 
-It seems obvious that micro frontends make things complex. There are more codebases, more pipelines, more services and more content. If you are working in a small team, it's a waste. Keep in mind to choose micro frontends architecture for a big organization.
+It seems obvious that micro frontends make things complex. There are more codebases, more pipelines, more services, and more content. If you are working in a small team, it's a waste. Keep in mind to choose micro frontends architecture for a big organization.
 
 
 ### Conclusion
