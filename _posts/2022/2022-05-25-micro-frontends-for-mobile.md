@@ -552,10 +552,25 @@ And also, duplicated network requests are the second big problem. Multiplying th
 
 It seems obvious that micro frontends make things complex. There are more codebases, more pipelines, more services and more content. If you are working in a small team, it's a waste. Keep in mind to choose micro frontends architecture for a big organization.
 
+
 ### Conclusion
 
 Micro frontends for mobile cost a bit more than for web, but we believe that these risks can be managed and that the benefits still outweigh the costs, especially in the big mobile organization.
 
+
+### Acknowledgments
+
+Huge thanks to Cam Jackson for his article and demo.
+
+
+### References
+
+- [Micro frontends][micro-frontends]
+- [Thoughtworks technology radar][technology-radar-micro-frontends]
+- [Feed me][feed-me]
+- [Micro services][micro-services]
+- [BFF][BFF]
+- [micro-frontends-demo][micro-frontends-demo]
 
 [micro-frontends]: https://martinfowler.com/articles/micro-frontends.html
 [technology-radar-micro-frontends]: https://www.thoughtworks.com/radar/techniques/micro-frontends
