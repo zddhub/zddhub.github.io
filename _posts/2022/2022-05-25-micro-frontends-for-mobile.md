@@ -31,23 +31,23 @@ Even if there are more restrictions, Some of the key benefits that still are app
 
 #### User experience-oriented
 
-Each MFE contains one or more components, each component can be big like a screen or small like a button, but all components should address the same user experience. For instance, the Maps MFE only provides a map experience, and the payment MFE only serves the payment experience to our users.
+Each MFE contains one or more components, each component can be big like a screen or small like a button, but all components should address the same user experience. For instance, the Map MFE only provides a map experience, and the payment MFE only serves the payment experience to our users.
 
 Each MFE only serves one cohesive user experience, and doesn't and can't rely on other MFEs. User experience is the minimal unit to split MFEs. We still can reserve some interfaces to switch user experience, but the integration work should be done on the shell application.
 
 #### Incremental upgrades
 
-For a big legacy codebase, the new option is to split a single user experience and rewrite it in a single MFE. Once the first piece succeeds, the team will have the confidence to rewrite all experiences with a new technique.
+For a big legacy codebase, the new option is to split a single user experience and rewrite it in a single MFE. Once the first piece succeeds, the team will have the confidence to rewrite all experiences with a new technique. So incremental upgrades also suit well for mobile.
 
 #### Simple, decoupled codebases
 
-We can split our codebase into smaller ones via user experience boundary from a monolithic codebase. The smaller codebases tend to be simpler and easier for developers to work with. Additionally, the smaller codebases mean less build time and less test time.
+We split our codebase into smaller ones via user experience boundaries from a monolithic codebase. The smaller codebases tend to be simpler and easier for developers to work with. Additionally, the smaller codebases mean less build time, less test time and less knowledge transfer cost.
 
-It's easy to push some code buttons under delivery pressure when working on a big codebase. Sometimes just for temporary convenience, the complexity would be brought in two components that should not know about each other. Simple and smaller codebases can help us write high cohesion and low coupling code.
+It's easy to push some code buttons under delivery pressure when working on a large codebase. Sometimes just for temporary convenience, the complexity would be brought in two components that should not know about each other. Simple and smaller codebases can help us write high cohesion and low coupling code.
 
 #### Independent deployment
 
-Due to platform limitations, we can't deploy several mobile applications and compose them into one on the app store. But we can use an example app to deploy MFE components to the internal app library. Each MFE example app should have its pipeline, which builds, tests and deploys it to the internal app library. Example app should try to simulate the real app environment.
+Due to platform limitations, we can't deploy several mobile applications and compose them into one on the app store, or the end user's mobile phones. But we can use an example app to deploy MFE components to the internal app library. Each MFE example app should have its pipeline, which builds, tests and deploys it to the internal app library. Example app should try to simulate the real app environment.
 
 ![Integration approaches][integration-approaches]
 *Figure: Each micro frontend is deployed via an example app independently, and only the shell app is released to production.*
@@ -66,7 +66,7 @@ A shell app is a central app, that integrates all user experiences via MFEs to d
 [Feed Me][feed-me] application, a website where users can order food, is a good example that Cam Jackson used to demonstrate MFEs in his [micro-frontends article][micro-frontends]. Here we use the same application but design it for mobile, hope it can be a standard application that shows MFEs architecture, like [TodoMVC][TodoMVC] does for MV* framework. The business is described below [[4]][feed-me] :
 
 - There should be a restaurant screen where users can search, filter and browse for restaurants.
-- Each restaurant needs a screen that shows its menu items and allows a user to order.
+- Each restaurant needs a screen that shows its menu items and allows users to order.
 - Users should have a profile page where they can see their order history, track delivery, and customize their payment options.
 
 ![Design for Feed Me][feed-me-design]
@@ -86,7 +86,7 @@ Before integration, we need to split MFEs out first. Given the business above, t
 
 It will be split into 3 MFEs and 1 shell app.
 
-By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with them.
+By the way, Our demo app is an iOS app, that is built via SwiftUI and Swift package. If you like you can also use UIKit or Podfile. It's worth pointing out that this architecture is suitable for Android as well. We choose iOS here because we are familiar with it.
 
 #### Build-time integration
 
@@ -152,16 +152,15 @@ After splitting the monolithic app into smaller MFEs, the custodian teams can wo
 
 
 Some common capabilities should (not must) be put into the MFE environment:
-- UI components
-- Configuration
-- Router
-- Authentication and authorization
-- Network
-- Cache
+- UI components: UI components with consistent design principles will make the whole app like one.
+- Configuration: Host common configuration for the whole app.
+- Router: A router is a common way to handle communication with different MFEs.
+- Authentication and authorization: Very common util that the app should be login once and share the authorized status.
+- Network: Some team extracts this as well.
+- Cache: Team can use cache to reduce duplicated API requests.
 - Analytics tracking
 - Logger and monitor system integration
-- Create MFE App
-...
+- Create MFE App: A good command-line interface tool will help the team to rump up the codebase with the pipeline.
 
 It's a good way to create a team to focus on MFE environment setup And make MFEs team easier.
 
@@ -202,7 +201,7 @@ We didn't set up our services and all assets are coming from Cam Jackson's [demo
 
 #### The MFE Environment
 
-Let's start from [Env][Env]. Env is a singleton of the MFE environment, it hosts and manages all common capabilities for MFE. In our demo, it is implemented to an `ObservableObject` and treated as `EnvironmentObject`.
+Let's start from [Env][Env]. Env is a singleton of the MFE environment, it hosts and manages all common capabilities for MFEs. In our demo, it is implemented to an `ObservableObject` and treated as `EnvironmentObject`.
 
 ```swift
 public class Env: ObservableObject {
@@ -231,7 +230,7 @@ Currently env only hosts two capabilities:
 
 ##### Configuration
 
-In our demo, we put some theme configurations like `backgroundColor` and `tabBarTintColor` which will be shared in all MFEs to make visual consistency. And also, the color can be changed to adapt to dark mode automatically. Another configurations are host, here we shamelessly use Cam Jackson's APIs.
+In our demo, we put some theme configurations like `backgroundColor` and `tabBarTintColor` which will be shared in all MFEs to make visual consistency. And also, the color can be changed to adapt to dark mode automatically. Another configuration is API host, here we shamelessly use Cam Jackson's APIs.
 
 ```swift
 public struct Configuration {
@@ -322,7 +321,7 @@ An example app is important in our scenario, we need to rely on it to deliver ou
 |:-:|:-:|
 ![Browse MFE Light Mode][browse-light]|![Browse MFE Dark Mode][browse-dark]
 
-*Screenshot: Example app of Browse MFE is on light mode and dark mode.*
+*Screenshot: An example app of Browse MFE is on light mode and dark mode.*
 
 Let's start with the example app, `BrowseView` is a screen-level component that is imported from Browse MFE.
 
@@ -373,7 +372,7 @@ As above, we wrapped `RestaurantCard` with `env.router.navigate(to: restaurant.u
 |:-:|:-:|
 ![Order MFE light mode][restaurant-order-light]|![Order MFE dark mode][restaurant-order-dark]
 
-*Screenshot: Example app of Order MFE is on light mode and dark mode.*
+*Screenshot: An example app of Order MFE is on light mode and dark mode.*
 
 [RestaurantOrder MFE][RestaurantOrder] is an order screen that users can review, choose and order foods in each restaurant. There are two scenarios to show order view in the Feed Me app:
 
