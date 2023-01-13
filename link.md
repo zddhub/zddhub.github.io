@@ -20,3 +20,10 @@ title: 经常访问的链接
 * [大蜕](https://www.homuralovelive.com/){:target="_blank"}: 大蜕
 
 * [Doliant's Meditation World](https://doliant.cn/){:target="_blank"}: Doliant's Meditation World
+
+* [ommiao.github.io](https://ommiao.github.io/){:target="_blank"}: 同事的博客
+
+* Swift:
+
+    * [The SwiftUI Lab](https://swiftui-lab.com/){:target="_blank"}: 优秀的 SwiftUI 教程
+    * [肘子的 Swift 记事本](https://www.fatbobman.com/){:target="_blank"}: 优秀的 Swift 教程
