@@ -23,6 +23,8 @@ title: 经常访问的链接
 
 * [ommiao.github.io](https://ommiao.github.io/){:target="_blank"}: 同事的博客
 
+* [I Code It](https://icodeit.com.au/){:target="_blank"}: 同事的博客
+
 * Swift:
 
     * [The SwiftUI Lab](https://swiftui-lab.com/){:target="_blank"}: 优秀的 SwiftUI 教程
