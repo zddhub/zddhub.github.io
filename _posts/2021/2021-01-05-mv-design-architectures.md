@@ -35,13 +35,13 @@ Model-View (MV) 是最简单的一种实现。View 拥有 Model 所有操作权�
 
 ### MVC
 
-Model-View-Controller (MVC) 是最常见的架构，[最原始的实现][MVC_wikipedia]如下：
+Model-View-Controller (MVC) 是最常用的架构，[最原始的实现][MVC_wikipedia]如下：
 
 ![MVC diagram][MVC]
 
 #### 优点
 - 不直接通过 View 更新 Model
-- 使用广泛，有多个变种，针对领域问题有成熟的解决方案
+- 使用广泛，被多次工程实践所验证。有多个变种，针对领域问题有成熟的解决方案
 - 易用性良好
 
 #### 缺点
@@ -51,7 +51,7 @@ Model-View-Controller (MVC) 是最常见的架构，[最原始的实现][MVC_wik
 - Controller 负责与 View 交互和业务逻辑，很容易写出臃肿的 Controller。在实际使用时，可将 Controller 进一步拆分。
 
 #### 适用场景
-- 多数客户端项目，保底选择
+- 多数项目，保底选择
 
 MVC 有很多变种，比如 [Cocoa 的实现][Apple_MVC_Link]：Model 和 View 完全解耦。
 
@@ -63,18 +63,19 @@ MVC 有很多变种，比如 [Cocoa 的实现][Apple_MVC_Link]：Model 和 View 
 
 ### MVP
 
-Model-View-Presenter (MVP) 是 MVC 的另一种演变。把构建 View 的代码从 Controller 中剥离出去(放在 View 中)，命名为 Presenter。View 获得用户事件后，把 Event 发给 Presenter 处理。
+Model-View-Presenter (MVP) 是 MVC 的另一种演变。把构建 View 的代码从 Controller 中剥离出去(放在 View 中)，命名为 Presenter。View 获得用户事件后，把 Event 发给 Presenter 处理。Presenter 通常使用接口（interface）与 View 通信，只负责处理 View 中的用户交互事件，不涉及视图逻辑（比如：状态管理和数据绑定等高级功能）。
 
 ![MVP][MVP]
 
 #### 优点
 - 不直接通过 View 更新 Model
 - Presenter 不负责 View 的创建
-- Presenter 只负责处理 View 的行为
+- Presenter 只负责处理 View 的行为，不负责 View 的状态管理
 
 #### 缺点
 - Presenter 比较薄，导致 Model 和 View 比较重，一般使用 [Supervising Controller][SC] 给 Model 减负
 - 允许 Model 和 View 有绑定，没有完全解耦
+- View 仍然包含状态管理、数据绑定等逻辑
 
 #### 适用场景
 - 一般来说，能使用 MVC 的场景就能使用 MVP
