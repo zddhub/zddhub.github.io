@@ -50,7 +50,14 @@ tags: "Watermark; Web 数字水印"
 打开 Console 运行：
 
 ```js
+// Before 2023-03-31
 document.getElementById("eb-watermark").shadowRoot.childNodes.forEach(node => node.innerText = "")
+```
+
+今天（2023-03-31）再看时，id 已经更新被成了 `eb_16793967784870.9188072908333647`。更新一下代码就好：
+
+```js
+document.querySelectorAll('[id^="eb_"]')[0].shadowRoot.childNodes.forEach( node => node.innerText  = "")
 ```
 
 只要不调整浏览器大小或者刷新，就能够保持住。这时，就可以安心地截图分享了。
@@ -126,5 +133,11 @@ document.getElementById("eb-watermark").shadowRoot.childNodes.forEach(node => no
 是的，可以通过设置 `const config = { characterData: true, ...};` 来监听 `innerText` 的改变。
 
 齐活儿，漏洞堵上了!
+
+### 写在最后
+
+GPT-4 帮我写了个带水印的网页，感兴趣的同学可以来[这里](https://zddhub.com/watermark)挑战一下。
+
+人工智能时代，文心一言的水印和这篇文章也在不断进化，最新版本请移步[我的博客](https://zddhub.com/article/2023/03/16/watermark.html)！
 
 咦，怎么突然就从人工智能跳到水印了呢？不说了，我要赶紧去学习了，要不焦虑感就会一直留在我的心里，就像那无法去除的水印一样。
