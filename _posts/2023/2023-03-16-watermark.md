@@ -5,6 +5,10 @@ category: Article
 tags: "Watermark; Web 数字水印"
 ---
 
+文心一言发布后，除了训练数据规模、训练结果和 ChatGPT 有差异外，界面上还多了水印。这篇文章主要探究文心一言使用的 Web 数字水印技术。
+
+<!-- more -->
+
 ### 缘起
 
 半年来，ChatGPT 3.5 彻底颠覆了人们对语言模型技术的认识，一时风光无两，瞬间碾压了 Web3、区块链和元宇宙。2023 年 3 月 14 日 ChatGPT 4.0 重磅发布，进化速度之快令人乍舌。百度也不甘寂寞，两天后发布了自家研发的知识增强大语言模型——文心一言。发布会上录屏演示，略显不自信，一时间股票暴跌 10%。原以为邀请码会遥遥无期，结果当天晚上就收到了短信，拿到了体验号。今天的故事就从这里开始。
@@ -119,6 +123,8 @@ document.getElementById("eb-watermark").shadowRoot.childNodes.forEach(node => no
 >
 > 设置观察选项的 characterData 属性为 true，表示仅监听节点的文本内容变化，而忽略其他类型的变化，如节点添加、删除、属性修改等。当目标节点的 innerText 属性发生变化时，MutationObserver 会调用回调函数，并将变化信息传递给它。
 
-是的，可以通过设置 `const config = { characterData: true, ...};` 来监听 `innerText` 的改变。齐活儿，漏洞堵上了!
+是的，可以通过设置 `const config = { characterData: true, ...};` 来监听 `innerText` 的改变。
+
+齐活儿，漏洞堵上了!
 
 咦，怎么突然就从人工智能跳到水印了呢？不说了，我要赶紧去学习了，要不焦虑感就会一直留在我的心里，就像那无法去除的水印一样。
