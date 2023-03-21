@@ -7,7 +7,11 @@ tags: "Watermark; Web 数字水印"
 
 文心一言发布后，除了训练数据规模、训练结果和 ChatGPT 有差异外，界面上还多了水印。这篇文章主要探究文心一言使用的 Web 数字水印技术。
 
+那什么是 Web 水印呢？GPT-4 帮我写了个带文心一言同款水印的网页，感兴趣的同学可以来[这里](https://zddhub.com/watermark)感受一下。
+
 <!-- more -->
+
+如果你一看就懂或者能去掉上面网页里的水印，那这篇文章你是不用读的。
 
 ### 缘起
 
@@ -135,8 +139,6 @@ document.querySelectorAll('[id^="eb_"]')[0].shadowRoot.childNodes.forEach( node 
 齐活儿，漏洞堵上了!
 
 ### 写在最后
-
-GPT-4 帮我写了个带水印的网页，感兴趣的同学可以来[这里](https://zddhub.com/watermark)挑战一下。
 
 人工智能时代，文心一言的水印和这篇文章也在不断进化，最新版本请移步[我的博客](https://zddhub.com/article/2023/03/16/watermark.html)！
 
