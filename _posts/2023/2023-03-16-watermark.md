@@ -58,11 +58,13 @@ tags: "Watermark; Web 数字水印"
 document.getElementById("eb-watermark").shadowRoot.childNodes.forEach(node => node.innerText = "")
 ```
 
-今天（2023-03-31）再看时，id 已经更新被成了 `eb_16793967784870.9188072908333647`。更新一下代码就好：
+（2023-03-21）再看时，id 已经更新被成了 `eb_16793967784870.9188072908333647`。更新一下代码就好：
 
 ```js
 document.querySelectorAll('[id^="eb_"]')[0].shadowRoot.childNodes.forEach( node => node.innerText  = "")
 ```
+
+今天（2023-03-24）再看时，id 已经更新被成了 `5a705805-5397-4e47-bf6d-e7af8c458976`。这次用一个 CSS 就删掉了，大家先试一下。
 
 只要不调整浏览器大小或者刷新，就能够保持住。这时，就可以安心地截图分享了。
 
