@@ -21,11 +21,11 @@ tags: "Watermark; Web 数字水印; ChatGPT 编程"
 
 [![Web 数字水印视频截图](/assets/images/2023-03-25/watermark-bilibli-video.png)](https://www.bilibili.com/video/BV1Ak4y147t6)
 
-*注：在视频制作一周内，文心一言的水印技术也在不断进化，其中 div id 不再使用 `eb-watermark`。但是在我自己部署的网站上，仍然保留原 id。*
+*注：在视频制作的一周内，文心一言的水印技术也在不断进化，其中 div id 不再使用 `eb-watermark`。但是在我自己部署的网站上，仍然保留原 id。*
 
-视频地址：https://www.bilibili.com/video/BV1Ak4y147t6
-网站地址：https://zddhub.com/watermark/
-代码地址：https://github.com/zddhub/watermark
+- 视频地址：https://www.bilibili.com/video/BV1Ak4y147t6
+- 网站地址：https://zddhub.com/watermark/
+- 代码地址：https://github.com/zddhub/watermark
 
 ### 视频内容简介
 
