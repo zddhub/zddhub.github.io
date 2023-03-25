@@ -14,7 +14,7 @@ journal: '2023年12周'
 
 视频地址在[这里](https://www.bilibili.com/video/BV1Ak4y147t6)，截个图留念。
 
-![Web 数字水印视频截图](/assets/images/2023-03-25/watermark-bilibli-video.png)
+[![Web 数字水印视频截图](/assets/images/2023-03-25/watermark-bilibli-video.png)](https://www.bilibili.com/video/BV1Ak4y147t6)
 
 值得一提的是，等我把视频剪辑好再上传的时候，文心一言的水印技术已经进化了，但是我仍然觉得有价值，特别是对自己。
 
