@@ -28,4 +28,5 @@ title: 经常访问的链接
 * Swift:
 
     * [The SwiftUI Lab](https://swiftui-lab.com/){:target="_blank"}: 优秀的 SwiftUI 教程
+    * [DISCOVER SwiftUI](https://www.swiftbysundell.com/discover/swiftui/){:target="_blank"}: 优秀的 SwiftUI 教程
     * [肘子的 Swift 记事本](https://www.fatbobman.com/){:target="_blank"}: 优秀的 Swift 教程
