@@ -17,4 +17,4 @@ Weibo: [zddhub](http://weibo.com/zddhub){:target="_blank"}
 
 **为自己写的 App:**
 
-- [PixelsMeasure for MacOS](https://pixelsmeasure.com)
+- [PixelsMeasure - Measure anything on your screen](https://apps.apple.com/app/pixelsmeasure/id1638740542)
