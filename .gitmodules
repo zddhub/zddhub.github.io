@@ -1,8 +1,8 @@
 [submodule ".gravid"]
 	path = .gravid
-	ssh = git@github.com:zddhub/gravid.git
+	url = https://github.com/zddhub/gravid.git
 	branch = master
 [submodule ".blogs"]
 	path = .blogs
-	ssh = git@github.com:zddhub/zddhub.github.io.git
+	url = https://github.com/zddhub/zddhub.github.io.git
 	branch = blogs
