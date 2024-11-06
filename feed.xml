@@ -8,7 +8,7 @@ layout: null
         <link>{{ site.url }}</link>
         <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
         <language>zh-CN</language>
-        <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+        <description feedId:69196314412078088+userId:76184498594527232>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
         <image>
             <url>{{ site.url }}/assets/icons/zddhub_32.png</url>
             <title>{{ site.title }}</title>
