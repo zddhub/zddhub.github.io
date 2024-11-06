@@ -3,16 +3,16 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <follow_challenge>
-        <feedId>69196314412078088</feedId>
-        <userId>76184498594527232</userId>
-    </follow_challenge>
     <channel>
         <title>{{ site.title | xml_escape }}</title>
         <link>{{ site.url }}</link>
         <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
         <language>zh-CN</language>
         <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+        <follow_challenge>
+            <feedId>69196314412078088</feedId>
+            <userId>76184498594527232</userId>
+        </follow_challenge>
         <image>
             <url>{{ site.url }}/assets/icons/zddhub_32.png</url>
             <title>{{ site.title }}</title>
