@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "轴"
+title: "老友相聚"
 journal: '2025年09周'
 ---
 
